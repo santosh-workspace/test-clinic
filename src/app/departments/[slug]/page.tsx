@@ -1,0 +1,120 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { PageHero } from "@/components/layout/PageHero";
+import { DepartmentDetail } from "@/components/sections/DepartmentDetail";
+import { FaqSection } from "@/components/sections/FaqSection";
+import { FinalCTA } from "@/components/sections/FinalCTA";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { ButtonLink } from "@/components/ui/Button";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { departments, faqsEyeCare, faqsPediatrics } from "@/config/content";
+import { getDoctorByDepartment, siteConfig } from "@/config/site";
+import {
+  breadcrumbSchema,
+  faqSchema,
+  graph,
+  medicalClinicSchema,
+  physicianSchema,
+} from "@/lib/schema";
+
+type Params = { slug: string };
+
+/** Both departments are prerendered at build time — no runtime rendering. */
+export function generateStaticParams(): Params[] {
+  return departments.map((d) => ({ slug: d.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<Params>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const dept = departments.find((d) => d.slug === slug);
+  if (!dept) return {};
+
+  return {
+    title: dept.metaTitle,
+    description: dept.metaDescription,
+    alternates: { canonical: `/departments/${dept.slug}` },
+    openGraph: {
+      title: `${dept.name} | ${siteConfig.name}`,
+      description: dept.metaDescription,
+      url: `${siteConfig.url}/departments/${dept.slug}`,
+    },
+  };
+}
+
+export default async function DepartmentPage({
+  params,
+}: {
+  params: Promise<Params>;
+}) {
+  const { slug } = await params;
+  const dept = departments.find((d) => d.slug === slug);
+  if (!dept) notFound();
+
+  const doctor = getDoctorByDepartment(dept.slug);
+  const faqs = dept.slug === "pediatrics" ? faqsPediatrics : faqsEyeCare;
+
+  const crumbs = [
+    { name: "Home", href: "/" },
+    { name: "Departments", href: "/departments" },
+    { name: dept.name, href: `/departments/${dept.slug}` },
+  ];
+
+  return (
+    <>
+      <JsonLd
+        data={graph(
+          medicalClinicSchema(dept.slug),
+          physicianSchema(doctor.slug),
+          faqSchema(faqs),
+          breadcrumbSchema(crumbs),
+        )}
+      />
+
+      <PageHero
+        eyebrow={dept.kicker}
+        segments={[
+          { text: dept.name.split(" ")[0] },
+          { text: dept.name.split(" ").slice(1).join(" ") || "Care", accent: true },
+          { text: `in ${siteConfig.city}` },
+        ]}
+        lead={dept.intro}
+        crumbs={crumbs}
+        image={dept.heroImage}
+        accent={dept.accent}
+      >
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <ButtonLink
+            href={`/appointment#${dept.slug}`}
+            variant={dept.accent === "teal" ? "teal" : "primary"}
+            size="lg"
+            arrow
+          >
+            Book {dept.shortName} Appointment
+          </ButtonLink>
+          <ButtonLink href="/doctors" variant="secondary" size="lg">
+            Meet {doctor.name.split(" ").slice(0, 2).join(" ")}
+          </ButtonLink>
+        </div>
+      </PageHero>
+
+      <DepartmentDetail slug={dept.slug} />
+
+      <Testimonials />
+
+      <FaqSection
+        faqs={faqs}
+        index="04"
+        eyebrow={`${dept.shortName} FAQs`}
+        segments={[{ text: "Questions parents" }, { text: "and patients", accent: true }, { text: "ask" }]}
+        lead={`Common questions about ${dept.shortName.toLowerCase()} at Yogeshwari Hospital.`}
+        tone="light"
+      />
+
+      <FinalCTA />
+    </>
+  );
+}

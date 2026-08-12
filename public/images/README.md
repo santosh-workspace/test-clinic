@@ -1,8 +1,15 @@
 # Image slots
 
-Every photo here is a **royalty-free placeholder** (Unsplash / Pexels licence — free for
-commercial use, no attribution required). The Google Business Profile could not be read
-programmatically, so none of these are photos of the actual hospital.
+The two **doctor portraits are the client's own photographs** — do not replace them.
+The untouched originals are in `doctors/_source/`.
+
+Everything else here is a **royalty-free placeholder** (Unsplash / Pexels licence — free
+for commercial use, no attribution required). The Google Business Profile could not be
+read programmatically, so none of the scene photos show the actual hospital.
+
+> Note on portrait crops: the doctor photos are head-to-torso at 4:5. The small circular
+> avatars in the header chips and department cards use `object-top` — without it a
+> centred square crop frames the coat instead of the face.
 
 ## How to swap in a real photo
 
@@ -21,8 +28,8 @@ If you change the alt text (you should, once these are real photos), edit
 | File | Ratio | Width | Where it appears | Priority to replace |
 | --- | --- | --- | --- | --- |
 | `hero-hospital.jpg` | 3:2 | 1920 | Homepage hero — the LCP image | **Highest** |
-| `doctors/dr-ramdash-nagargoje.jpg` | 4:5 | 1000 | Doctor cards, doctors page, paediatrics page | **Highest** |
-| `doctors/dr-manisha-nagargoje.jpg` | 4:5 | 1000 | Doctor cards, doctors page, eye care page | **Highest** |
+| `doctors/dr-ramdas-nagargoje.png` | 4:5 | 480 | Doctor cards, doctors page, paediatric surgery page | ✅ real photo |
+| `doctors/dr-manisha-nagargoje.png` | 4:5 | 546 | Doctor cards, doctors page, eye care page | ✅ real photo |
 | `hospital-exterior.jpg` | 3:2 | 1600 | About page, contact page, location section | High |
 | `consultation-room.jpg` | 3:2 | 1400 | Departments, about | High |
 | `ward.jpg` | 3:2 | 1400 | About — facility strip | Medium |

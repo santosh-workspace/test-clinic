@@ -42,7 +42,9 @@ These are real and no longer placeholders:
   M.Ch. (Paediatric Surgery). Trained at K.E.M. Hospital and B.J. Wadia Hospital for
   Children, Mumbai. Reg. No. 2002/03/1074.
 - **Dr. Manisha Nagargoje (Sanap)** — Ophthalmologist. M.B.B.S., D.O.M.S. (Mumbai).
-  Reg. No. 2004/03/1498. Her photo is the real one supplied by the client.
+  Reg. No. 2004/03/1498.
+- **Both doctor portraits** are the client's own photographs, cropped to 4:5. The
+  untouched originals are kept in `public/images/doctors/_source/`.
 - The paediatric department is **Paediatric Surgery**, not general paediatrics — its
   twelve services are the client's own list (paediatric urology, laparoscopic abdominal
   surgery, urodynamics, constipation clinic, brain and spine, tracheal, endoscopy and
@@ -57,12 +59,10 @@ Also review:
   anywhere in the structured data** — once real reviews exist, add it in
   `src/lib/schema.ts` with the true count and average.
 - **`src/config/content.ts` → `stats`** — the counters. Confirm the figures.
-- **`public/images/`** — the scene photos are royalty-free placeholders. See
-  [`public/images/README.md`](public/images/README.md) for the swap table.
-- **`public/images/doctors/dr-ramdas-nagargoje.jpg`** — still a stock placeholder. A real
-  portrait is the single highest-value asset swap left.
-- **Dr. Manisha's photo is only 190×240 native**, so it is upscaled in the doctor cards
-  and looks soft. A higher-resolution original would visibly improve those frames.
+- **`public/images/`** — the *scene* photos (reception, ward, corridor, theatre, eye
+  exam…) are still royalty-free placeholders. See
+  [`public/images/README.md`](public/images/README.md) for the swap table. Both **doctor
+  portraits are now the client's own photographs**.
 
 ---
 

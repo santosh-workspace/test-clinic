@@ -202,7 +202,7 @@ export function Hero() {
                       alt=""
                       width={44}
                       height={44}
-                      className="size-11 shrink-0 rounded-xl object-cover"
+                      className="size-11 shrink-0 rounded-xl object-cover object-top"
                     />
                     <div className="min-w-0">
                       <p className="truncate text-[0.86rem] font-bold leading-tight tracking-tight text-ink-950">

@@ -165,8 +165,8 @@ export const doctors: Doctor[] = [
       { days: "Sunday", time: "Emergency and trauma only" },
     ],
     languages: ["Marathi", "Hindi", "English"],
-    image: "/images/doctors/dr-ramdas-nagargoje.jpg",
-    photo: "/images/doctors/dr-ramdas-nagargoje.jpg",
+    image: "/images/doctors/dr-ramdas-nagargoje.png",
+    photo: "/images/doctors/dr-ramdas-nagargoje.png",
   },
   {
     slug: "dr-manisha-nagargoje",

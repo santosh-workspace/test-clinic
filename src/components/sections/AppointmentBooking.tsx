@@ -161,7 +161,7 @@ export function AppointmentBooking() {
                           alt=""
                           width={48}
                           height={48}
-                          className="size-12 rounded-full object-cover"
+                          className="size-12 rounded-full object-cover object-top"
                         />
                         <div className="min-w-0">
                           <p className="truncate text-[0.95rem] font-bold tracking-tight text-ink-950">
@@ -256,7 +256,7 @@ export function AppointmentBooking() {
                         alt=""
                         width={44}
                         height={44}
-                        className="size-11 rounded-full object-cover"
+                        className="size-11 rounded-full object-cover object-top"
                       />
                       <div>
                         <p className="text-[0.9rem] font-bold tracking-tight text-ink-950">

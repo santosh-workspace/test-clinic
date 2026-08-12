@@ -26,7 +26,7 @@ import newborn from "../../public/images/newborn.jpg";
 import eyeExam from "../../public/images/eye-exam.jpg";
 import eyewear from "../../public/images/eyewear.jpg";
 import eyeClinic from "../../public/images/eye-clinic.jpg";
-import drRamdas from "../../public/images/doctors/dr-ramdas-nagargoje.jpg";
+import drRamdas from "../../public/images/doctors/dr-ramdas-nagargoje.png";
 import drManisha from "../../public/images/doctors/dr-manisha-nagargoje.png";
 
 export const img = {
@@ -90,19 +90,14 @@ export const img = {
     src: eyeClinic,
     alt: "Ophthalmologist beside a slit lamp in the eye clinic",
   },
+  /* Both portraits are the client's own photographs, cropped to 4:5. */
   drRamdas: {
     src: drRamdas,
-    /** TODO: still a stock placeholder — replace with a real portrait. */
-    alt: "Portrait of Dr. Ramdas D. Nagargoje, Paediatric Surgeon",
+    alt: "Dr. Ramdas D. Nagargoje, Paediatric Surgeon, at Yogeshwari Hospital",
   },
   drManisha: {
     src: drManisha,
-    /**
-     * Real photo supplied by the client. Note it is only 190x240 native, so it
-     * is upscaled in the doctor cards and looks soft — a higher-resolution
-     * original would visibly improve those frames.
-     */
-    alt: "Portrait of Dr. Manisha Nagargoje (Sanap), Ophthalmologist",
+    alt: "Dr. Manisha Nagargoje (Sanap), Ophthalmologist, at Yogeshwari Hospital",
   },
 } as const;
 

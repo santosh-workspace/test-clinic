@@ -112,14 +112,18 @@ export function DepartmentsSection() {
                         {dept.intro}
                       </p>
 
-                      {/* Doctor line */}
+                      {/*
+                        Doctor line. `object-top` matters here: the portraits are
+                        head-to-torso at 4:5, so a centred square crop would frame
+                        the coat rather than the face.
+                      */}
                       <div className="mt-6 flex items-center gap-3 border-t border-ink-100 pt-5">
                         <Image
                           src={doc.image}
                           alt=""
                           width={48}
                           height={48}
-                          className="size-12 rounded-full object-cover ring-2 ring-white"
+                          className="size-12 rounded-full object-cover object-top ring-2 ring-white"
                         />
                         <div className="min-w-0 flex-1">
                           <p className="truncate text-[0.92rem] font-bold tracking-tight text-ink-950">

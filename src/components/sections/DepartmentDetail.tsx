@@ -26,7 +26,7 @@ import { cn } from "@/lib/utils";
 export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
   const dept = getDepartment(slug);
   const doctor = getDoctorByDepartment(slug);
-  const teal = dept.accent === "teal";
+  const rose = dept.accent === "rose";
   const secondary = dept.slug === "pediatrics" ? img.motherChildren : img.eyeClinic;
 
   return (
@@ -83,7 +83,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   <TiltCard
                     className="h-full"
                     intensity={4}
-                    glow={teal ? "rgb(13 156 138 / 0.14)" : "rgb(42 111 240 / 0.14)"}
+                    glow={rose ? "rgb(214 104 140 / 0.14)" : "rgb(42 111 240 / 0.14)"}
                   >
                     <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-ink-100 bg-white p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
                       <span
@@ -96,8 +96,8 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                       <span
                         className={cn(
                           "relative grid size-12 place-items-center rounded-2xl text-[1.3rem] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                          teal
-                            ? "bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white"
+                          rose
+                            ? "bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
                             : "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
                         )}
                       >
@@ -148,7 +148,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   <p
                     className={cn(
                       "text-[0.7rem] font-semibold uppercase tracking-[0.18em]",
-                      teal ? "text-teal-600" : "text-brand-600",
+                      rose ? "text-rose-600" : "text-brand-600",
                     )}
                   >
                     {dept.name}
@@ -165,7 +165,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                     <span
                       className={cn(
                         "rounded-full px-3 py-1.5 text-[0.8rem] font-semibold",
-                        teal ? "bg-teal-50 text-teal-700" : "bg-brand-50 text-brand-700",
+                        rose ? "bg-rose-50 text-rose-700" : "bg-brand-50 text-brand-700",
                       )}
                     >
                       {doctor.experience} experience
@@ -202,8 +202,8 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                         href={`/doctors#${doctor.slug}`}
                         className={cn(
                           "mt-4 inline-flex items-center gap-1.5 text-[0.88rem] font-semibold transition-colors",
-                          teal
-                            ? "text-teal-700 hover:text-teal-800"
+                          rose
+                            ? "text-rose-700 hover:text-rose-800"
                             : "text-brand-700 hover:text-brand-800",
                         )}
                       >
@@ -228,7 +228,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                             aria-hidden="true"
                             className={cn(
                               "mt-0.5 shrink-0",
-                              teal ? "text-teal-500" : "text-brand-500",
+                              rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
                           {area}
@@ -240,7 +240,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                     <ButtonLink
                       href={`/appointment#${dept.slug}`}
-                      variant={teal ? "teal" : "primary"}
+                      variant={rose ? "rose" : "primary"}
                       size="lg"
                       arrow
                     >
@@ -302,7 +302,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
       {/* ── Sticky-ish contact strip ──────────────────────────────── */}
       <Section tone="white" spacing="sm">
         <div className="container-page">
-          <div className="flex flex-col items-center gap-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-linear-to-br from-brand-50 to-teal-50/60 p-8 text-center">
+          <div className="flex flex-col items-center gap-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-linear-to-br from-brand-50 to-rose-50/60 p-8 text-center">
             <p className="text-h3 font-bold tracking-tight text-ink-950">
               Not sure if you need an appointment?
             </p>

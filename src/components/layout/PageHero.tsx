@@ -33,10 +33,10 @@ export function PageHero({
   crumbs: Crumb[];
   image?: { src: StaticImageData; alt: string };
   children?: ReactNode;
-  accent?: "brand" | "teal";
+  accent?: "brand" | "rose";
 }) {
   const reduced = useReducedMotion();
-  const teal = accent === "teal";
+  const rose = accent === "rose";
 
   const rise = (delay: number) =>
     reduced
@@ -53,7 +53,7 @@ export function PageHero({
         <div
           className={cn(
             "absolute -left-32 -top-24 h-[28rem] w-[28rem] rounded-full blur-[120px]",
-            teal ? "bg-teal-100/70" : "bg-brand-100/60",
+            rose ? "bg-rose-100/70" : "bg-brand-100/60",
           )}
         />
         <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-sand-50" />
@@ -99,15 +99,15 @@ export function PageHero({
               data-reveal {...rise(0.06)}
               className={cn(
                 "flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em]",
-                teal ? "text-teal-600" : "text-brand-600",
+                rose ? "text-rose-600" : "text-brand-600",
               )}
             >
               <span
                 aria-hidden="true"
                 className={cn(
                   "h-px w-8",
-                  teal
-                    ? "bg-linear-to-r from-teal-400 to-transparent"
+                  rose
+                    ? "bg-linear-to-r from-rose-400 to-transparent"
                     : "bg-linear-to-r from-brand-400 to-transparent",
                 )}
               />
@@ -120,8 +120,8 @@ export function PageHero({
               className="mt-5 text-h1 font-bold tracking-tight text-ink-950"
               accentClassName={cn(
                 "font-display italic",
-                teal
-                  ? "bg-linear-to-r from-teal-600 to-brand-500 bg-clip-text text-transparent"
+                rose
+                  ? "bg-linear-to-r from-rose-600 to-brand-500 bg-clip-text text-transparent"
                   : "text-gradient",
               )}
             />

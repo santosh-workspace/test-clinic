@@ -2,51 +2,67 @@
 
 /* ───────────────────────────────────────────────────────────────────────────
    YOGESHWARI HOSPITAL — DESIGN SYSTEM
-   White · medical blue · teal. Editorial spacing, soft depth, no chrome.
+
+   Two themes, both drawn from the hospital logo (soft cornflower-blue iris,
+   rose pillow, warm cream skin tones, near-black ink outlines):
+
+     THEME A · "Ivory & Iris"      :root                    — warm, soft, airy
+     THEME B · "Porcelain & Midnight"  [data-theme="porcelain"] — cool, crisp, deep
+
+   Everything a theme changes lives in the two blocks below: the colour ramps,
+   the corner radii and the shadow character. No component knows which theme is
+   active — Tailwind v4 compiles utilities to var() references, so redefining
+   the variables reskins the whole site.
+
+   Department accents follow the logo's own colour story:
+     Paediatrics  → rose  (the pillow and the baby)
+     Eye Care     → brand (the iris)
    ─────────────────────────────────────────────────────────────────────────── */
 
 @theme {
-  /* Ink — deep desaturated navy, never pure black */
-  --color-ink-950: #04121e;
-  --color-ink-900: #072335;
-  --color-ink-800: #0d3149;
-  --color-ink-700: #17435f;
-  --color-ink-600: #2b5a78;
-  --color-ink-500: #4d7590;
-  --color-ink-400: #7899ae;
-  --color-ink-300: #a8c0ce;
-  --color-ink-200: #d0dfe8;
-  --color-ink-100: #e8f0f5;
-  --color-ink-50: #f4f8fa;
+  /* ── THEME A · Ivory & Iris (default) ─────────────────────────────────── */
 
-  /* Medical blue — the trust colour */
-  --color-brand-50: #eef5ff;
-  --color-brand-100: #d9e9ff;
-  --color-brand-200: #b9d5ff;
-  --color-brand-300: #88b8ff;
-  --color-brand-400: #5192fb;
-  --color-brand-500: #2a6ff0;
-  --color-brand-600: #1454d6;
-  --color-brand-700: #1043ab;
-  --color-brand-800: #123a88;
-  --color-brand-900: #14346d;
+  /* Ink — warm charcoal-navy, never pure black */
+  --color-ink-950: #0e1723;
+  --color-ink-900: #14202f;
+  --color-ink-800: #1c2c3e;
+  --color-ink-700: #2a3e53;
+  --color-ink-600: #3e566e;
+  --color-ink-500: #5e7590;
+  --color-ink-400: #8496ad;
+  --color-ink-300: #aebccc;
+  --color-ink-200: #d5dee7;
+  --color-ink-100: #e9eff4;
+  --color-ink-50: #f4f7fa;
 
-  /* Teal — the care colour */
-  --color-teal-50: #e8fbf7;
-  --color-teal-100: #c6f4ea;
-  --color-teal-200: #90e8d8;
-  --color-teal-300: #52d4c0;
-  --color-teal-400: #22b9a5;
-  --color-teal-500: #0d9c8a;
-  --color-teal-600: #067d70;
-  --color-teal-700: #08645b;
-  --color-teal-800: #0a4f4a;
-  --color-teal-900: #0b423e;
+  /* Brand — the logo's iris blue, deepened into a usable ramp */
+  --color-brand-50: #f0f6fd;
+  --color-brand-100: #ddebfa;
+  --color-brand-200: #c0daf5;
+  --color-brand-300: #9ac3ec;
+  --color-brand-400: #7fb2e8; /* sampled straight from the iris */
+  --color-brand-500: #4e8fd4;
+  --color-brand-600: #2a6ab2;
+  --color-brand-700: #1f5390;
+  --color-brand-800: #1a4374;
+  --color-brand-900: #17375d;
 
-  /* Warm neutral — keeps the white from going clinical-cold */
-  --color-sand-50: #fcfaf7;
-  --color-sand-100: #f7f2ec;
-  --color-sand-200: #eee6db;
+  /* Rose — the logo's pillow pink. Paediatrics accent. */
+  --color-rose-50: #fef2f6;
+  --color-rose-100: #fde3ec;
+  --color-rose-200: #fac7d9;
+  --color-rose-300: #f5a9c1;
+  --color-rose-400: #ee93b2; /* sampled from the pillow */
+  --color-rose-500: #de6e95;
+  --color-rose-600: #c55276;
+  --color-rose-700: #a33d5d;
+  --color-rose-800: #85324b;
+  --color-rose-900: #6e2b3f;
+
+  /* Sand — the warm cream of the baby and hands. The page ground. */
+  --color-sand-50: #fcfaf6;
+  --color-sand-100: #f9f3ea;
+  --color-sand-200: #f1e7d7;
 
   --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-instrument), Georgia, serif;
@@ -67,15 +83,84 @@
   --text-lead: clamp(1.05rem, 0.98rem + 0.4vw, 1.3rem);
   --text-lead--line-height: 1.6;
 
+  /* Generous, soft geometry */
   --radius-card: 1.5rem;
   --radius-xl2: 2rem;
 
-  --shadow-soft: 0 1px 2px rgb(7 35 53 / 0.04), 0 8px 24px -8px rgb(7 35 53 / 0.08);
-  --shadow-lift: 0 2px 4px rgb(7 35 53 / 0.04), 0 24px 48px -16px rgb(7 35 53 / 0.16);
-  --shadow-glow: 0 20px 60px -18px rgb(20 84 214 / 0.45);
+  /* Warm, diffuse depth */
+  --shadow-soft: 0 1px 2px rgb(20 32 47 / 0.04), 0 8px 24px -8px rgb(20 32 47 / 0.09);
+  --shadow-lift: 0 2px 4px rgb(20 32 47 / 0.04), 0 26px 50px -16px rgb(20 32 47 / 0.17);
+  --shadow-glow: 0 20px 60px -18px rgb(42 106 178 / 0.45);
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── THEME B · Porcelain & Midnight ─────────────────────────────────────────
+   Same tokens, cooler and deeper. The primary drops to the near-navy of the
+   logo's outer ring, the rose gets hotter so it still reads as an accent
+   against it, the greys lose their warmth, corners tighten and shadows go
+   crisper. Structurally identical, unmistakably a different brand mood.
+   ──────────────────────────────────────────────────────────────────────── */
+
+[data-theme="porcelain"] {
+  --color-ink-950: #060d16;
+  --color-ink-900: #0b1725;
+  --color-ink-800: #122236;
+  --color-ink-700: #1d3350;
+  --color-ink-600: #34506f;
+  --color-ink-500: #556f8d;
+  --color-ink-400: #7d92a9;
+  --color-ink-300: #a9b8c8;
+  --color-ink-200: #cfd9e3;
+  --color-ink-100: #e5ecf2;
+  --color-ink-50: #f1f5f9;
+
+  --color-brand-50: #eef4fb;
+  --color-brand-100: #d7e6f5;
+  --color-brand-200: #b0cbe9;
+  --color-brand-300: #7ea9d6;
+  --color-brand-400: #5286bd;
+  --color-brand-500: #2f6199;
+  --color-brand-600: #1d4878;
+  --color-brand-700: #14365e;
+  --color-brand-800: #102b4b;
+  --color-brand-900: #0d223c;
+
+  --color-rose-50: #fff1f5;
+  --color-rose-100: #ffdfe8;
+  --color-rose-200: #ffc0d3;
+  --color-rose-300: #fb98b7;
+  --color-rose-400: #f4709b;
+  --color-rose-500: #e4517f;
+  --color-rose-600: #c93765;
+  --color-rose-700: #a52950;
+  --color-rose-800: #872341;
+  --color-rose-900: #711f37;
+
+  /* Cool porcelain ground instead of warm ivory */
+  --color-sand-50: #f4f7fa;
+  --color-sand-100: #eaeff5;
+  --color-sand-200: #dbe4ee;
+
+  --radius-card: 1rem;
+  --radius-xl2: 1.25rem;
+
+  --shadow-soft: 0 1px 2px rgb(6 13 22 / 0.06), 0 6px 16px -6px rgb(6 13 22 / 0.10);
+  --shadow-lift: 0 1px 3px rgb(6 13 22 / 0.07), 0 20px 40px -14px rgb(6 13 22 / 0.22);
+  --shadow-glow: 0 18px 46px -16px rgb(20 54 94 / 0.55);
+}
+
+/* Theme swaps recolour large areas at once; easing the change keeps it from
+   reading as a flash. Excluded from anything already animating. */
+@media (prefers-reduced-motion: no-preference) {
+  html[data-theme-ready] body,
+  html[data-theme-ready] header,
+  html[data-theme-ready] footer,
+  html[data-theme-ready] section {
+    transition: background-color 0.4s var(--ease-smooth),
+      border-color 0.4s var(--ease-smooth);
+  }
 }
 
 /* ── Base ─────────────────────────────────────────────────────────────────── */
@@ -169,8 +254,8 @@
   background: linear-gradient(
     100deg,
     var(--color-brand-700) 0%,
-    var(--color-brand-500) 40%,
-    var(--color-teal-500) 100%
+    var(--color-brand-500) 38%,
+    var(--color-rose-500) 100%
   );
   background-clip: text;
   -webkit-background-clip: text;
@@ -204,12 +289,6 @@
 @keyframes sheen {
   from { transform: translate3d(-120%, 0, 0) skewX(-18deg); }
   to { transform: translate3d(320%, 0, 0) skewX(-18deg); }
-}
-
-/* 2πr for r=46 — must match the strokeDasharray set in Logo.tsx */
-@keyframes draw-ring {
-  from { stroke-dashoffset: 289; }
-  to { stroke-dashoffset: 0; }
 }
 
 .animate-float { animation: float-y 6s var(--ease-smooth) infinite; }

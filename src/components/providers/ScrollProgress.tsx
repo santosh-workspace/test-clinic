@@ -18,7 +18,7 @@ export function ScrollProgress() {
     <motion.div
       aria-hidden="true"
       style={{ scaleX }}
-      className="fixed inset-x-0 top-0 z-[60] h-[2.5px] origin-left bg-linear-to-r from-brand-600 via-brand-500 to-teal-400"
+      className="fixed inset-x-0 top-0 z-[60] h-[2.5px] origin-left bg-linear-to-r from-brand-600 via-brand-500 to-rose-400"
     />
   );
 }

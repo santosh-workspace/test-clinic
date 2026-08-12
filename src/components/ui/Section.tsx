@@ -40,7 +40,7 @@ export function SectionHeading({
         <p
           className={cn(
             "flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em]",
-            invert ? "text-teal-300" : "text-brand-600",
+            invert ? "text-rose-300" : "text-brand-600",
           )}
         >
           {index && (
@@ -59,7 +59,7 @@ export function SectionHeading({
             className={cn(
               "h-px w-8",
               invert
-                ? "bg-linear-to-r from-teal-300/70 to-transparent"
+                ? "bg-linear-to-r from-rose-300/70 to-transparent"
                 : "bg-linear-to-r from-brand-400 to-transparent",
             )}
           />
@@ -77,7 +77,7 @@ export function SectionHeading({
         )}
         accentClassName={
           invert
-            ? "font-display italic bg-linear-to-r from-teal-200 to-brand-200 bg-clip-text text-transparent"
+            ? "font-display italic bg-linear-to-r from-rose-200 to-brand-200 bg-clip-text text-transparent"
             : "font-display italic text-gradient"
         }
       />

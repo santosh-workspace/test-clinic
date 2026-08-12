@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { Monogram } from "@/components/brand/Logo";
+import { LogoLockup } from "@/components/brand/Logo";
 import { siteConfig } from "@/config/site";
 
 /**
@@ -61,7 +61,7 @@ export function Loader() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
-            <Monogram animated className="h-20 w-20" />
+            <LogoLockup priority className="w-52 md:w-60" />
           </motion.div>
 
           <motion.p

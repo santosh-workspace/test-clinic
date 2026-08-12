@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Monogram } from "@/components/brand/Logo";
+import { Emblem } from "@/components/brand/Logo";
 import { ButtonLink } from "@/components/ui/Button";
 import { departments } from "@/config/content";
 
@@ -14,11 +14,11 @@ export default function NotFound() {
     <section className="relative flex min-h-[70vh] items-center overflow-hidden bg-white py-24">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-32 -top-24 h-[28rem] w-[28rem] rounded-full bg-brand-100/60 blur-[120px]" />
-        <div className="absolute -right-24 bottom-0 h-[22rem] w-[22rem] rounded-full bg-teal-100/60 blur-[110px]" />
+        <div className="absolute -right-24 bottom-0 h-[22rem] w-[22rem] rounded-full bg-rose-100/60 blur-[110px]" />
       </div>
 
       <div className="container-page text-center">
-        <Monogram className="mx-auto h-16 w-16" />
+        <Emblem className="mx-auto w-20" />
         <p className="mt-8 font-display text-[5rem] leading-none text-gradient">404</p>
         <h1 className="mt-4 text-h2 font-bold tracking-tight text-ink-950">
           This page has moved on

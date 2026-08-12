@@ -30,7 +30,7 @@ export function FinalCTA() {
         <motion.div
           animate={reduced ? undefined : { x: [0, -50, 0], y: [0, 50, 0] }}
           transition={{ duration: 26, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -right-24 bottom-0 h-[30rem] w-[30rem] rounded-full bg-teal-500/22 blur-[130px]"
+          className="absolute -right-24 bottom-0 h-[30rem] w-[30rem] rounded-full bg-rose-500/22 blur-[130px]"
         />
         {/* Fine grid, barely visible — adds structure to the gradient */}
         <div
@@ -47,18 +47,18 @@ export function FinalCTA() {
 
       <div className="container-page relative text-center">
         <Reveal variant="up">
-          <p className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-teal-300 backdrop-blur">
+          <p className="inline-flex items-center gap-2.5 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-[0.74rem] font-semibold uppercase tracking-[0.18em] text-rose-300 backdrop-blur">
             <span className="relative flex size-2">
               <span
                 aria-hidden="true"
-                className="absolute inset-0 rounded-full bg-teal-400"
+                className="absolute inset-0 rounded-full bg-rose-400"
                 style={
                   reduced
                     ? undefined
                     : { animation: "pulse-ring 2.4s var(--ease-smooth) infinite" }
                 }
               />
-              <span className="size-2 rounded-full bg-teal-400" />
+              <span className="size-2 rounded-full bg-rose-400" />
             </span>
             Accepting new patients
           </p>
@@ -71,7 +71,7 @@ export function FinalCTA() {
             { text: "today" },
           ]}
           className="mx-auto mt-7 max-w-4xl text-h1 font-bold text-white"
-          accentClassName="font-display italic bg-linear-to-r from-teal-200 to-brand-200 bg-clip-text text-transparent"
+          accentClassName="font-display italic bg-linear-to-r from-rose-200 to-brand-200 bg-clip-text text-transparent"
         />
 
         <Reveal variant="up" delay={0.12}>

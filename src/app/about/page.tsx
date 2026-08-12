@@ -71,7 +71,7 @@ export default function AboutPage() {
                     <div className="flex items-start gap-2.5 rounded-xl border border-ink-100 bg-white px-3.5 py-3">
                       <FiCheck
                         aria-hidden="true"
-                        className="mt-0.5 shrink-0 text-teal-500"
+                        className="mt-0.5 shrink-0 text-rose-500"
                       />
                       <span className="text-[0.88rem] leading-snug text-ink-700">
                         {item}

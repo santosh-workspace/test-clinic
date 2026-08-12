@@ -29,7 +29,7 @@ export type Department = {
   headline: string;
   intro: string;
   description: string[];
-  accent: "brand" | "teal";
+  accent: "brand" | "rose";
   icon: IconType;
   image: (typeof img)[keyof typeof img];
   heroImage: (typeof img)[keyof typeof img];
@@ -53,7 +53,7 @@ export const departments: Department[] = [
       "Continuity is the point. Seeing the same doctor each visit means the growth chart tells a story rather than showing a single dot, and a parent's instinct that 'something is different this time' is heard against a real baseline.",
       "Consultations are unhurried, instructions are written down, and you leave knowing exactly what to watch for at home and when to come back.",
     ],
-    accent: "brand",
+    accent: "rose",
     icon: FiSmile,
     image: img.motherChildren,
     heroImage: img.pediatricExam,
@@ -124,7 +124,7 @@ export const departments: Department[] = [
       "Two conditions in particular take sight quietly. Glaucoma damages the optic nerve years before central vision changes, and diabetic retinopathy progresses without pain or blurring until it is advanced. Both are found by examination, not by symptoms — which is why an annual check matters even when your eyes feel fine.",
       "Every finding is explained: what the test showed, what it means for your sight, and what happens next.",
     ],
-    accent: "teal",
+    accent: "brand",
     icon: FiEye,
     image: img.eyewear,
     heroImage: img.eyeExam,

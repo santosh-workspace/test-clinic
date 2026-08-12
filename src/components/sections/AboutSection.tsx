@@ -143,7 +143,7 @@ export function AboutSection() {
             {/* Floating credential card */}
             <Reveal variant="scale" delay={0.2}>
               <div className="relative z-10 -mt-8 ml-4 inline-flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-4 pr-6 shadow-[var(--shadow-lift)] md:-mt-10 md:ml-8">
-                <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-linear-to-br from-brand-600 to-teal-500 text-white">
+                <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-linear-to-br from-brand-600 to-rose-500 text-white">
                   <FiArrowRight aria-hidden="true" className="-rotate-45 text-xl" />
                 </span>
                 <div>

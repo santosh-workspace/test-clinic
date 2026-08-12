@@ -86,7 +86,7 @@ export function AppointmentBooking() {
           <div className="mt-12 grid gap-5 lg:grid-cols-2 lg:gap-7">
             {departments.map((d, i) => {
               const doc = doctors.find((x) => x.department === d.slug)!;
-              const teal = d.accent === "teal";
+              const rose = d.accent === "rose";
               const isActive = selected === d.slug;
               const Icon = d.icon;
 
@@ -99,8 +99,8 @@ export function AppointmentBooking() {
                     className={cn(
                       "group relative flex h-full w-full flex-col overflow-hidden rounded-[var(--radius-xl2)] border-2 bg-white text-left transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]",
                       isActive
-                        ? teal
-                          ? "border-teal-500 shadow-[var(--shadow-lift)]"
+                        ? rose
+                          ? "border-rose-500 shadow-[var(--shadow-lift)]"
                           : "border-brand-600 shadow-[var(--shadow-lift)]"
                         : "border-ink-100 shadow-[var(--shadow-soft)]",
                     )}
@@ -115,7 +115,7 @@ export function AppointmentBooking() {
                           transition={{ duration: 0.3, ease: EASE }}
                           className={cn(
                             "absolute right-4 top-4 z-20 grid size-9 place-items-center rounded-full text-white shadow-lg",
-                            teal ? "bg-teal-500" : "bg-brand-600",
+                            rose ? "bg-rose-500" : "bg-brand-600",
                           )}
                         >
                           <FiCheck aria-hidden="true" />
@@ -136,8 +136,8 @@ export function AppointmentBooking() {
                         aria-hidden="true"
                         className={cn(
                           "absolute inset-0 mix-blend-multiply",
-                          teal
-                            ? "bg-linear-to-tr from-teal-900/85 via-teal-800/30 to-transparent"
+                          rose
+                            ? "bg-linear-to-tr from-rose-900/85 via-rose-800/30 to-transparent"
                             : "bg-linear-to-tr from-brand-900/85 via-brand-800/30 to-transparent",
                         )}
                       />
@@ -146,7 +146,7 @@ export function AppointmentBooking() {
                         <span
                           className={cn(
                             "grid size-12 shrink-0 place-items-center rounded-2xl text-[1.4rem] text-white transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                            teal ? "bg-teal-500" : "bg-brand-600",
+                            rose ? "bg-rose-500" : "bg-brand-600",
                           )}
                         >
                           <Icon aria-hidden="true" />
@@ -185,8 +185,8 @@ export function AppointmentBooking() {
                       <span
                         className={cn(
                           "mt-7 inline-flex h-13 w-full items-center justify-center gap-2 rounded-full text-[0.95rem] font-semibold text-white transition-all duration-400",
-                          teal
-                            ? "bg-teal-500 group-hover:bg-teal-600"
+                          rose
+                            ? "bg-rose-500 group-hover:bg-rose-600"
                             : "bg-brand-600 group-hover:bg-brand-700",
                         )}
                       >
@@ -290,7 +290,7 @@ export function AppointmentBooking() {
                           !scriptReady && "hidden",
                         )}
                         data-url={`${calendlyUrl}?hide_gdpr_banner=1&primary_color=${
-                          dept.accent === "teal" ? "0d9c8a" : "1454d6"
+                          dept.accent === "rose" ? "0d9c8a" : "1454d6"
                         }`}
                         style={{ minWidth: "320px", height: "42rem" }}
                       />
@@ -319,7 +319,7 @@ function CalendlyFallback({
   dept: Department;
   doctorName: string;
 }) {
-  const teal = dept.accent === "teal";
+  const rose = dept.accent === "rose";
 
   return (
     <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-8 shadow-[var(--shadow-soft)] md:p-12">
@@ -327,7 +327,7 @@ function CalendlyFallback({
         <span
           className={cn(
             "mx-auto grid size-14 place-items-center rounded-2xl text-2xl text-white",
-            teal ? "bg-teal-500" : "bg-brand-600",
+            rose ? "bg-rose-500" : "bg-brand-600",
           )}
         >
           <FaWhatsapp aria-hidden="true" />
@@ -347,7 +347,7 @@ function CalendlyFallback({
             href={links.whatsapp(
               `Hello, I would like to book a ${dept.name} appointment with ${doctorName} at Yogeshwari Hospital.`,
             )}
-            variant={teal ? "teal" : "primary"}
+            variant={rose ? "rose" : "primary"}
             size="lg"
             icon={<FaWhatsapp />}
           >
@@ -392,7 +392,7 @@ function StepBadge({ n, active }: { n: number; active: boolean }) {
       className={cn(
         "mt-1 grid size-11 shrink-0 place-items-center rounded-2xl font-display text-lg transition-colors duration-500",
         active
-          ? "bg-linear-to-br from-brand-600 to-teal-500 text-white"
+          ? "bg-linear-to-br from-brand-600 to-rose-500 text-white"
           : "border border-ink-200 bg-white text-ink-400",
       )}
     >

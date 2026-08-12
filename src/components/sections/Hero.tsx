@@ -43,7 +43,7 @@ export function Hero() {
       {/* Ambient field */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-brand-100/60 blur-[130px]" />
-        <div className="absolute -right-24 top-1/3 h-[26rem] w-[26rem] rounded-full bg-teal-100/55 blur-[120px]" />
+        <div className="absolute -right-24 top-1/3 h-[26rem] w-[26rem] rounded-full bg-rose-100/55 blur-[120px]" />
         <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-b from-transparent to-sand-50" />
       </div>
 
@@ -58,14 +58,14 @@ export function Hero() {
                 <span className="relative flex size-6 items-center justify-center">
                   <span
                     aria-hidden="true"
-                    className="absolute inset-0 rounded-full bg-teal-400/25"
+                    className="absolute inset-0 rounded-full bg-rose-400/25"
                     style={
                       reduced
                         ? undefined
                         : { animation: "pulse-ring 2.4s var(--ease-smooth) infinite" }
                     }
                   />
-                  <span className="size-2 rounded-full bg-teal-500" />
+                  <span className="size-2 rounded-full bg-rose-500" />
                 </span>
                 {siteConfig.tagline} · {siteConfig.city}
               </span>

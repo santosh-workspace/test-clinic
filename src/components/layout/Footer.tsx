@@ -26,7 +26,7 @@ export function Footer() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-teal-500/12 blur-[110px]"
+        className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-rose-500/12 blur-[110px]"
       />
 
       <div className="container-page relative pt-18 pb-10 md:pt-24">
@@ -42,7 +42,7 @@ export function Footer() {
 
           {/* Departments */}
           <nav aria-label="Departments" className="lg:col-span-3">
-            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-teal-300">
+            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-rose-300">
               Departments
             </h2>
             <ul className="mt-5 space-y-3.5">
@@ -58,7 +58,7 @@ export function Footer() {
                         {dept.name}
                         <FiArrowUpRight
                           aria-hidden="true"
-                          className="text-white/30 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-teal-300"
+                          className="text-white/30 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-rose-300"
                         />
                       </span>
                       <span className="mt-0.5 block text-[0.82rem] text-white/40">
@@ -73,7 +73,7 @@ export function Footer() {
 
           {/* Quick links */}
           <nav aria-label="Footer" className="lg:col-span-2">
-            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-teal-300">
+            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-rose-300">
               Explore
             </h2>
             <ul className="mt-5 space-y-3">
@@ -92,12 +92,12 @@ export function Footer() {
 
           {/* NAP — must match the Google Business Profile exactly */}
           <div className="lg:col-span-3">
-            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-teal-300">
+            <h2 className="text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-rose-300">
               Visit &amp; Contact
             </h2>
             <ul className="mt-5 space-y-4 text-[0.93rem]">
               <li className="flex gap-3">
-                <FiMapPin aria-hidden="true" className="mt-1 shrink-0 text-teal-300" />
+                <FiMapPin aria-hidden="true" className="mt-1 shrink-0 text-rose-300" />
                 <address className="not-italic text-white/65">
                   {siteConfig.address.street},<br />
                   {siteConfig.address.locality}, {siteConfig.address.region}{" "}
@@ -105,7 +105,7 @@ export function Footer() {
                 </address>
               </li>
               <li className="flex gap-3">
-                <FiPhone aria-hidden="true" className="mt-1 shrink-0 text-teal-300" />
+                <FiPhone aria-hidden="true" className="mt-1 shrink-0 text-rose-300" />
                 <a
                   href={links.tel}
                   className="text-white/80 transition-colors hover:text-white"
@@ -114,7 +114,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex gap-3">
-                <FiMail aria-hidden="true" className="mt-1 shrink-0 text-teal-300" />
+                <FiMail aria-hidden="true" className="mt-1 shrink-0 text-rose-300" />
                 <a
                   href={links.email}
                   className="break-all text-white/80 transition-colors hover:text-white"
@@ -123,7 +123,7 @@ export function Footer() {
                 </a>
               </li>
               <li className="flex gap-3">
-                <FiClock aria-hidden="true" className="mt-1 shrink-0 text-teal-300" />
+                <FiClock aria-hidden="true" className="mt-1 shrink-0 text-rose-300" />
                 <div className="text-white/65">
                   {siteConfig.hours.map((h) => (
                     <p key={`${h.days}-${h.label}`}>

@@ -38,7 +38,7 @@ export function FaqSection({
 
             <Reveal variant="up" delay={0.12}>
               <div className="mt-9 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6 shadow-[var(--shadow-soft)]">
-                <span className="grid size-11 place-items-center rounded-xl bg-linear-to-br from-brand-600 to-teal-500 text-lg text-white">
+                <span className="grid size-11 place-items-center rounded-xl bg-linear-to-br from-brand-600 to-rose-500 text-lg text-white">
                   <FiMessageCircle aria-hidden="true" />
                 </span>
                 <p className="mt-4 text-[1rem] font-bold tracking-tight text-ink-950">

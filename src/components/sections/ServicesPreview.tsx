@@ -51,7 +51,7 @@ export function ServicesPreview() {
           amount={0.055}
         >
           {interleaved.map((item) => {
-            const teal = item.dept.accent === "teal";
+            const rose = item.dept.accent === "rose";
             const Icon = item.icon;
 
             return (
@@ -65,8 +65,8 @@ export function ServicesPreview() {
                     aria-hidden="true"
                     className={cn(
                       "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-                      teal
-                        ? "bg-linear-to-br from-teal-50 to-transparent"
+                      rose
+                        ? "bg-linear-to-br from-rose-50 to-transparent"
                         : "bg-linear-to-br from-brand-50 to-transparent",
                     )}
                   />
@@ -74,8 +74,8 @@ export function ServicesPreview() {
                   <span
                     className={cn(
                       "relative grid size-12 place-items-center rounded-2xl text-[1.3rem] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                      teal
-                        ? "bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white"
+                      rose
+                        ? "bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
                         : "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
                     )}
                   >
@@ -92,7 +92,7 @@ export function ServicesPreview() {
                   <span
                     className={cn(
                       "relative mt-5 inline-flex items-center gap-1.5 text-[0.78rem] font-semibold uppercase tracking-[0.1em]",
-                      teal ? "text-teal-600" : "text-brand-600",
+                      rose ? "text-rose-600" : "text-brand-600",
                     )}
                   >
                     {item.dept.shortName}

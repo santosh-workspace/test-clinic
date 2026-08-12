@@ -46,7 +46,7 @@ export function Accordion({
                 onClick={() => setOpen(isOpen ? null : i)}
                 className={cn(
                   "group flex w-full items-start justify-between gap-6 py-6 text-left transition-colors duration-300",
-                  dark ? "text-white hover:text-teal-200" : "text-ink-950 hover:text-brand-700",
+                  dark ? "text-white hover:text-rose-200" : "text-ink-950 hover:text-brand-700",
                 )}
               >
                 <span className="text-[1.02rem] font-semibold tracking-tight md:text-[1.12rem]">
@@ -58,12 +58,12 @@ export function Accordion({
                     "mt-0.5 grid size-8 shrink-0 place-items-center rounded-full border transition-all duration-400 ease-[var(--ease-out-expo)]",
                     isOpen && "rotate-135",
                     dark
-                      ? "border-white/20 bg-white/5 group-hover:border-teal-300/60"
+                      ? "border-white/20 bg-white/5 group-hover:border-rose-300/60"
                       : "border-ink-200 bg-white group-hover:border-brand-300",
                   )}
                 >
                   <FiPlus
-                    className={cn("size-4", dark ? "text-teal-200" : "text-brand-600")}
+                    className={cn("size-4", dark ? "text-rose-200" : "text-brand-600")}
                   />
                 </span>
               </button>

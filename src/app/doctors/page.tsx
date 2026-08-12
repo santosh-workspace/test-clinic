@@ -49,7 +49,7 @@ export default function DoctorsPage() {
       {/* Full profiles */}
       {doctors.map((doc, index) => {
         const dept = departments.find((d) => d.slug === doc.department)!;
-        const teal = dept.accent === "teal";
+        const rose = dept.accent === "rose";
         const flip = index % 2 === 1;
 
         return (
@@ -103,7 +103,7 @@ export default function DoctorsPage() {
                           >
                             <span className="font-medium text-ink-800">{t.days}</span>
                             <span
-                              className={cn(teal ? "text-teal-700" : "text-brand-700")}
+                              className={cn(rose ? "text-rose-700" : "text-brand-700")}
                             >
                               {t.time}
                             </span>
@@ -124,7 +124,7 @@ export default function DoctorsPage() {
                     <p
                       className={cn(
                         "flex items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em]",
-                        teal ? "text-teal-600" : "text-brand-600",
+                        rose ? "text-rose-600" : "text-brand-600",
                       )}
                     >
                       <span
@@ -137,8 +137,8 @@ export default function DoctorsPage() {
                         aria-hidden="true"
                         className={cn(
                           "h-px w-8",
-                          teal
-                            ? "bg-linear-to-r from-teal-400 to-transparent"
+                          rose
+                            ? "bg-linear-to-r from-rose-400 to-transparent"
                             : "bg-linear-to-r from-brand-400 to-transparent",
                         )}
                       />
@@ -167,14 +167,14 @@ export default function DoctorsPage() {
                       <span className="inline-flex items-center gap-2 rounded-full border border-ink-200 bg-white px-3.5 py-1.5 text-[0.82rem] font-semibold text-ink-800">
                         <FiAward
                           aria-hidden="true"
-                          className={teal ? "text-teal-500" : "text-brand-500"}
+                          className={rose ? "text-rose-500" : "text-brand-500"}
                         />
                         {doc.qualification}
                       </span>
                       <span
                         className={cn(
                           "inline-flex items-center rounded-full px-3.5 py-1.5 text-[0.82rem] font-semibold",
-                          teal ? "bg-teal-50 text-teal-700" : "bg-brand-50 text-brand-700",
+                          rose ? "bg-rose-50 text-rose-700" : "bg-brand-50 text-brand-700",
                         )}
                       >
                         {doc.experience} experience
@@ -198,7 +198,7 @@ export default function DoctorsPage() {
                               aria-hidden="true"
                               className={cn(
                                 "mt-0.5 shrink-0",
-                                teal ? "text-teal-500" : "text-brand-500",
+                                rose ? "text-rose-500" : "text-brand-500",
                               )}
                             />
                             {s}
@@ -220,7 +220,7 @@ export default function DoctorsPage() {
                               aria-hidden="true"
                               className={cn(
                                 "mt-0.5 shrink-0",
-                                teal ? "text-teal-500" : "text-brand-500",
+                                rose ? "text-rose-500" : "text-brand-500",
                               )}
                             />
                             {s}
@@ -234,7 +234,7 @@ export default function DoctorsPage() {
                     <div className="mt-10 flex flex-col gap-3 sm:flex-row">
                       <ButtonLink
                         href={`/appointment#${dept.slug}`}
-                        variant={teal ? "teal" : "primary"}
+                        variant={rose ? "rose" : "primary"}
                         size="lg"
                         arrow
                       >

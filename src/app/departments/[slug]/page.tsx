@@ -89,7 +89,7 @@ export default async function DepartmentPage({
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">
           <ButtonLink
             href={`/appointment#${dept.slug}`}
-            variant={dept.accent === "teal" ? "teal" : "primary"}
+            variant={dept.accent === "rose" ? "rose" : "primary"}
             size="lg"
             arrow
           >

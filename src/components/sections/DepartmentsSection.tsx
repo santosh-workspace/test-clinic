@@ -33,14 +33,14 @@ export function DepartmentsSection() {
         <Stagger className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-7" amount={0.12}>
           {departments.map((dept, i) => {
             const doc = doctors.find((d) => d.department === dept.slug)!;
-            const teal = dept.accent === "teal";
+            const rose = dept.accent === "rose";
             const Icon = dept.icon;
 
             return (
               <Reveal key={dept.slug} child variant="up">
                 <TiltCard
                   className="h-full"
-                  glow={teal ? "rgb(13 156 138 / 0.16)" : "rgb(42 111 240 / 0.16)"}
+                  glow={rose ? "rgb(214 104 140 / 0.16)" : "rgb(42 111 240 / 0.16)"}
                 >
                   <Link
                     href={dept.href}
@@ -51,8 +51,8 @@ export function DepartmentsSection() {
                       aria-hidden="true"
                       className={cn(
                         "pointer-events-none absolute inset-0 rounded-[inherit] opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-                        teal
-                          ? "shadow-[inset_0_0_0_1.5px_var(--color-teal-300)]"
+                        rose
+                          ? "shadow-[inset_0_0_0_1.5px_var(--color-rose-300)]"
                           : "shadow-[inset_0_0_0_1.5px_var(--color-brand-300)]",
                       )}
                     />
@@ -70,8 +70,8 @@ export function DepartmentsSection() {
                         aria-hidden="true"
                         className={cn(
                           "absolute inset-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-70",
-                          teal
-                            ? "bg-linear-to-tr from-teal-900/85 via-teal-800/35 to-transparent"
+                          rose
+                            ? "bg-linear-to-tr from-rose-900/85 via-rose-800/35 to-transparent"
                             : "bg-linear-to-tr from-brand-900/85 via-brand-800/35 to-transparent",
                         )}
                       />
@@ -89,7 +89,7 @@ export function DepartmentsSection() {
                           <span
                             className={cn(
                               "inline-flex items-center gap-2 rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-white backdrop-blur",
-                              teal ? "bg-teal-500/85" : "bg-brand-600/85",
+                              rose ? "bg-rose-500/85" : "bg-brand-600/85",
                             )}
                           >
                             {dept.kicker}
@@ -99,7 +99,7 @@ export function DepartmentsSection() {
                         <span
                           className={cn(
                             "grid size-13 shrink-0 place-items-center rounded-2xl text-[1.5rem] text-white shadow-lg transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                            teal ? "bg-teal-500" : "bg-brand-600",
+                            rose ? "bg-rose-500" : "bg-brand-600",
                           )}
                         >
                           <Icon aria-hidden="true" />
@@ -138,8 +138,8 @@ export function DepartmentsSection() {
                             key={s.name}
                             className={cn(
                               "rounded-full px-2.5 py-1 text-[0.74rem] font-medium",
-                              teal
-                                ? "bg-teal-50 text-teal-700"
+                              rose
+                                ? "bg-rose-50 text-rose-700"
                                 : "bg-brand-50 text-brand-700",
                             )}
                           >
@@ -154,7 +154,7 @@ export function DepartmentsSection() {
                       <span
                         className={cn(
                           "mt-7 inline-flex items-center gap-2 text-[0.9rem] font-semibold",
-                          teal ? "text-teal-700" : "text-brand-700",
+                          rose ? "text-rose-700" : "text-brand-700",
                         )}
                       >
                         Explore {dept.shortName}

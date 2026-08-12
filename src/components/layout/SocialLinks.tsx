@@ -37,7 +37,7 @@ export function SocialLinks({
   const tones = {
     light:
       "border border-ink-200 bg-white text-ink-600 hover:border-brand-300 hover:text-brand-700",
-    dark: "border border-white/15 bg-white/5 text-white/70 hover:border-teal-300/60 hover:text-white",
+    dark: "border border-white/15 bg-white/5 text-white/70 hover:border-rose-300/60 hover:text-white",
     bare: "text-ink-500 hover:text-brand-700",
   };
 

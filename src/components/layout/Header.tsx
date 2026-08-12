@@ -136,7 +136,7 @@ export function Header() {
                       <span
                         aria-hidden="true"
                         className={cn(
-                          "absolute inset-x-3.5 bottom-0.5 h-[1.5px] origin-center scale-x-0 rounded-full bg-linear-to-r from-brand-500 to-teal-400 transition-transform duration-400 ease-[var(--ease-out-expo)] group-hover:scale-x-100",
+                          "absolute inset-x-3.5 bottom-0.5 h-[1.5px] origin-center scale-x-0 rounded-full bg-linear-to-r from-brand-500 to-rose-400 transition-transform duration-400 ease-[var(--ease-out-expo)] group-hover:scale-x-100",
                           active && "scale-x-100",
                         )}
                       />

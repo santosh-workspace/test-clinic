@@ -41,7 +41,7 @@ export default function ContactPage() {
       value: "Message us",
       detail: "Questions and booking requests",
       href: links.whatsapp(),
-      accent: "teal" as const,
+      accent: "rose" as const,
     },
     {
       icon: FiMail,
@@ -57,7 +57,7 @@ export default function ContactPage() {
       value: "Open in Maps",
       detail: `${siteConfig.address.locality}, ${siteConfig.address.region}`,
       href: siteConfig.maps.directionsUrl,
-      accent: "teal" as const,
+      accent: "rose" as const,
     },
   ];
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
           <Stagger className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" amount={0.07}>
             {cards.map((card) => {
               const Icon = card.icon;
-              const teal = card.accent === "teal";
+              const rose = card.accent === "rose";
               const external = card.href.startsWith("http");
 
               return (
@@ -95,8 +95,8 @@ export default function ContactPage() {
                   >
                     <span
                       className={
-                        teal
-                          ? "grid size-12 place-items-center rounded-2xl bg-teal-50 text-[1.25rem] text-teal-600 transition-all duration-500 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-teal-500 group-hover:text-white"
+                        rose
+                          ? "grid size-12 place-items-center rounded-2xl bg-rose-50 text-[1.25rem] text-rose-600 transition-all duration-500 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-rose-500 group-hover:text-white"
                           : "grid size-12 place-items-center rounded-2xl bg-brand-50 text-[1.25rem] text-brand-600 transition-all duration-500 group-hover:-rotate-6 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white"
                       }
                     >
@@ -174,7 +174,7 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal variant="up" delay={0.16} className="lg:col-span-1">
-              <div className="flex h-full flex-col rounded-[var(--radius-xl2)] border border-ink-100 bg-linear-to-br from-brand-50 to-teal-50/70 p-7">
+              <div className="flex h-full flex-col rounded-[var(--radius-xl2)] border border-ink-100 bg-linear-to-br from-brand-50 to-rose-50/70 p-7">
                 <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
                   Follow the hospital
                 </p>

@@ -33,7 +33,7 @@ type Category = {
   eyebrow: string;
   segments: { text: string; accent?: boolean }[];
   lead: string;
-  accent: "brand" | "teal";
+  accent: "brand" | "rose";
   items: { name: string; description: string; icon: React.ComponentType }[];
   image: (typeof img)[keyof typeof img];
   href?: string;
@@ -65,7 +65,7 @@ export default function ServicesPage() {
       eyebrow: "Eye care services",
       segments: [{ text: "Vision, checked" }, { text: "properly", accent: true }],
       lead: eyeCare.intro,
-      accent: "teal",
+      accent: "rose",
       items: eyeCare.services,
       image: img.eyeExam,
       href: eyeCare.href,
@@ -123,7 +123,7 @@ export default function ServicesPage() {
       </PageHero>
 
       {categories.map((cat, i) => {
-        const teal = cat.accent === "teal";
+        const rose = cat.accent === "rose";
         return (
           <Section
             key={cat.id}
@@ -156,7 +156,7 @@ export default function ServicesPage() {
                     <div className="mt-7 flex flex-wrap gap-3">
                       <ButtonLink
                         href="/appointment"
-                        variant={teal ? "teal" : "primary"}
+                        variant={rose ? "rose" : "primary"}
                         arrow
                       >
                         Book appointment
@@ -166,8 +166,8 @@ export default function ServicesPage() {
                           href={cat.href}
                           className={cn(
                             "inline-flex items-center gap-1.5 self-center text-[0.9rem] font-semibold transition-colors",
-                            teal
-                              ? "text-teal-700 hover:text-teal-800"
+                            rose
+                              ? "text-rose-700 hover:text-rose-800"
                               : "text-brand-700 hover:text-brand-800",
                           )}
                         >
@@ -197,7 +197,7 @@ export default function ServicesPage() {
                             className="h-full"
                             intensity={4}
                             glow={
-                              teal ? "rgb(13 156 138 / 0.13)" : "rgb(42 111 240 / 0.13)"
+                              rose ? "rgb(214 104 140 / 0.13)" : "rgb(42 111 240 / 0.13)"
                             }
                           >
                             <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-ink-100 bg-white p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
@@ -205,8 +205,8 @@ export default function ServicesPage() {
                                 <span
                                   className={cn(
                                     "grid size-11 shrink-0 place-items-center rounded-xl text-[1.2rem] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                                    teal
-                                      ? "bg-teal-50 text-teal-600 group-hover:bg-teal-500 group-hover:text-white"
+                                    rose
+                                      ? "bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
                                       : "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
                                   )}
                                 >

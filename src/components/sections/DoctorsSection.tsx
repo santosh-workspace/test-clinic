@@ -31,7 +31,7 @@ export function DoctorsSection() {
         <Stagger className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8" amount={0.14}>
           {doctors.map((doc) => {
             const dept = departments.find((d) => d.slug === doc.department)!;
-            const teal = dept.accent === "teal";
+            const rose = dept.accent === "rose";
 
             return (
               <Reveal key={doc.slug} child variant="up">
@@ -54,8 +54,8 @@ export function DoctorsSection() {
                         aria-hidden="true"
                         className={cn(
                           "absolute inset-0 opacity-0 mix-blend-multiply transition-opacity duration-500 group-hover:opacity-100",
-                          teal
-                            ? "bg-linear-to-t from-teal-900/40 to-transparent"
+                          rose
+                            ? "bg-linear-to-t from-rose-900/40 to-transparent"
                             : "bg-linear-to-t from-brand-900/40 to-transparent",
                         )}
                       />
@@ -63,7 +63,7 @@ export function DoctorsSection() {
                       <span
                         className={cn(
                           "absolute left-3 top-3 rounded-full px-2.5 py-1 text-[0.68rem] font-bold uppercase tracking-[0.1em] text-white shadow-md backdrop-blur",
-                          teal ? "bg-teal-600/90" : "bg-brand-700/90",
+                          rose ? "bg-rose-600/90" : "bg-brand-700/90",
                         )}
                       >
                         {doc.experience}
@@ -75,7 +75,7 @@ export function DoctorsSection() {
                       <p
                         className={cn(
                           "text-[0.7rem] font-semibold uppercase tracking-[0.18em]",
-                          teal ? "text-teal-600" : "text-brand-600",
+                          rose ? "text-rose-600" : "text-brand-600",
                         )}
                       >
                         {dept.name}
@@ -92,7 +92,7 @@ export function DoctorsSection() {
                             aria-hidden="true"
                             className={cn(
                               "mt-0.5 shrink-0",
-                              teal ? "text-teal-500" : "text-brand-500",
+                              rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
                           <dd className="font-medium text-ink-800">{doc.qualification}</dd>
@@ -103,7 +103,7 @@ export function DoctorsSection() {
                             aria-hidden="true"
                             className={cn(
                               "mt-0.5 shrink-0",
-                              teal ? "text-teal-500" : "text-brand-500",
+                              rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
                           <dd className="text-ink-600">
@@ -116,7 +116,7 @@ export function DoctorsSection() {
                             aria-hidden="true"
                             className={cn(
                               "mt-0.5 shrink-0",
-                              teal ? "text-teal-500" : "text-brand-500",
+                              rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
                           <dd className="text-ink-600">{doc.languages.join(" · ")}</dd>
@@ -139,8 +139,8 @@ export function DoctorsSection() {
                           href={`/doctors#${doc.slug}`}
                           className={cn(
                             "inline-flex items-center gap-1.5 text-[0.89rem] font-semibold transition-colors",
-                            teal
-                              ? "text-teal-700 hover:text-teal-800"
+                            rose
+                              ? "text-rose-700 hover:text-rose-800"
                               : "text-brand-700 hover:text-brand-800",
                           )}
                         >

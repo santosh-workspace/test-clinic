@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
  * duplicate track so screen readers hear each quote exactly once.
  */
 function ReviewCard({ item }: { item: Testimonial }) {
-  const teal = item.department === "eye-care";
+  const rose = item.department === "pediatrics";
 
   return (
     <figure className="flex h-full w-[19rem] shrink-0 flex-col rounded-[1.4rem] border border-ink-100 bg-white p-6 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:w-[22rem]">
@@ -40,7 +40,7 @@ function ReviewCard({ item }: { item: Testimonial }) {
 
       <FaQuoteLeft
         aria-hidden="true"
-        className={cn("mt-5 size-5", teal ? "text-teal-300" : "text-brand-300")}
+        className={cn("mt-5 size-5", rose ? "text-rose-300" : "text-brand-300")}
       />
 
       <blockquote className="mt-3 flex-1 text-[0.93rem] leading-relaxed text-ink-700">
@@ -51,7 +51,7 @@ function ReviewCard({ item }: { item: Testimonial }) {
         <span
           className={cn(
             "grid size-9 shrink-0 place-items-center rounded-full text-[0.8rem] font-bold",
-            teal ? "bg-teal-50 text-teal-700" : "bg-brand-50 text-brand-700",
+            rose ? "bg-rose-50 text-rose-700" : "bg-brand-50 text-brand-700",
           )}
           aria-hidden="true"
         >

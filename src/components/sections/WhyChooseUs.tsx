@@ -19,7 +19,7 @@ export function WhyChooseUs() {
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-teal-500/14 blur-[120px]"
+        className="pointer-events-none absolute -right-32 bottom-0 h-[26rem] w-[26rem] rounded-full bg-rose-500/14 blur-[120px]"
       />
 
       <div className="container-page relative">
@@ -39,7 +39,7 @@ export function WhyChooseUs() {
         <div className="relative mt-16">
           <span
             aria-hidden="true"
-            className="absolute left-[1.4rem] top-2 hidden h-[calc(100%-2rem)] w-px bg-linear-to-b from-teal-400/60 via-brand-400/30 to-transparent md:block"
+            className="absolute left-[1.4rem] top-2 hidden h-[calc(100%-2rem)] w-px bg-linear-to-b from-rose-400/60 via-brand-400/30 to-transparent md:block"
           />
 
           <Stagger className="space-y-10 md:space-y-12" amount={0.13}>
@@ -50,7 +50,7 @@ export function WhyChooseUs() {
                   <div className="group grid gap-5 md:grid-cols-[3rem_1fr] md:gap-8">
                     {/* Node */}
                     <div className="relative flex md:justify-center">
-                      <span className="relative z-10 grid size-12 place-items-center rounded-2xl border border-white/15 bg-ink-900 text-[1.25rem] text-teal-300 transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:border-teal-300/60 group-hover:bg-teal-500 group-hover:text-white">
+                      <span className="relative z-10 grid size-12 place-items-center rounded-2xl border border-white/15 bg-ink-900 text-[1.25rem] text-rose-300 transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:border-rose-300/60 group-hover:bg-rose-500 group-hover:text-white">
                         <Icon aria-hidden="true" />
                       </span>
                     </div>
@@ -87,7 +87,7 @@ export function WhyChooseUs() {
             <Reveal key={stat.label} child variant="up">
               <div className="h-full bg-ink-950 px-5 py-8 text-center md:px-6 md:py-10">
                 <p className="font-display text-[2.6rem] leading-none text-transparent md:text-[3.2rem]">
-                  <span className="bg-linear-to-br from-white via-teal-200 to-brand-300 bg-clip-text">
+                  <span className="bg-linear-to-br from-white via-rose-200 to-brand-300 bg-clip-text">
                     <Counter value={stat.value} suffix={stat.suffix} />
                   </span>
                 </p>

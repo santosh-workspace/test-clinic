@@ -7,7 +7,7 @@ import { FinalCTA } from "@/components/sections/FinalCTA";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { departments, faqsEyeCare, faqsPediatrics } from "@/config/content";
+import { departments, faqsEyeCare, faqsPediatricSurgery } from "@/config/content";
 import { getDoctorByDepartment, siteConfig } from "@/config/site";
 import {
   breadcrumbSchema,
@@ -55,7 +55,7 @@ export default async function DepartmentPage({
   if (!dept) notFound();
 
   const doctor = getDoctorByDepartment(dept.slug);
-  const faqs = dept.slug === "pediatrics" ? faqsPediatrics : faqsEyeCare;
+  const faqs = dept.slug === "pediatric-surgery" ? faqsPediatricSurgery : faqsEyeCare;
 
   const crumbs = [
     { name: "Home", href: "/" },

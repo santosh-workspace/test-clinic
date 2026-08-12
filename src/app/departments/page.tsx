@@ -15,8 +15,8 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: `Departments — Paediatrics & Eye Care in ${siteConfig.city}`,
-  description: `Two specialist departments at Yogeshwari Hospital, ${siteConfig.city}: paediatrics with Dr. Ramdash D. Nagargoje and eye care with Dr. Manisha Nagargoje (Sanap).`,
+  title: `Departments — Paediatric Surgery & Eye Care in ${siteConfig.city}`,
+  description: `Two specialist departments at Yogeshwari Hospital, ${siteConfig.city}: paediatric surgery with Dr. Ramdas D. Nagargoje, M.Ch., and eye care with Dr. Manisha Nagargoje (Sanap), D.O.M.S.`,
   alternates: { canonical: "/departments" },
 };
 
@@ -30,7 +30,7 @@ export default function DepartmentsPage() {
     <>
       <JsonLd
         data={graph(
-          medicalClinicSchema("pediatrics"),
+          medicalClinicSchema("pediatric-surgery"),
           medicalClinicSchema("eye-care"),
           faqSchema(faqsGeneral),
           breadcrumbSchema(crumbs),
@@ -43,7 +43,7 @@ export default function DepartmentsPage() {
           { text: "Two specialities," },
           { text: "one hospital", accent: true },
         ]}
-        lead={`Paediatrics and eye care operate side by side in ${siteConfig.city} — so a family can see both specialists in a single visit rather than across two appointments in two buildings.`}
+        lead={`Paediatric surgery and eye care operate side by side in ${siteConfig.city} — so a family can see both specialists in a single visit rather than across two appointments in two buildings.`}
         crumbs={crumbs}
       />
 

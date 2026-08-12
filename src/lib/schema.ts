@@ -178,14 +178,20 @@ export function physicianSchema(slug: string) {
     jobTitle: doc.role,
     description: doc.bio[0],
     url: abs(`doctors#${doc.slug}`),
-    image: abs(`images/doctors/${doc.slug}.jpg`),
-    medicalSpecialty: doc.department === "pediatrics" ? "Pediatric" : "Ophthalmologic",
+    image: abs(doc.photo.replace(/^\//, "")),
+    medicalSpecialty: doc.department === "pediatric-surgery" ? "Pediatric" : "Ophthalmologic",
     knowsLanguage: doc.languages,
     knowsAbout: doc.specializations,
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "degree",
       name: doc.qualification,
+    },
+    /* State medical council registration — a strong entity signal for a doctor. */
+    identifier: {
+      "@type": "PropertyValue",
+      name: "Medical Council Registration",
+      value: doc.registration,
     },
     worksFor: { "@id": ids.hospital },
     memberOf: { "@id": ids.department(dept.slug) },
@@ -198,7 +204,7 @@ export function physicianSchema(slug: string) {
   };
 }
 
-export function medicalClinicSchema(slug: "pediatrics" | "eye-care") {
+export function medicalClinicSchema(slug: "pediatric-surgery" | "eye-care") {
   const dept = departments.find((d) => d.slug === slug)!;
   const doc = doctors.find((d) => d.department === slug)!;
 
@@ -212,7 +218,7 @@ export function medicalClinicSchema(slug: "pediatrics" | "eye-care") {
     address: postalAddress,
     geo: geoCoordinates,
     openingHoursSpecification: openingHours,
-    medicalSpecialty: slug === "pediatrics" ? "Pediatric" : "Ophthalmologic",
+    medicalSpecialty: slug === "pediatric-surgery" ? "Pediatric" : "Ophthalmologic",
     isPartOf: { "@id": ids.hospital },
     physician: { "@id": ids.doctor(doc.slug) },
     availableService: dept.services.map((s) => ({

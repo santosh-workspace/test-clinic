@@ -27,7 +27,7 @@ export function DepartmentsSection() {
             { text: "one" },
             { text: "waiting room", accent: true },
           ]}
-          lead="A family rarely needs just one kind of doctor. Paediatrics and eye care run from the same building, so a child's vaccination and a grandparent's cataract review can happen on the same morning."
+          lead="A family rarely needs just one kind of doctor. Paediatric surgery and eye care run from the same building, so a child's surgical review and a grandparent's cataract opinion can happen on the same morning."
         />
 
         <Stagger className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-7" amount={0.12}>

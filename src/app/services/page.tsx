@@ -10,15 +10,15 @@ import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Reveal, Stagger } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { TiltCard } from "@/components/ui/TiltCard";
-import { departments, faqsGeneral, surgicalServices } from "@/config/content";
+import { departments, faqsGeneral, emergencyServices } from "@/config/content";
 import { img } from "@/config/images";
 import { doctors, siteConfig } from "@/config/site";
 import { breadcrumbSchema, faqSchema, graph, hospitalSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: `Services — Paediatric & Eye Care in ${siteConfig.city}`,
-  description: `Full service list at Yogeshwari Hospital, ${siteConfig.city}: child consultation, newborn care, vaccination, growth monitoring, eye examination, cataract and glaucoma screening, and surgical consultation.`,
+  title: `Services — Paediatric Surgery & Eye Care in ${siteConfig.city}`,
+  description: `Full service list at Yogeshwari Hospital, ${siteConfig.city}: newborn and infant surgery, laparoscopic procedures, paediatric urology, urodynamics, constipation clinic, eye examination, cataract and glaucoma screening, and emergency child surgery.`,
   alternates: { canonical: "/services" },
 };
 
@@ -42,22 +42,22 @@ type Category = {
 };
 
 export default function ServicesPage() {
-  const pediatrics = departments.find((d) => d.slug === "pediatrics")!;
+  const pediatricSurgery = departments.find((d) => d.slug === "pediatric-surgery")!;
   const eyeCare = departments.find((d) => d.slug === "eye-care")!;
 
   const categories: Category[] = [
     {
-      id: "pediatric-services",
+      id: "pediatric-surgery-services",
       index: "01",
-      eyebrow: "Paediatric services",
-      segments: [{ text: "Child health," }, { text: "start to finish", accent: true }],
-      lead: pediatrics.intro,
-      accent: "brand",
-      items: pediatrics.services,
+      eyebrow: "Paediatric surgery",
+      segments: [{ text: "Surgery scaled" }, { text: "to a child", accent: true }],
+      lead: pediatricSurgery.intro,
+      accent: "rose",
+      items: pediatricSurgery.services,
       image: img.newborn,
-      href: pediatrics.href,
-      hrefLabel: "Paediatrics department",
-      doctorName: doctors[0].name,
+      href: pediatricSurgery.href,
+      hrefLabel: "Paediatric surgery department",
+      doctorName: `${doctors[0].name}, ${doctors[0].superSpeciality}`,
     },
     {
       id: "eye-care-services",
@@ -65,21 +65,21 @@ export default function ServicesPage() {
       eyebrow: "Eye care services",
       segments: [{ text: "Vision, checked" }, { text: "properly", accent: true }],
       lead: eyeCare.intro,
-      accent: "rose",
+      accent: "brand",
       items: eyeCare.services,
       image: img.eyeExam,
       href: eyeCare.href,
       hrefLabel: "Eye care department",
-      doctorName: doctors[1].name,
+      doctorName: `${doctors[1].name}, ${doctors[1].superSpeciality}`,
     },
     {
-      id: "surgical-consultations",
+      id: "emergency-and-day-care",
       index: "03",
-      eyebrow: "Surgical consultations",
-      segments: [{ text: "An honest opinion" }, { text: "on surgery", accent: true }],
-      lead: "Assessment, planning and follow-up for both departments — including the cases where the right advice is to wait rather than operate.",
-      accent: "brand",
-      items: surgicalServices,
+      eyebrow: "Emergency & day care",
+      segments: [{ text: "When it" }, { text: "cannot wait", accent: true }],
+      lead: "Accident and trauma, acute abdomen, and the pre- and post-operative care around a planned procedure — including the cases where the right advice is to wait rather than operate.",
+      accent: "rose",
+      items: emergencyServices,
       image: img.operatingTheatre,
     },
   ];
@@ -93,10 +93,10 @@ export default function ServicesPage() {
       <PageHero
         eyebrow="Services"
         segments={[
-          { text: "Twenty-two services," },
+          { text: "Twenty-six services," },
           { text: "two specialists", accent: true },
         ]}
-        lead={`Everything Yogeshwari Hospital offers across paediatrics, eye care and surgical consultation in ${siteConfig.city}.`}
+        lead={`Everything Yogeshwari Hospital offers across paediatric surgery, eye care, and emergency and day-care procedures in ${siteConfig.city}.`}
         crumbs={crumbs}
       >
         {/* In-page jump nav — doubles as internal linking */}

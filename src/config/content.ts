@@ -2,26 +2,29 @@ import type { IconType } from "react-icons";
 import {
   FiActivity,
   FiAlertCircle,
+  FiAlertTriangle,
   FiAward,
   FiClock,
+  FiCrosshair,
   FiDroplet,
   FiEye,
   FiHeart,
   FiHome,
   FiLayers,
+  FiRefreshCw,
   FiShield,
-  FiSmile,
   FiSun,
-  FiThermometer,
-  FiTrendingUp,
+  FiTarget,
   FiUserCheck,
   FiUsers,
+  FiWind,
+  FiZap,
 } from "react-icons/fi";
 import { img } from "./images";
 import { siteConfig } from "./site";
 
 export type Department = {
-  slug: "pediatrics" | "eye-care";
+  slug: "pediatric-surgery" | "eye-care";
   href: string;
   name: string;
   shortName: string;
@@ -40,89 +43,113 @@ export type Department = {
 
 export const departments: Department[] = [
   {
-    slug: "pediatrics",
-    href: "/departments/pediatrics",
-    name: "Paediatrics",
-    shortName: "Paediatrics",
-    kicker: "Child health, birth to adolescence",
-    headline: "Care that grows with your child",
+    slug: "pediatric-surgery",
+    href: "/departments/pediatric-surgery",
+    name: "Paediatric Surgery",
+    shortName: "Paediatric Surgery",
+    kicker: "Newborn & child surgical care",
+    headline: "Surgery scaled to a child",
     intro:
-      "From the first newborn examination to the last school health check, one paediatrician who knows your child's history.",
+      "A dedicated paediatric surgeon for newborns, infants and children — from keyhole abdominal surgery to paediatric urology, brain and spine procedures, and emergency trauma.",
     description: [
-      "The paediatric department at Yogeshwari Hospital handles the full arc of childhood health — newborn assessment, immunisation, growth and nutrition, the fevers and infections of the school years, and surgical evaluation when a child needs it.",
-      "Continuity is the point. Seeing the same doctor each visit means the growth chart tells a story rather than showing a single dot, and a parent's instinct that 'something is different this time' is heard against a real baseline.",
-      "Consultations are unhurried, instructions are written down, and you leave knowing exactly what to watch for at home and when to come back.",
+      "Children are not small adults. Their airway, fluid balance, blood volume, drug dosing and pain response all differ, and a newborn weighing two kilograms leaves almost no margin for error. That is why paediatric surgery is a separate super-speciality with its own training pathway, and why Yogeshwari Hospital runs it as a dedicated department.",
+      "Dr. Ramdas D. Nagargoje holds an M.Ch. in Paediatric Surgery and trained at K.E.M. Hospital and B.J. Wadia Hospital for Children, Mumbai — the latter among India's foremost paediatric centres. The department covers newborn and infant surgery, laparoscopic abdominal procedures, paediatric urology including urodynamic assessment, brain and spine surgery, airway and tracheal work, endoscopy and thoracoscopy, and emergency trauma.",
+      "Wherever it is a genuine option, the approach is the least invasive one that solves the problem: keyhole rather than open, day-care rather than admission, and watchful waiting rather than an operation when the condition will settle on its own. You will be told plainly which of those applies to your child.",
     ],
     accent: "rose",
-    icon: FiSmile,
+    icon: FiHeart,
     image: img.motherChildren,
     heroImage: img.pediatricExam,
     services: [
       {
-        name: "Child Consultation",
+        name: "Newborn & Infant Surgery",
         description:
-          "A full assessment for any concern — from a persistent cough to a change in behaviour — with time to talk through what is going on.",
-        icon: FiUserCheck,
-      },
-      {
-        name: "Newborn Care",
-        description:
-          "First examination, jaundice and weight monitoring, feeding support, and the early follow-up that catches problems while they are still small.",
+          "Surgery on newborns and young children, including congenital malformations that need correcting in the first days or weeks of life.",
         icon: FiHeart,
       },
       {
-        name: "Vaccination & Immunisation",
+        name: "Laparoscopic Abdominal Surgery",
         description:
-          "The complete IAP schedule, tracked visit by visit, with reminders so no dose is missed and catch-up planning if one already has been.",
-        icon: FiShield,
+          "Keyhole abdominal procedures through a few millimetre-sized ports — less pain, a smaller scar and a faster return to normal activity than open surgery.",
+        icon: FiCrosshair,
       },
       {
-        name: "Growth Monitoring",
+        name: "Paediatric Urology",
         description:
-          "Height, weight and head circumference plotted against standard curves, plus milestone review, so deviations show up early.",
-        icon: FiTrendingUp,
+          "Surgery of the kidney, ureter, bladder and genitalia in children, covering conditions such as hydronephrosis, reflux, hypospadias and undescended testis.",
+        icon: FiDroplet,
       },
       {
-        name: "Fever & Infection Management",
+        name: "Urodynamics Study & Treatment",
         description:
-          "Assessment of fever, respiratory and gastrointestinal infection, with investigation only where it changes the treatment.",
-        icon: FiThermometer,
-      },
-      {
-        name: "Nutrition Counselling",
-        description:
-          "Practical feeding guidance for poor weight gain, fussy eating, anaemia and the transition to family food.",
+          "Objective measurement of how a child's bladder fills and empties, used to plan treatment for daytime wetting, recurrent infection and neurogenic bladder.",
         icon: FiActivity,
       },
       {
-        name: "Paediatric Surgery Consultation",
+        name: "Constipation Clinic",
         description:
-          "Evaluation of hernia, hydrocele, undescended testis and similar conditions, with a clear opinion on whether surgery is needed and when.",
+          "A dedicated clinic for chronic childhood constipation and soiling — assessment for an underlying cause first, then a structured bowel programme rather than repeat laxatives.",
+        icon: FiRefreshCw,
+      },
+      {
+        name: "Prenatal Consultation & Guidance",
+        description:
+          "Counselling for parents when a scan detects a congenital malformation before birth: what it means, what surgery may involve, and how delivery should be planned.",
+        icon: FiUsers,
+      },
+      {
+        name: "Brain & Spine Surgery",
+        description:
+          "Paediatric neurosurgical procedures, including hydrocephalus and spinal dysraphism such as spina bifida and tethered cord.",
+        icon: FiTarget,
+      },
+      {
+        name: "Airway & Tracheal Treatment",
+        description:
+          "Management of tracheal and airway problems in children, including stridor, narrowing and inhaled foreign bodies.",
+        icon: FiWind,
+      },
+      {
+        name: "Endoscopy & Thoracoscopy",
+        description:
+          "Diagnostic and therapeutic scope procedures of the gastrointestinal tract and the chest, avoiding a large incision wherever possible.",
         icon: FiLayers,
       },
       {
-        name: "Child Health Check-ups",
+        name: "Emergency Paediatric Surgery",
         description:
-          "Scheduled preventive reviews covering vision, hearing, dental, development and nutrition in a single visit.",
+          "Urgent operative care for acute abdomen, obstruction, incarcerated hernia, torsion and other conditions where delay costs outcome.",
+        icon: FiAlertTriangle,
+      },
+      {
+        name: "Accident & Trauma Care",
+        description:
+          "Assessment and surgical management of childhood injury — falls, burns, road accidents and abdominal or chest trauma.",
+        icon: FiZap,
+      },
+      {
+        name: "Scientific Ear Piercing",
+        description:
+          "Ear piercing performed under sterile conditions with correct placement and clear aftercare, avoiding the infection and keloid risk of unhygienic piercing.",
         icon: FiAward,
       },
     ],
-    metaTitle: `Paediatrician in ${siteConfig.city} | Child Specialist`,
-    metaDescription: `Paediatric care in ${siteConfig.city} — newborn care, vaccination, growth monitoring and child health check-ups with Dr. Ramdash D. Nagargoje at Yogeshwari Hospital. Book an appointment.`,
+    metaTitle: `Paediatric Surgeon in ${siteConfig.city} | Child Surgery`,
+    metaDescription: `Paediatric surgery in ${siteConfig.city} — newborn and infant surgery, laparoscopic procedures, paediatric urology, urodynamics, constipation clinic and emergency child surgery with Dr. Ramdas D. Nagargoje, M.Ch. (Paediatric Surgery).`,
   },
   {
     slug: "eye-care",
     href: "/departments/eye-care",
     name: "Eye Care & Ophthalmology",
     shortName: "Eye Care",
-    kicker: "Vision, screening and eye surgery",
+    kicker: "Vision, screening and eye care",
     headline: "Sight is worth protecting early",
     intro:
-      "Most sight loss is preventable — if it is found in time. Comprehensive examination, screening and surgical evaluation under one roof.",
+      "Most sight loss is preventable — if it is found in time. Comprehensive examination, vision testing, and screening for cataract, glaucoma and diabetic eye disease.",
     description: [
-      "The eye department covers the whole path from a routine vision check to surgical planning: refraction and spectacle prescription, cataract evaluation, glaucoma screening, diabetic retinal examination, and treatment of dry eye and ocular surface disease.",
+      "The eye department covers the whole path from a routine vision check to surgical assessment: refraction and spectacle prescription, cataract evaluation, glaucoma screening, diabetic retinal examination, and treatment of dry eye and ocular surface disease.",
       "Two conditions in particular take sight quietly. Glaucoma damages the optic nerve years before central vision changes, and diabetic retinopathy progresses without pain or blurring until it is advanced. Both are found by examination, not by symptoms — which is why an annual check matters even when your eyes feel fine.",
-      "Every finding is explained: what the test showed, what it means for your sight, and what happens next.",
+      "Dr. Manisha Nagargoje (Sanap) also screens children's vision, which pairs naturally with the paediatric department: squint, refractive error and lazy eye all respond far better when they are picked up before school age than after.",
     ],
     accent: "brand",
     icon: FiEye,
@@ -172,34 +199,40 @@ export const departments: Department[] = [
         icon: FiAlertCircle,
       },
       {
-        name: "Eye Surgery Consultation",
+        name: "Paediatric Vision Screening",
         description:
-          "Pre-operative evaluation, biometry and surgical planning, along with the post-operative review that follows.",
-        icon: FiAward,
+          "Checks for squint, refractive error and lazy eye in children, where early detection changes the long-term outcome.",
+        icon: FiUserCheck,
       },
     ],
     metaTitle: `Eye Specialist in ${siteConfig.city} | Ophthalmologist`,
-    metaDescription: `Eye care in ${siteConfig.city} — comprehensive eye examination, cataract consultation, glaucoma and diabetic eye screening with Dr. Manisha Nagargoje (Sanap) at Yogeshwari Hospital.`,
+    metaDescription: `Eye care in ${siteConfig.city} — comprehensive eye examination, vision testing, cataract consultation, glaucoma and diabetic eye screening with Dr. Manisha Nagargoje (Sanap), D.O.M.S.`,
   },
 ];
 
 export const getDepartment = (slug: Department["slug"]) =>
   departments.find((d) => d.slug === slug)!;
 
-/* ── Surgical consultations (third services category) ─────────────────────── */
+/* ── Emergency & day-care (third services category) ───────────────────────── */
 
-export const surgicalServices = [
+export const emergencyServices = [
   {
-    name: "Cataract Surgery Consultation",
+    name: "Accident & Emergency",
     description:
-      "Biometry, intraocular lens selection and a realistic account of the visual outcome you can expect, before anything is scheduled.",
-    icon: FiEye,
+      "Immediate assessment of childhood injury and acute surgical conditions, with a decision on whether the child needs theatre, admission or observation.",
+    icon: FiAlertTriangle,
   },
   {
-    name: "Paediatric Surgical Assessment",
+    name: "Acute Abdomen",
     description:
-      "Evaluation of common childhood surgical conditions — hernia, hydrocele, undescended testis — including whether watchful waiting is the better option.",
-    icon: FiSmile,
+      "Urgent evaluation of severe abdominal pain, vomiting and obstruction — appendicitis, intussusception, incarcerated hernia and torsion.",
+    icon: FiAlertCircle,
+  },
+  {
+    name: "Day-care Surgery",
+    description:
+      "Selected procedures completed with same-day discharge, so a child recovers at home rather than on a ward.",
+    icon: FiHome,
   },
   {
     name: "Pre-operative Evaluation",
@@ -214,16 +247,10 @@ export const surgicalServices = [
     icon: FiHeart,
   },
   {
-    name: "Second Opinion",
+    name: "Surgical Second Opinion",
     description:
-      "An independent review of a surgical recommendation made elsewhere, with the reasoning explained in plain language.",
+      "An independent review of an operation recommended elsewhere, with the reasoning explained in plain language — including when the answer is to wait.",
     icon: FiLayers,
-  },
-  {
-    name: "Day-care Procedures",
-    description:
-      "Minor procedures completed with same-day discharge, so recovery happens at home rather than in a ward.",
-    icon: FiHome,
   },
 ];
 
@@ -231,32 +258,36 @@ export const surgicalServices = [
 
 export const differentiators = [
   {
+    title: "A super-specialist, not a generalist",
+    body: "Paediatric surgery is a separate qualification beyond general surgery. Dr. Ramdas holds an M.Ch. in it and trained at B.J. Wadia Hospital for Children, Mumbai — so a newborn is operated on by someone who does this specifically, not occasionally.",
+    icon: FiAward,
+  },
+  {
     title: "Two specialities, one family practice",
-    body: "A paediatrician and an ophthalmologist working under one roof — so a child needing a vision check and a grandparent needing a cataract opinion are seen in the same building, on the same day.",
+    body: "A paediatric surgeon and an ophthalmologist under one roof — so a child's surgical review and a grandparent's cataract opinion can happen in the same building on the same day.",
     icon: FiUsers,
   },
   {
-    title: "The same doctor, every visit",
-    body: "Continuity is not a luxury in medicine. Seeing the same specialist means your history is known and small changes are noticed against a real baseline.",
-    icon: FiUserCheck,
+    title: "The least invasive option that works",
+    body: "Keyhole rather than open, day-care rather than admission, and watchful waiting rather than an operation when the condition will settle by itself. You are told plainly which one applies.",
+    icon: FiCrosshair,
   },
   {
     title: "Unhurried consultations",
     body: "Time to describe the problem properly, ask what you actually want to ask, and leave with written instructions rather than a half-remembered explanation.",
     icon: FiClock,
   },
-  {
-    title: "Investigation only when it changes something",
-    body: "Tests are ordered when the result will alter the treatment — not to fill a file. It keeps costs down and keeps the focus on the diagnosis.",
-    icon: FiShield,
-  },
 ];
 
-/** TODO: replace with real, verifiable figures before publishing. */
+/**
+ * TODO: confirm these figures before publishing.
+ * The year counts are inferred from the doctors' state registration years
+ * (2002 and 2004), so they are conservative rather than exact.
+ */
 export const stats = [
-  { value: 15, suffix: "+", label: "Years of paediatric practice" },
-  { value: 12, suffix: "+", label: "Years in ophthalmology" },
-  { value: 2, suffix: "", label: "Specialist departments" },
+  { value: 20, suffix: "+", label: "Years in paediatric surgery" },
+  { value: 20, suffix: "+", label: "Years in ophthalmology" },
+  { value: 12, suffix: "", label: "Paediatric surgical services" },
   { value: 6, suffix: "", label: "Days a week OPD" },
 ];
 
@@ -273,17 +304,17 @@ export type Testimonial = {
   author: string;
   context: string;
   rating: number;
-  department: "pediatrics" | "eye-care" | "general";
+  department: "pediatric-surgery" | "eye-care" | "general";
 };
 
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Our daughter had been running a fever for four days and we were getting frantic. The doctor examined her properly, explained why he was not rushing to antibiotics, and wrote down exactly what to watch for. She was fine by the weekend.",
+      "Our son needed a hernia repair at eight months and we were terrified. It was done by keyhole, he was discharged the same day, and the doctor drew a diagram so we actually understood what had been done.",
     author: "Placeholder — parent",
-    context: "Paediatric consultation",
+    context: "Laparoscopic surgery",
     rating: 5,
-    department: "pediatrics",
+    department: "pediatric-surgery",
   },
   {
     quote:
@@ -295,19 +326,19 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
+      "Two years of constipation and we had been given syrup after syrup. Here it was actually investigated and a proper plan put in place. First real improvement we have seen.",
+    author: "Placeholder — parent",
+    context: "Constipation clinic",
+    rating: 5,
+    department: "pediatric-surgery",
+  },
+  {
+    quote:
       "What I appreciated most was not being made to feel like I was wasting anyone's time. Every question got a real answer, and nobody looked at the clock.",
     author: "Placeholder — patient",
     context: "Eye examination",
     rating: 5,
     department: "eye-care",
-  },
-  {
-    quote:
-      "We have been bringing both children here since they were born. The vaccination record is properly maintained and we get a reminder before every due date.",
-    author: "Placeholder — parent",
-    context: "Immunisation",
-    rating: 5,
-    department: "pediatrics",
   },
   {
     quote:
@@ -319,11 +350,11 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Clean, calm and organised. With a newborn, not having to wait two hours in a crowded room makes an enormous difference.",
+      "A scan at seven months showed a problem with the baby's kidney. Sitting with a paediatric surgeon before the delivery, knowing what would happen and when, made the rest of the pregnancy bearable.",
     author: "Placeholder — parent",
-    context: "Newborn care",
+    context: "Prenatal consultation",
     rating: 5,
-    department: "pediatrics",
+    department: "pediatric-surgery",
   },
 ];
 
@@ -335,7 +366,7 @@ export const faqsGeneral: Faq[] = [
   {
     question: "Do I need an appointment, or can I walk in?",
     answer:
-      "Walk-in patients are seen during OPD hours, but booking ahead means a fixed slot and a much shorter wait. You can book online, send a WhatsApp message, or call the hospital directly.",
+      "Walk-in patients are seen during OPD hours, but booking ahead means a fixed slot and a much shorter wait. You can book online, send a WhatsApp message, or call the hospital directly. Emergencies are seen without an appointment.",
   },
   {
     question: "What are the OPD timings?",
@@ -353,45 +384,55 @@ export const faqsGeneral: Faq[] = [
   {
     question: "Can both departments be seen in one visit?",
     answer:
-      "Yes. Paediatrics and eye care operate from the same building, so a family can arrange consultations with both specialists on the same day. Mention it when booking and reception will sequence the slots.",
+      "Yes. Paediatric surgery and eye care operate from the same building, so a family can arrange consultations with both specialists on the same day. Mention it when booking and reception will sequence the slots.",
   },
   {
     question: "What should I bring to my appointment?",
     answer:
-      "Bring any previous prescriptions, test reports, discharge summaries and, for children, the immunisation card. If you wear spectacles, bring your current pair and the most recent prescription.",
+      "Bring any previous prescriptions, scans, test reports and discharge summaries. For a surgical opinion, bring the actual imaging films or CD rather than only the report. If you wear spectacles, bring your current pair and the most recent prescription.",
   },
 ];
 
-export const faqsPediatrics: Faq[] = [
+export const faqsPediatricSurgery: Faq[] = [
   {
-    question: "At what age should a child's first check-up happen?",
+    question: "What is a paediatric surgeon, and why not a general surgeon?",
     answer:
-      "Within the first week of life, and then at regular intervals through the first two years. These early visits establish the growth curve and confirm that feeding, weight gain and reflexes are all developing as expected.",
+      "Paediatric surgery is a super-speciality requiring an M.Ch. after general surgery training. Children differ from adults in airway, fluid balance, blood volume, drug dosing and pain response, and many of the conditions operated on — congenital malformations in particular — do not occur in adults at all. Dr. Ramdas holds that qualification and trained at B.J. Wadia Hospital for Children, Mumbai.",
   },
   {
-    question: "My child missed a vaccine dose. Is it too late?",
+    question: "How young can a child have surgery?",
     answer:
-      "Almost never. Catch-up schedules exist for every vaccine in the routine programme. Bring the immunisation card and a revised plan will be worked out — restarting the whole course is rarely necessary.",
+      "Newborns, including premature babies, where the condition requires it — some congenital problems must be corrected in the first days of life. The decision weighs the baby's weight, general condition and how urgent the problem is, and making that judgement safely is exactly what paediatric surgical training exists for.",
   },
   {
-    question: "When is a fever serious enough to come in?",
+    question: "Does a surgical consultation mean my child needs an operation?",
     answer:
-      "Come in for any fever in an infant under three months, a fever above 38.5°C lasting more than three days, a fever with rash, breathlessness, persistent vomiting, unusual drowsiness or reduced urine output. When in doubt, call — it costs nothing to ask.",
+      "No. A consultation is an assessment. Many childhood conditions — some hernias, hydroceles and undescended testes — resolve on their own or can safely be watched. If that is the case you will be told so, along with what to look out for and when to come back.",
   },
   {
-    question: "How is growth actually monitored?",
+    question: "What is laparoscopic surgery, and is it safe for children?",
     answer:
-      "Height, weight and head circumference are measured at each visit and plotted on standard growth charts. It is the trend across visits that matters, not any single reading, which is why keeping to the follow-up schedule is useful.",
+      "Laparoscopic or keyhole surgery is performed through a few millimetre-sized ports using a camera, instead of one larger incision. In suitable cases it means less pain, a much smaller scar and a faster return to school. It is not right for every condition, and an open approach is sometimes the safer choice — that judgement is part of the consultation.",
   },
   {
-    question: "Does a paediatric surgery consultation mean surgery is needed?",
+    question: "A scan before birth showed an abnormality. Can we consult now?",
     answer:
-      "No. A consultation is an assessment. Many childhood conditions — some hernias and hydroceles, for instance — resolve on their own or can safely be watched. You will be told plainly if that is the case.",
+      "Yes, and it is worth doing early. Prenatal consultation covers what the finding means, whether surgery is likely to be needed and when, and how and where delivery should be planned. Having the plan settled in advance is far better than arranging it after birth.",
   },
   {
-    question: "Can I bring a child for a check-up when nothing is wrong?",
+    question: "What is a urodynamics study?",
     answer:
-      "Yes, and it is encouraged. Preventive check-ups cover vision, hearing, dental health, development and nutrition, and are the visits most likely to find something worth acting on early.",
+      "It measures how the bladder fills, stores and empties. It is used when a child has persistent daytime wetting, recurrent urinary infection or a suspected neurogenic bladder, and it turns guesswork into a specific diagnosis so treatment can be targeted.",
+  },
+  {
+    question: "Our child has had constipation for years. Is a clinic really different?",
+    answer:
+      "Yes. Chronic constipation and soiling are often treated with repeated laxatives alone. The clinic first looks for an underlying cause — including surgical ones such as Hirschsprung disease or an anorectal anomaly — then sets a structured bowel programme with follow-up, rather than a one-off prescription.",
+  },
+  {
+    question: "Why have ear piercing done at a hospital?",
+    answer:
+      "Piercing with unsterile equipment or in the wrong position risks infection, embedded studs and keloid scarring. Done under sterile conditions with correct placement and clear aftercare, those risks largely disappear.",
   },
 ];
 
@@ -422,6 +463,11 @@ export const faqsEyeCare: Faq[] = [
       "Usually none, which is precisely the danger. The common form damages peripheral vision so gradually that the brain compensates. It is found through eye-pressure measurement and optic nerve examination, which is why routine screening matters after 40.",
   },
   {
+    question: "At what age should a child's eyes be checked?",
+    answer:
+      "By around three to four years, and sooner if you notice a squint, a head tilt, one eye drifting, or the child sitting very close to a screen. Squint and lazy eye respond much better to treatment before school age than after.",
+  },
+  {
     question: "My eyes burn after screen work. Is that treatable?",
     answer:
       "Yes. Screen-related dry eye is common and responds well to a combination of tear film treatment, an ergonomic review and a corrected spectacle prescription. It is worth having assessed rather than living with.",
@@ -431,7 +477,7 @@ export const faqsEyeCare: Faq[] = [
 /* ── Trust badges shown in the hero ───────────────────────────────────────── */
 
 export const trustBadges = [
-  { label: "Paediatrics", detail: "Newborn to adolescent" },
-  { label: "Eye Care", detail: "Screening & surgery" },
-  { label: "6 Days", detail: "Weekly OPD" },
+  { label: "M.Ch. Surgeon", detail: "Paediatric surgery" },
+  { label: "Eye Care", detail: "Screening & cataract" },
+  { label: "Emergency", detail: "Accident & trauma" },
 ];

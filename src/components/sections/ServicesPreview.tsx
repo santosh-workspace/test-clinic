@@ -19,7 +19,7 @@ export function ServicesPreview() {
 
   // Alternate between departments so colour rhythm is even across the grid.
   const interleaved = items
-    .filter((i) => i.dept.slug === "pediatrics")
+    .filter((i) => i.dept.slug === "pediatric-surgery")
     .flatMap((p, idx) => {
       const e = items.filter((i) => i.dept.slug === "eye-care")[idx];
       return e ? [p, e] : [p];

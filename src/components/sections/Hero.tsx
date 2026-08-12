@@ -104,9 +104,9 @@ export function Hero() {
               data-reveal {...rise(0.45)}
               className="mt-7 max-w-xl text-lead text-ink-600"
             >
-              Two specialists, one hospital. A paediatrician who follows your child from
-              their first examination onward, and an eye surgeon who finds what routine
-              vision checks miss — both in {siteConfig.city}.
+              Two specialists, one hospital. An M.Ch. paediatric surgeon trained at
+              B.J. Wadia Hospital for Children, Mumbai, and an ophthalmologist who finds
+              what routine vision checks miss — both in {siteConfig.city}.
             </motion.p>
 
             {/* CTAs — Book is primary, Call and WhatsApp equal-weight beside it */}

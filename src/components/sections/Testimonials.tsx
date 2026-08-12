@@ -21,7 +21,7 @@ import { cn } from "@/lib/utils";
  * duplicate track so screen readers hear each quote exactly once.
  */
 function ReviewCard({ item }: { item: Testimonial }) {
-  const rose = item.department === "pediatrics";
+  const rose = item.department === "pediatric-surgery";
 
   return (
     <figure className="flex h-full w-[19rem] shrink-0 flex-col rounded-[1.4rem] border border-ink-100 bg-white p-6 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:w-[22rem]">

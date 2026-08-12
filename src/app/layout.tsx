@@ -8,6 +8,8 @@ import { Loader } from "@/components/providers/Loader";
 import { PageTransition } from "@/components/providers/PageTransition";
 import { ScrollProgress } from "@/components/providers/ScrollProgress";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { ThemeScript } from "@/components/providers/ThemeScript";
+import { ThemeSwitcher } from "@/components/layout/ThemeSwitcher";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { siteConfig } from "@/config/site";
 import { graph, hospitalSchema, organizationSchema, websiteSchema } from "@/lib/schema";
@@ -44,18 +46,21 @@ export const metadata: Metadata = {
   authors: [{ name: siteConfig.name }],
   generator: "Next.js",
   keywords: [
-    `paediatrician in ${siteConfig.city}`,
-    `pediatrician in ${siteConfig.city}`,
-    `child specialist in ${siteConfig.city}`,
+    `paediatric surgeon in ${siteConfig.city}`,
+    `pediatric surgeon in ${siteConfig.city}`,
+    `child surgeon in ${siteConfig.city}`,
+    `paediatric surgery hospital in ${siteConfig.city}`,
     `eye specialist in ${siteConfig.city}`,
     `ophthalmologist in ${siteConfig.city}`,
     `eye hospital in ${siteConfig.city}`,
-    `paediatric hospital in ${siteConfig.city}`,
-    `child doctor in ${siteConfig.cityAlt}`,
+    `child surgeon in ${siteConfig.cityAlt}`,
     `eye doctor in ${siteConfig.cityAlt}`,
+    "paediatric urology",
+    "laparoscopic surgery for children",
+    "newborn surgery",
+    "urodynamics",
+    "constipation clinic",
     "cataract consultation",
-    "vaccination and immunisation",
-    "newborn care",
     "Yogeshwari Hospital",
   ],
   category: "Health",
@@ -106,6 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en-IN" className={`${jakarta.variable} ${instrument.variable}`}>
       <head>
+        <ThemeScript />
         {/*
           Framer Motion serialises each element's `initial` state into the SSR
           HTML — which means every scroll-revealed section ships as opacity:0.
@@ -138,6 +144,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Spacer so the sticky bar never covers the last line of the footer */}
           <div aria-hidden="true" className="h-20 bg-ink-950 lg:hidden" />
           <MobileActionBar />
+          <ThemeSwitcher />
         </SmoothScroll>
       </body>
     </html>

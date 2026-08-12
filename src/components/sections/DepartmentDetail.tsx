@@ -27,7 +27,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
   const dept = getDepartment(slug);
   const doctor = getDoctorByDepartment(slug);
   const rose = dept.accent === "rose";
-  const secondary = dept.slug === "pediatrics" ? img.motherChildren : img.eyeClinic;
+  const secondary = dept.slug === "pediatric-surgery" ? img.motherChildren : img.eyeClinic;
 
   return (
     <>
@@ -270,7 +270,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
           <Reveal variant="up">
             <Link
               href={
-                dept.slug === "pediatrics"
+                dept.slug === "pediatric-surgery"
                   ? "/departments/eye-care"
                   : "/departments/pediatrics"
               }
@@ -281,14 +281,14 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   Also at Yogeshwari Hospital
                 </p>
                 <p className="mt-2 text-h3 font-bold tracking-tight text-ink-950">
-                  {dept.slug === "pediatrics"
+                  {dept.slug === "pediatric-surgery"
                     ? "Eye Care & Ophthalmology"
                     : "Paediatrics"}
                 </p>
                 <p className="mt-1.5 text-[0.92rem] text-ink-600">
-                  {dept.slug === "pediatrics"
+                  {dept.slug === "pediatric-surgery"
                     ? "Comprehensive eye examination, cataract and glaucoma screening with Dr. Manisha Nagargoje (Sanap)."
-                    : "Newborn care, vaccination and child health check-ups with Dr. Ramdash D. Nagargoje."}
+                    : "Newborn care, vaccination and child health check-ups with Dr. Ramdas D. Nagargoje."}
                 </p>
               </div>
               <span className="grid size-13 shrink-0 place-items-center rounded-2xl bg-ink-950 text-white transition-transform duration-500 ease-[var(--ease-out-expo)] group-hover:rotate-45">

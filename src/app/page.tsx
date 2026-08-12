@@ -31,9 +31,9 @@ export default function HomePage() {
     <>
       <JsonLd
         data={graph(
-          physicianSchema("dr-ramdash-nagargoje"),
+          physicianSchema("dr-ramdas-nagargoje"),
           physicianSchema("dr-manisha-nagargoje"),
-          medicalClinicSchema("pediatrics"),
+          medicalClinicSchema("pediatric-surgery"),
           medicalClinicSchema("eye-care"),
           faqSchema(faqsGeneral),
         )}

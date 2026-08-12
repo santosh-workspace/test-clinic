@@ -87,7 +87,7 @@ export const siteConfig = {
    * never dead-ends a patient.
    */
   calendly: {
-    pediatrics: "",
+    pediatricSurgery: "",
     eyeCare: "",
   },
 
@@ -106,77 +106,91 @@ export type Doctor = {
   name: string;
   honorific: string;
   role: string;
-  department: "pediatrics" | "eye-care";
+  department: "pediatric-surgery" | "eye-care";
   qualification: string;
+  /** Post-graduate / super-speciality degree, shown separately where relevant. */
+  superSpeciality?: string;
+  /** Where they trained. A real trust signal for a surgical practice. */
+  training?: string;
   experience: string;
-  registration?: string;
+  /** State medical council registration. Displaying it is good practice in India. */
+  registration: string;
   bio: string[];
   specializations: string[];
   consultationAreas: string[];
   timings: { days: string; time: string }[];
   languages: string[];
   image: string;
+  /** Public path used for structured data (absolute URL is derived from it). */
+  photo: string;
 };
 
 export const doctors: Doctor[] = [
   {
-    slug: "dr-ramdash-nagargoje",
-    name: "Dr. Ramdash D. Nagargoje",
+    slug: "dr-ramdas-nagargoje",
+    name: "Dr. Ramdas D. Nagargoje",
     honorific: "Dr.",
-    role: "Paediatrician & Paediatric Surgery Consultant",
-    department: "pediatrics",
-    /** TODO: confirm exact degrees and years with the doctor. */
-    qualification: "MBBS, MD (Paediatrics)",
-    experience: "15+ years",
+    role: "Paediatric Surgeon",
+    department: "pediatric-surgery",
+    qualification: "M.B.B.S., M.S. (General Surgery), M.Ch. (Paediatric Surgery)",
+    superSpeciality: "M.Ch. (Paediatric Surgery)",
+    training: "K.E.M. Hospital & B.J. Wadia Hospital for Children, Mumbai",
+    /** Inferred from the 2002 registration year — deliberately conservative. */
+    experience: "20+ years",
+    registration: "2002/03/1074",
     bio: [
-      "Dr. Ramdash D. Nagargoje leads the paediatric department at Yogeshwari Hospital, caring for children from their first hours of life through adolescence.",
-      "His practice centres on newborn care, immunisation, growth and nutrition, and the early recognition of childhood illness — the everyday medicine that keeps small problems small.",
-      "Parents consistently describe an unhurried consultation: every question answered, every instruction written down, and a clear explanation of what to watch for at home.",
+      "Dr. Ramdas D. Nagargoje is a paediatric surgeon and heads the surgical department at Yogeshwari Hospital. He holds an M.S. in General Surgery followed by an M.Ch. in Paediatric Surgery — the super-speciality qualification required to operate on newborns and children.",
+      "He trained at K.E.M. Hospital and at B.J. Wadia Hospital for Children in Mumbai, one of India's foremost paediatric institutions. His practice spans newborn and infant surgery, laparoscopic abdominal procedures, paediatric urology with urodynamic assessment, brain and spine surgery, airway and tracheal work, endoscopy and thoracoscopy, and emergency trauma.",
+      "Parents consistently describe the same thing: an unhurried explanation of what is actually wrong, a clear account of whether an operation is needed at all, and written instructions to take home. Where a condition will resolve without surgery, he says so.",
     ],
     specializations: [
-      "Newborn & neonatal care",
-      "Immunisation and vaccine scheduling",
-      "Growth and development monitoring",
-      "Paediatric infections & fever management",
-      "Nutrition and feeding guidance",
-      "Paediatric surgical assessment",
+      "Newborn & infant surgery",
+      "Laparoscopic (keyhole) abdominal surgery",
+      "Paediatric urology & urodynamics",
+      "Brain & spine surgery in children",
+      "Endoscopy & thoracoscopy",
+      "Emergency & trauma surgery",
     ],
     consultationAreas: [
-      "Routine child health check-ups",
-      "Newborn examination and follow-up",
-      "Persistent fever, cough and infection",
-      "Feeding difficulty and poor weight gain",
-      "Developmental and milestone concerns",
-      "Pre- and post-operative paediatric review",
+      "Hernia, hydrocele and undescended testis",
+      "Antenatally detected congenital malformation",
+      "Chronic constipation and soiling",
+      "Daytime wetting and recurrent urine infection",
+      "Acute abdominal pain or vomiting in a child",
+      "Second opinion on recommended child surgery",
     ],
     timings: [
       { days: "Monday – Saturday", time: "9:00 AM – 2:00 PM" },
       { days: "Monday – Saturday", time: "5:00 PM – 8:00 PM" },
-      { days: "Sunday", time: "Emergency consultation only" },
+      { days: "Sunday", time: "Emergency and trauma only" },
     ],
     languages: ["Marathi", "Hindi", "English"],
-    image: "/images/doctors/dr-ramdash-nagargoje.jpg",
+    image: "/images/doctors/dr-ramdas-nagargoje.jpg",
+    photo: "/images/doctors/dr-ramdas-nagargoje.jpg",
   },
   {
     slug: "dr-manisha-nagargoje",
     name: "Dr. Manisha Nagargoje (Sanap)",
     honorific: "Dr.",
-    role: "Ophthalmologist & Eye Surgeon",
+    role: "Ophthalmologist",
     department: "eye-care",
-    /** TODO: confirm exact degrees and years with the doctor. */
-    qualification: "MBBS, MS (Ophthalmology)",
-    experience: "12+ years",
+    qualification: "M.B.B.S., D.O.M.S. (Mumbai)",
+    superSpeciality: "D.O.M.S. (Mumbai)",
+    training: "Mumbai",
+    /** Inferred from the 2004 registration year — deliberately conservative. */
+    experience: "20+ years",
+    registration: "2004/03/1498",
     bio: [
-      "Dr. Manisha Nagargoje (Sanap) heads eye care at Yogeshwari Hospital, combining routine vision assessment with the surgical evaluation of cataract and other sight-limiting conditions.",
-      "She has a particular interest in the eye complications of diabetes and in glaucoma — two conditions that quietly take vision years before a patient notices anything is wrong.",
-      "Her consultations are built around explanation: what the test showed, what it means for your sight, and what happens next.",
+      "Dr. Manisha Nagargoje (Sanap) heads eye care at Yogeshwari Hospital. She holds a D.O.M.S. from Mumbai and practises the full range of general ophthalmology — vision testing and refraction through to cataract assessment and surgical planning.",
+      "She has a particular interest in the eye complications of diabetes and in glaucoma — two conditions that quietly take vision years before a patient notices anything is wrong, and which are found by examination rather than by symptoms.",
+      "She also screens children's vision, which sits naturally alongside the hospital's paediatric department: squint, refractive error and lazy eye respond far better when caught before school age.",
     ],
     specializations: [
       "Comprehensive eye examination",
+      "Vision testing & refraction",
       "Cataract evaluation & surgical planning",
       "Glaucoma screening and monitoring",
       "Diabetic retinopathy assessment",
-      "Dry eye and ocular surface disease",
       "Paediatric vision screening",
     ],
     consultationAreas: [
@@ -185,7 +199,7 @@ export const doctors: Doctor[] = [
       "Cataract second opinion",
       "Annual diabetic eye screening",
       "Red, painful or watering eyes",
-      "Eye pressure and glaucoma follow-up",
+      "Squint or lazy eye in a child",
     ],
     timings: [
       { days: "Monday – Saturday", time: "10:00 AM – 2:00 PM" },
@@ -193,7 +207,8 @@ export const doctors: Doctor[] = [
       { days: "Sunday", time: "By prior appointment" },
     ],
     languages: ["Marathi", "Hindi", "English"],
-    image: "/images/doctors/dr-manisha-nagargoje.jpg",
+    image: "/images/doctors/dr-manisha-nagargoje.png",
+    photo: "/images/doctors/dr-manisha-nagargoje.png",
   },
 ];
 

@@ -1,4 +1,4 @@
-import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/config/themes";
+import { DEFAULT_THEME, THEME_STORAGE_KEY, themes } from "@/config/themes";
 
 /**
  * Applies the stored theme before first paint.
@@ -10,16 +10,38 @@ import { DEFAULT_THEME, THEME_STORAGE_KEY } from "@/config/themes";
  *
  * `data-theme-ready` is stamped afterwards so the colour transition in
  * globals.css only applies to *later* theme changes, never to this initial one.
+ *
+ * A `?theme=<id>` query parameter overrides the stored value, which makes each
+ * theme shareable as a plain link during review. Only ids declared in
+ * config/themes.ts are accepted, so the attribute can never be set from
+ * arbitrary user input.
  */
 export function ThemeScript() {
+  const allowed = JSON.stringify(themes.map((t) => t.id));
+
   const js = `
 (function(){
+  var ALLOWED = ${allowed};
+  var KEY = ${JSON.stringify(THEME_STORAGE_KEY)};
+  var DEFAULT = ${JSON.stringify(DEFAULT_THEME)};
+  var pick = null;
   try {
-    var t = localStorage.getItem(${JSON.stringify(THEME_STORAGE_KEY)});
-    if (t && t !== ${JSON.stringify(DEFAULT_THEME)}) {
-      document.documentElement.setAttribute('data-theme', t);
+    // ?theme=<id> wins, so a theme can be shared as a plain link for review.
+    // It is also persisted, so navigating onward keeps the chosen theme.
+    var q = new URLSearchParams(location.search).get('theme');
+    if (q && ALLOWED.indexOf(q) !== -1) {
+      pick = q;
+      localStorage.setItem(KEY, q);
+    } else {
+      var stored = localStorage.getItem(KEY);
+      if (stored && ALLOWED.indexOf(stored) !== -1) pick = stored;
     }
   } catch (e) {}
+  if (pick && pick !== DEFAULT) {
+    document.documentElement.setAttribute('data-theme', pick);
+  } else {
+    document.documentElement.removeAttribute('data-theme');
+  }
   document.documentElement.setAttribute('data-theme-ready','');
 })();`.trim();
 

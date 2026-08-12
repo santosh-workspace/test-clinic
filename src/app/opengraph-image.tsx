@@ -36,7 +36,7 @@ export default function OpengraphImage() {
             width: 700,
             height: 700,
             borderRadius: 9999,
-            background: "rgba(20,84,214,0.42)",
+            background: "rgba(42,106,178,0.45)",
             filter: "blur(140px)",
             display: "flex",
           }}
@@ -49,7 +49,7 @@ export default function OpengraphImage() {
             width: 620,
             height: 620,
             borderRadius: 9999,
-            background: "rgba(13,156,138,0.34)",
+            background: "rgba(238,147,178,0.34)",
             filter: "blur(140px)",
             display: "flex",
           }}
@@ -57,11 +57,11 @@ export default function OpengraphImage() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <svg width="72" height="72" viewBox="0 0 100 100" fill="none">
-            <circle cx="50" cy="50" r="44" stroke="#52d4c0" strokeWidth="4" />
-            <circle cx="50" cy="50" r="7" fill="#52d4c0" />
-            <path d="M28 27 L50 50" stroke="#88b8ff" strokeWidth="7" strokeLinecap="round" />
-            <path d="M72 27 L50 50" stroke="#88b8ff" strokeWidth="7" strokeLinecap="round" />
-            <path d="M50 50 L50 75" stroke="#88b8ff" strokeWidth="7" strokeLinecap="round" />
+            <circle cx="50" cy="50" r="44" stroke="#ee93b2" strokeWidth="4" />
+            <circle cx="50" cy="50" r="7" fill="#ee93b2" />
+            <path d="M28 27 L50 50" stroke="#7fb2e8" strokeWidth="7" strokeLinecap="round" />
+            <path d="M72 27 L50 50" stroke="#7fb2e8" strokeWidth="7" strokeLinecap="round" />
+            <path d="M50 50 L50 75" stroke="#7fb2e8" strokeWidth="7" strokeLinecap="round" />
           </svg>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <span style={{ color: "white", fontSize: 34, fontWeight: 700 }}>
@@ -101,12 +101,12 @@ export default function OpengraphImage() {
               marginTop: 26,
             }}
           >
-            Paediatrics &amp; Ophthalmology · {siteConfig.city}
+            Paediatric Surgery &amp; Ophthalmology · {siteConfig.city}
           </span>
         </div>
 
         <div style={{ display: "flex", gap: 14 }}>
-          {["Newborn Care", "Vaccination", "Eye Examination", "Cataract"].map((tag) => (
+          {["Newborn Surgery", "Paediatric Urology", "Eye Examination", "Cataract"].map((tag) => (
             <span
               key={tag}
               style={{

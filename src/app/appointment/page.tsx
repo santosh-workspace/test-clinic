@@ -17,8 +17,8 @@ import {
 } from "@/lib/schema";
 
 export const metadata: Metadata = {
-  title: `Book an Appointment — Paediatrics & Eye Care, ${siteConfig.city}`,
-  description: `Book an appointment at Yogeshwari Hospital, ${siteConfig.city}. Choose paediatrics with Dr. Ramdash D. Nagargoje or eye care with Dr. Manisha Nagargoje (Sanap) and pick a time online.`,
+  title: `Book an Appointment — Paediatric Surgery & Eye Care, ${siteConfig.city}`,
+  description: `Book an appointment at Yogeshwari Hospital, ${siteConfig.city}. Choose paediatric surgery with Dr. Ramdas D. Nagargoje or eye care with Dr. Manisha Nagargoje (Sanap) and pick a time online.`,
   alternates: { canonical: "/appointment" },
 };
 
@@ -31,7 +31,7 @@ const prep = [
   {
     icon: FiFileText,
     title: "Bring previous records",
-    body: "Prescriptions, test reports and discharge summaries. For children, the immunisation card. For eye patients, your current spectacles and last prescription.",
+    body: "Prescriptions, discharge summaries and — for a surgical opinion — the actual scan films or CD, not just the report. For eye patients, your current spectacles and last prescription.",
   },
   {
     icon: FiClock,
@@ -56,7 +56,7 @@ export default function AppointmentPage() {
       <JsonLd
         data={graph(
           hospitalSchema(),
-          medicalClinicSchema("pediatrics"),
+          medicalClinicSchema("pediatric-surgery"),
           medicalClinicSchema("eye-care"),
           faqSchema(faqsGeneral),
           breadcrumbSchema(crumbs),

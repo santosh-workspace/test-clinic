@@ -43,7 +43,7 @@ export function AppointmentBooking() {
   useEffect(() => {
     const hash = window.location.hash.replace("#", "");
     // eslint-disable-next-line react-hooks/set-state-in-effect
-    if (hash === "pediatrics" || hash === "eye-care") setSelected(hash);
+    if (hash === "pediatric-surgery" || hash === "eye-care") setSelected(hash);
   }, []);
 
   const choose = useCallback(
@@ -401,7 +401,7 @@ function StepBadge({ n, active }: { n: number; active: boolean }) {
   );
 }
 
-/** "eye-care" → "eyeCare", so slugs can index siteConfig.calendly. */
+/** Maps a department slug onto its siteConfig.calendly key. */
 function camel(slug: Department["slug"]): keyof typeof siteConfig.calendly {
-  return (slug === "eye-care" ? "eyeCare" : "pediatrics") as keyof typeof siteConfig.calendly;
+  return slug === "eye-care" ? "eyeCare" : "pediatricSurgery";
 }

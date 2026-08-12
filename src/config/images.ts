@@ -26,8 +26,8 @@ import newborn from "../../public/images/newborn.jpg";
 import eyeExam from "../../public/images/eye-exam.jpg";
 import eyewear from "../../public/images/eyewear.jpg";
 import eyeClinic from "../../public/images/eye-clinic.jpg";
-import drRamdash from "../../public/images/doctors/dr-ramdash-nagargoje.jpg";
-import drManisha from "../../public/images/doctors/dr-manisha-nagargoje.jpg";
+import drRamdas from "../../public/images/doctors/dr-ramdas-nagargoje.jpg";
+import drManisha from "../../public/images/doctors/dr-manisha-nagargoje.png";
 
 export const img = {
   heroHospital: {
@@ -90,14 +90,18 @@ export const img = {
     src: eyeClinic,
     alt: "Ophthalmologist beside a slit lamp in the eye clinic",
   },
-  drRamdash: {
-    src: drRamdash,
-    /** TODO: replace with a real portrait of Dr. Ramdash D. Nagargoje. */
-    alt: "Portrait of Dr. Ramdash D. Nagargoje, Paediatrician",
+  drRamdas: {
+    src: drRamdas,
+    /** TODO: still a stock placeholder — replace with a real portrait. */
+    alt: "Portrait of Dr. Ramdas D. Nagargoje, Paediatric Surgeon",
   },
   drManisha: {
     src: drManisha,
-    /** TODO: replace with a real portrait of Dr. Manisha Nagargoje (Sanap). */
+    /**
+     * Real photo supplied by the client. Note it is only 190x240 native, so it
+     * is upscaled in the doctor cards and looks soft — a higher-resolution
+     * original would visibly improve those frames.
+     */
     alt: "Portrait of Dr. Manisha Nagargoje (Sanap), Ophthalmologist",
   },
 } as const;

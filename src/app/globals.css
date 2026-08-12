@@ -104,51 +104,72 @@
    ──────────────────────────────────────────────────────────────────────── */
 
 [data-theme="porcelain"] {
-  --color-ink-950: #060d16;
-  --color-ink-900: #0b1725;
-  --color-ink-800: #122236;
-  --color-ink-700: #1d3350;
-  --color-ink-600: #34506f;
-  --color-ink-500: #556f8d;
-  --color-ink-400: #7d92a9;
-  --color-ink-300: #a9b8c8;
-  --color-ink-200: #cfd9e3;
-  --color-ink-100: #e5ecf2;
-  --color-ink-50: #f1f5f9;
+  /* Ink — cool, and a full step darker so contrast reads sharper */
+  --color-ink-950: #040d17;
+  --color-ink-900: #08131f;
+  --color-ink-800: #0e1e2f;
+  --color-ink-700: #182d43;
+  --color-ink-600: #2c4560;
+  --color-ink-500: #4a6380;
+  --color-ink-400: #74899f;
+  --color-ink-300: #9fb0c1;
+  --color-ink-200: #c3d0dc;
+  --color-ink-100: #dde5ed;
+  --color-ink-50: #eaf0f6;
 
-  --color-brand-50: #eef4fb;
-  --color-brand-100: #d7e6f5;
-  --color-brand-200: #b0cbe9;
-  --color-brand-300: #7ea9d6;
-  --color-brand-400: #5286bd;
-  --color-brand-500: #2f6199;
-  --color-brand-600: #1d4878;
-  --color-brand-700: #14365e;
-  --color-brand-800: #102b4b;
-  --color-brand-900: #0d223c;
+  /* Brand — the deep navy of the logo's outer ring, not the iris highlight */
+  --color-brand-50: #eaf1f8;
+  --color-brand-100: #cfe0ef;
+  --color-brand-200: #a3c1dd;
+  --color-brand-300: #6d9bc4;
+  --color-brand-400: #3f74a4;
+  --color-brand-500: #21527f;
+  --color-brand-600: #123a63;
+  --color-brand-700: #0c2c4d;
+  --color-brand-800: #09233e;
+  --color-brand-900: #071b31;
 
-  --color-rose-50: #fff1f5;
-  --color-rose-100: #ffdfe8;
-  --color-rose-200: #ffc0d3;
-  --color-rose-300: #fb98b7;
-  --color-rose-400: #f4709b;
-  --color-rose-500: #e4517f;
-  --color-rose-600: #c93765;
-  --color-rose-700: #a52950;
-  --color-rose-800: #872341;
-  --color-rose-900: #711f37;
+  /* Rose — hotter, so it still reads as an accent against the deep navy */
+  --color-rose-50: #fff0f5;
+  --color-rose-100: #ffdbe7;
+  --color-rose-200: #ffb8ce;
+  --color-rose-300: #fd8caf;
+  --color-rose-400: #f75f8f;
+  --color-rose-500: #e83a72;
+  --color-rose-600: #c9245b;
+  --color-rose-700: #a41a48;
+  --color-rose-800: #86163b;
+  --color-rose-900: #6f1331;
 
-  /* Cool porcelain ground instead of warm ivory */
-  --color-sand-50: #f4f7fa;
-  --color-sand-100: #eaeff5;
-  --color-sand-200: #dbe4ee;
+  /* Cool porcelain ground — clearly grey-blue, not ivory */
+  --color-sand-50: #eef2f7;
+  --color-sand-100: #e3eaf2;
+  --color-sand-200: #d2dde9;
 
-  --radius-card: 1rem;
-  --radius-xl2: 1.25rem;
+  /* Architectural rather than pillowy — the most visible shift of all */
+  --radius-card: 0.5rem;
+  --radius-xl2: 0.625rem;
 
-  --shadow-soft: 0 1px 2px rgb(6 13 22 / 0.06), 0 6px 16px -6px rgb(6 13 22 / 0.10);
-  --shadow-lift: 0 1px 3px rgb(6 13 22 / 0.07), 0 20px 40px -14px rgb(6 13 22 / 0.22);
-  --shadow-glow: 0 18px 46px -16px rgb(20 54 94 / 0.55);
+  /* Tighter, cooler, more contained depth */
+  --shadow-soft: 0 1px 2px rgb(4 13 23 / 0.07), 0 4px 10px -4px rgb(4 13 23 / 0.10);
+  --shadow-lift: 0 1px 2px rgb(4 13 23 / 0.08), 0 14px 28px -12px rgb(4 13 23 / 0.26);
+  --shadow-glow: 0 14px 34px -14px rgb(18 58 99 / 0.6);
+}
+
+/* Theme B tightens the smaller radii too, so cards, chips and buttons all agree. */
+[data-theme="porcelain"] .rounded-\[1\.4rem\] {
+  border-radius: 0.5rem;
+}
+[data-theme="porcelain"] .text-gradient {
+  background: linear-gradient(
+    100deg,
+    var(--color-brand-700) 0%,
+    var(--color-brand-500) 45%,
+    var(--color-rose-500) 100%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 
 /* Theme swaps recolour large areas at once; easing the change keeps it from

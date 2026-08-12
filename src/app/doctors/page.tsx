@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: `Our Doctors — Paediatrician & Eye Specialist in ${siteConfig.city}`,
-  description: `Meet the specialists at Yogeshwari Hospital: Dr. Ramdash D. Nagargoje (Paediatrician) and Dr. Manisha Nagargoje (Sanap), Ophthalmologist, in ${siteConfig.city}. Qualifications, experience, timings and booking.`,
+  description: `Meet the specialists at Yogeshwari Hospital: Dr. Ramdas D. Nagargoje (Paediatrician) and Dr. Manisha Nagargoje (Sanap), Ophthalmologist, in ${siteConfig.city}. Qualifications, experience, timings and booking.`,
   alternates: { canonical: "/doctors" },
 };
 
@@ -30,7 +30,7 @@ export default function DoctorsPage() {
     <>
       <JsonLd
         data={graph(
-          physicianSchema("dr-ramdash-nagargoje"),
+          physicianSchema("dr-ramdas-nagargoje"),
           physicianSchema("dr-manisha-nagargoje"),
           breadcrumbSchema(crumbs),
         )}

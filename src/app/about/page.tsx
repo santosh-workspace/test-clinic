@@ -15,7 +15,7 @@ import { breadcrumbSchema, graph } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: `About Yogeshwari Hospital — ${siteConfig.city}`,
-  description: `Yogeshwari Hospital is an eye and paediatric surgery centre in ${siteConfig.city}, run by Dr. Ramdash D. Nagargoje and Dr. Manisha Nagargoje (Sanap). Two specialities, one waiting room.`,
+  description: `Yogeshwari Hospital is an eye and paediatric surgery centre in ${siteConfig.city}, run by Dr. Ramdas D. Nagargoje and Dr. Manisha Nagargoje (Sanap). Two specialities, one waiting room.`,
   alternates: { canonical: "/about" },
 };
 

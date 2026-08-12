@@ -40,17 +40,18 @@ export function AboutSection() {
               <Reveal child variant="up">
                 <p>
                   Yogeshwari Hospital was built around a simple observation: families do
-                  not organise themselves by medical speciality. A child needs
-                  vaccinations, a parent needs their vision checked, a grandparent needs
-                  an opinion on a cataract — and all of it happens in the same week, to
-                  the same household.
+                  not organise themselves by medical speciality. A child needs a hernia
+                  reviewed, a parent needs their vision checked, a grandparent needs an
+                  opinion on a cataract — and all of it happens in the same week, to the
+                  same household.
                 </p>
               </Reveal>
               <Reveal child variant="up">
                 <p>
-                  So the hospital runs two departments side by side. Paediatrics, led by
-                  Dr. Ramdash D. Nagargoje, and eye care, led by Dr. Manisha Nagargoje
-                  (Sanap). Same building, same records, same day where it can be arranged.
+                  So the hospital runs two departments side by side. Paediatric surgery,
+                  led by Dr. Ramdas D. Nagargoje, M.Ch., and eye care, led by
+                  Dr. Manisha Nagargoje (Sanap), D.O.M.S. Same building, same records,
+                  same day where it can be arranged.
                 </p>
               </Reveal>
               <Reveal child variant="up">

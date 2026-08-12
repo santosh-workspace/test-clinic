@@ -39,8 +39,8 @@ export const themes: Theme[] = [
     name: "Porcelain & Midnight",
     tagline: "Cool · crisp · deep",
     description:
-      "Cool porcelain ground, the primary dropped to the deep navy of the logo's outer ring, and a hotter rose accent. Tighter corners, crisper shadows. Reads clinical and premium.",
-    swatches: ["#f4f7fa", "#5286bd", "#14365e", "#e4517f", "#060d16"],
+      "Cool porcelain ground, the primary dropped to the deep navy of the logo's outer ring, and a hotter rose accent. Square corners and contained shadows. Reads clinical and premium.",
+    swatches: ["#eef2f7", "#3f74a4", "#123a63", "#e83a72", "#040d17"],
   },
 ];
 

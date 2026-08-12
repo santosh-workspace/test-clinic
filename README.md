@@ -29,10 +29,24 @@ site is worse than an obviously blank one. Fill these in:
 | `maps.embedSrc` | Google Maps → Share → Embed a map. Without it a query-based embed is used (works, less precise) |
 | `maps.reviewUrl` | The "Write a review" short link |
 | `social.*` | Header, footer, mobile menu, contact page, and `sameAs` in schema. Empty strings are hidden automatically |
-| `calendly.pediatrics` / `calendly.eyeCare` | Booking. Until set, the appointment page falls back to WhatsApp + phone rather than dead-ending |
+| `calendly.pediatricSurgery` / `calendly.eyeCare` | Booking. Until set, the appointment page falls back to WhatsApp + phone rather than dead-ending |
 | `url` | Canonicals, sitemap, Open Graph |
 | `verification.google` | Search Console |
-| `doctors[].qualification` / `experience` | Confirm the exact degrees and years with each doctor |
+| `doctors[].experience` | Currently inferred from the registration years (2002 / 2004), so conservative. Confirm the exact figures. |
+
+### Already confirmed by the client
+
+These are real and no longer placeholders:
+
+- **Dr. Ramdas D. Nagargoje** — Paediatric Surgeon. M.B.B.S., M.S. (General Surgery),
+  M.Ch. (Paediatric Surgery). Trained at K.E.M. Hospital and B.J. Wadia Hospital for
+  Children, Mumbai. Reg. No. 2002/03/1074.
+- **Dr. Manisha Nagargoje (Sanap)** — Ophthalmologist. M.B.B.S., D.O.M.S. (Mumbai).
+  Reg. No. 2004/03/1498. Her photo is the real one supplied by the client.
+- The paediatric department is **Paediatric Surgery**, not general paediatrics — its
+  twelve services are the client's own list (paediatric urology, laparoscopic abdominal
+  surgery, urodynamics, constipation clinic, brain and spine, tracheal, endoscopy and
+  thoracoscopy, accident department, scientific ear piercing, and so on).
 
 Also review:
 
@@ -43,8 +57,12 @@ Also review:
   anywhere in the structured data** — once real reviews exist, add it in
   `src/lib/schema.ts` with the true count and average.
 - **`src/config/content.ts` → `stats`** — the counters. Confirm the figures.
-- **`public/images/`** — all photos are royalty-free placeholders. See
+- **`public/images/`** — the scene photos are royalty-free placeholders. See
   [`public/images/README.md`](public/images/README.md) for the swap table.
+- **`public/images/doctors/dr-ramdas-nagargoje.jpg`** — still a stock placeholder. A real
+  portrait is the single highest-value asset swap left.
+- **Dr. Manisha's photo is only 190×240 native**, so it is upscaled in the doctor cards
+  and looks soft. A higher-resolution original would visibly improve those frames.
 
 ---
 
@@ -89,13 +107,14 @@ src/
 │   ├── about|doctors|services|appointment|contact/
 │   ├── departments/
 │   │   ├── page.tsx            index
-│   │   └── [slug]/page.tsx     pediatrics + eye-care (generateStaticParams)
-│   ├── icon.tsx                generated favicon (monogram)
+│   │   └── [slug]/page.tsx     pediatric-surgery + eye-care (generateStaticParams)
+│   ├── icon.png                favicon — the logo emblem
+│   ├── apple-icon.png          180px touch icon
 │   ├── opengraph-image.tsx     generated 1200×630 share card
 │   ├── sitemap.ts robots.ts manifest.ts not-found.tsx
 │   └── globals.css             design tokens (Tailwind v4 @theme)
 ├── components/
-│   ├── brand/                  logo + monogram
+│   ├── brand/                  Logo / LogoLockup / Emblem
 │   ├── layout/                 header, footer, page hero, social, mobile action bar
 │   ├── providers/              Lenis, cursor, scroll progress, loader, page transition
 │   ├── sections/               composable page sections
@@ -103,6 +122,7 @@ src/
 ├── config/
 │   ├── site.ts                 ← all real-world data (the TODO file)
 │   ├── content.ts              departments, services, FAQs, testimonials
+│   ├── themes.ts               the two brand themes
 │   └── images.ts               image manifest (static imports)
 └── lib/
     ├── schema.ts               JSON-LD builders
@@ -116,20 +136,94 @@ bar, and the `ContactPoint` schema at once.
 
 ---
 
+## Brand assets
+
+The client's logo — a sleeping baby inside an iris, cradled by two hands, with
+"Eye & Paediatric Surgery Centre" arced around it — arrived as a fully opaque PNG
+on a solid white background at 528×433. Two transparent derivatives are checked
+in under `public/brand/`:
+
+| File | What it is | Used by |
+| --- | --- | --- |
+| `logo-full.png` | The complete lockup, including the arc wordmark | Intro loader, and anywhere with ≥140px of room |
+| `logo-emblem.png` | Ring + baby + hands, arc wordmark removed | Header, footer, 404, favicon |
+| `logo-original-source.png` | The untouched file as supplied | Reference only |
+
+How they were derived, in case the logo is ever re-supplied:
+
+1. **Background → alpha** by flood-filling white *from the border inwards*. A blanket
+   "delete all near-white" would have eaten the baby's cream skin and the iris
+   highlights, which are nearly as light as the background.
+2. **Feathered edge.** The artwork was anti-aliased against white, so the 1–2px rim is a
+   white/ink blend. Alpha ramps across that band, which is why the mark sits cleanly on
+   both light and dark grounds instead of showing a white fringe.
+3. **Wordmark separated by connected-component labelling.** The ring, baby and hands touch
+   and form one ~59k-pixel blob; each letter of the arc is its own ~350-pixel island.
+   Keeping only the largest component drops the wordmark exactly, with no guesswork about
+   where the text sits.
+
+The arc wordmark is solid black, so it is **light-surface only**. On dark grounds the
+header and footer use the emblem plus a typeset wordmark, which also keeps the words
+crisp at small sizes and lets them recolour with the theme.
+
+A soft grey drop-shadow is baked into the original artwork. Stripping it programmatically
+broke the ring and the hands' outlines, so it was left in place — it reads as an
+intentional shadow on light grounds and as a soft glow on dark. Removing it properly
+needs the original vector.
+
+> The source is only 528px wide, which is enough for every on-screen use here but not for
+> print. A vector original would be worth asking for.
+
 ## Design system
 
 Tokens live in `src/app/globals.css` under `@theme` — a Tailwind v4 CSS-first
-theme, so no `tailwind.config.js`.
+theme, so no `tailwind.config.js`. Every colour is sampled from the logo.
 
-- **Ink** — deep desaturated navy, never pure black
-- **Brand** — medical blue, the trust colour
-- **Teal** — the care colour; also the eye-care department's accent
-- **Sand** — warm off-white that keeps the page from reading clinical-cold
+- **Brand** — the logo's cornflower iris blue, deepened into a text-safe ramp
+- **Rose** — the logo's pillow pink
+- **Ink** — warm charcoal-navy, never pure black
+- **Sand** — the warm cream of the baby and hands; the page ground
 - **Type** — Plus Jakarta Sans for UI, Instrument Serif for italic display
   accents. Both self-hosted by `next/font`, fluid scale clamped at both ends.
 
-Departments carry an accent (`brand` for paediatrics, `teal` for eye care) that
-propagates through cards, icons, buttons and the Calendly widget colour.
+Department accents follow the logo's own colour story, which is why they are
+mapped this way round:
+
+| Department | Accent | Why |
+| --- | --- | --- |
+| Paediatric Surgery | `rose` | The pillow and the baby |
+| Eye Care | `brand` | The iris |
+
+The accent propagates through cards, icons, buttons and the Calendly widget colour.
+
+## The two themes
+
+Both are built from the logo and both are declared in
+[`src/config/themes.ts`](src/config/themes.ts):
+
+| | Theme A — Ivory & Iris | Theme B — Porcelain & Midnight |
+| --- | --- | --- |
+| Mood | Warm, soft, family-facing | Cool, crisp, clinical-premium |
+| Ground | Warm ivory `#fcfaf6` | Cool porcelain `#eef2f7` |
+| Primary | Iris blue `#2a6ab2` | Deep ring navy `#123a63` |
+| Accent | Pillow rose `#ee93b2` | Hot rose `#e83a72` |
+| Corners | Generous — `2rem` | Architectural — `0.625rem` |
+| Shadows | Warm and diffuse | Tight and contained |
+
+**How switching works.** Theme A is the `:root` default; Theme B is a
+`[data-theme="porcelain"]` block that redefines the same variables. Tailwind v4
+compiles utilities to `var()` references, so redefining the variables reskins the
+entire site — no component knows which theme is active, and there are zero
+per-theme conditionals in the JSX.
+
+**To compare them:** use the floating *Theme* control at the bottom-right, or
+share a direct link — `?theme=ivory` / `?theme=porcelain`. The parameter is
+validated against the ids in `themes.ts` and persisted to `localStorage`.
+
+**Once a theme is chosen:** set `DEFAULT_THEME` in `src/config/themes.ts`, then
+delete `<ThemeSwitcher />` from `src/app/layout.tsx`. It is a review tool;
+nothing else depends on it. The losing theme's block in `globals.css` can then go
+too.
 
 ## Motion
 
@@ -213,11 +307,23 @@ disabled.
 
 ## Gotchas worth knowing
 
-**Don't pass `hidden` to `<Button>` / `<ButtonLink>` via `className`.** The
-button's base class list contains `inline-flex`, and Tailwind emits
-`.inline-flex` *after* `.hidden` in the stylesheet, so `hidden` loses the
-cascade and the button never hides. Put responsive visibility on a wrapper
-element instead — see the header CTAs for the pattern.
+**Never pass a utility through `className` that fights one already in a component's
+base class list.** Tailwind's output order decides which wins, *not* the order the
+classes appear in the attribute — so the override silently loses. This bit twice:
+
+- `hidden` passed to `<Button>` / `<ButtonLink>` lost to the base `inline-flex`, so the
+  header's desktop-only CTAs stayed visible on mobile.
+- `w-10` passed to `<Emblem>` lost to the base `w-full`, so the header logo stretched to
+  the full width of its flex parent on mobile.
+
+Both are fixed the same way: the component owns its own layout, and the caller sizes a
+**wrapper**. See the header CTAs and `brand/Logo.tsx` for the pattern.
+
+**`<html>` needs `suppressHydrationWarning`.** `ThemeScript` stamps `data-theme` onto
+`<html>` before first paint, but React owns that element in the App Router and reconciles
+it during hydration — which strips the attribute and reverts the page to the default
+palette. The symptom is nasty: the attribute is present if you inspect the DOM, the CSS
+is correct and unlayered, and yet the paint shows the default theme.
 
 **Client components can't receive a `Department` object.** `Department.icon` and
 `service.icon` are React component *functions*, which cannot cross the

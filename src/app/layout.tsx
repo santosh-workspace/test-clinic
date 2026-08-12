@@ -109,7 +109,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={`${jakarta.variable} ${instrument.variable}`}>
+    /*
+      suppressHydrationWarning is required, not cosmetic. ThemeScript stamps
+      `data-theme` onto <html> before paint, but React owns this element in the
+      App Router and reconciles it during hydration — which silently strips the
+      attribute and reverts the page to the default palette. This tells React to
+      leave the element's attributes alone.
+    */
+    <html
+      lang="en-IN"
+      suppressHydrationWarning
+      className={`${jakarta.variable} ${instrument.variable}`}
+    >
       <head>
         <ThemeScript />
         {/*

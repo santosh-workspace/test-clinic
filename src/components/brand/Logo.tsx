@@ -23,6 +23,20 @@ import { cn } from "@/lib/utils";
  * connected-component labelling).
  */
 
+/**
+ * IMPORTANT — why both marks wrap the <Image> in a sized <span>:
+ *
+ * The image itself must be `w-full h-auto` to keep its aspect ratio. If that
+ * `w-full` sat in the same class list as the caller's width (`w-10`, `w-52`…),
+ * the two would collide: Tailwind emits `.w-full` *after* `.w-10`, so `w-full`
+ * wins the cascade no matter which order the classes appear in the attribute.
+ * The mark would then stretch to the full width of its flex parent — which is
+ * exactly what broke the header logo on mobile.
+ *
+ * Putting the caller's width on a wrapper and `w-full` on the image inside it
+ * means the two can never conflict: the image fills a box the caller sizes.
+ */
+
 /** Just the cradled-eye mark. Safe at any size, on any background. */
 export function Emblem({
   className,
@@ -32,14 +46,16 @@ export function Emblem({
   priority?: boolean;
 }) {
   return (
-    <Image
-      src={emblemSrc}
-      alt=""
-      aria-hidden="true"
-      priority={priority}
-      sizes="120px"
-      className={cn("h-auto w-full select-none object-contain", className)}
-    />
+    <span className={cn("block shrink-0", className)}>
+      <Image
+        src={emblemSrc}
+        alt=""
+        aria-hidden="true"
+        priority={priority}
+        sizes="120px"
+        className="h-auto w-full select-none object-contain"
+      />
+    </span>
   );
 }
 
@@ -55,13 +71,15 @@ export function LogoLockup({
   priority?: boolean;
 }) {
   return (
-    <Image
-      src={lockupSrc}
-      alt="Yogeshwari Hospital — Eye and Paediatric Surgery Centre"
-      priority={priority}
-      sizes="(max-width: 768px) 240px, 340px"
-      className={cn("h-auto w-full select-none object-contain", className)}
-    />
+    <span className={cn("block shrink-0", className)}>
+      <Image
+        src={lockupSrc}
+        alt="Yogeshwari Hospital — Eye and Paediatric Surgery Centre"
+        priority={priority}
+        sizes="(max-width: 768px) 240px, 340px"
+        className="h-auto w-full select-none object-contain"
+      />
+    </span>
   );
 }
 

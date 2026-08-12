@@ -25,11 +25,30 @@ export function ThemeSwitcher() {
   const reduced = useReducedMotion();
   const panelRef = useRef<HTMLDivElement>(null);
 
-  // Mirror whatever ThemeScript already applied to <html>.
+  /**
+   * Re-assert the stored theme after hydration, and mirror it into local state.
+   *
+   * ThemeScript sets the attribute before paint and <html> carries
+   * suppressHydrationWarning so React leaves it alone — but re-applying here is
+   * a cheap safety net: if anything ever does reconcile the attribute away, the
+   * theme survives instead of silently snapping back to the default.
+   */
   useEffect(() => {
+    let stored: string | null = null;
+    try {
+      stored = localStorage.getItem(THEME_STORAGE_KEY);
+    } catch {
+      /* private mode */
+    }
     const attr = document.documentElement.getAttribute("data-theme");
-    const found = themes.find((t) => t.attr === attr);
-    if (found && found.id !== DEFAULT_THEME) {
+    const found =
+      themes.find((t) => t.id === stored) ?? themes.find((t) => t.attr === attr);
+    if (!found) return;
+
+    if (found.attr) document.documentElement.setAttribute("data-theme", found.attr);
+    else document.documentElement.removeAttribute("data-theme");
+
+    if (found.id !== DEFAULT_THEME) {
       // eslint-disable-next-line react-hooks/set-state-in-effect
       setActive(found.id);
     }

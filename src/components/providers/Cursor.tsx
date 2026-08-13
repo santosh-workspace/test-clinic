@@ -4,13 +4,15 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useEffect, useState } from "react";
 
 /**
- * Custom desktop cursor: a small dot with a trailing ring that scales up over
- * interactive elements.
+ * Desktop cursor accent: a soft ring that trails the pointer and scales up over
+ * anything interactive.
  *
- * Mounted only when the device has a fine pointer AND the user has not asked
- * for reduced motion. On anything else the component renders nothing and the
- * native cursor is untouched — replacing the system cursor on a touch device
- * or for a motion-sensitive user is a straight accessibility regression.
+ * The *native* cursor stays visible — this is layered around it, not instead of
+ * it. Hiding the system pointer costs more than it gains: it breaks the arrow /
+ * hand / text-caret affordances people rely on to tell what a thing does, and
+ * it is disorienting for anyone using pointer-accuracy assistance.
+ *
+ * Mounted only for fine pointers, and never under prefers-reduced-motion.
  */
 export function Cursor() {
   const [enabled, setEnabled] = useState(false);
@@ -36,11 +38,7 @@ export function Cursor() {
   }, []);
 
   useEffect(() => {
-    if (!enabled) {
-      document.body.removeAttribute("data-cursor");
-      return;
-    }
-    document.body.setAttribute("data-cursor", "on");
+    if (!enabled) return;
 
     const move = (e: PointerEvent) => {
       x.set(e.clientX);
@@ -56,7 +54,6 @@ export function Cursor() {
     return () => {
       window.removeEventListener("pointermove", move);
       document.removeEventListener("pointerleave", leave);
-      document.body.removeAttribute("data-cursor");
     };
   }, [enabled, x, y]);
 
@@ -64,20 +61,16 @@ export function Cursor() {
 
   return (
     <div aria-hidden="true" className="pointer-events-none fixed inset-0 z-[90]">
-      <motion.span
-        style={{ x, y }}
-        animate={{ opacity: hidden ? 0 : 1, scale: active ? 0 : 1 }}
-        transition={{ duration: 0.18 }}
-        className="absolute -ml-[3px] -mt-[3px] block size-1.5 rounded-full bg-brand-600"
-      />
+      {/* Ring only. A dot at the pointer tip would sit under the native arrow
+          and read as a glitch, so the trailing ring carries the whole effect. */}
       <motion.span
         style={{ x: ringX, y: ringY }}
         animate={{
-          opacity: hidden ? 0 : active ? 1 : 0.5,
-          scale: active ? 1.7 : 1,
+          opacity: hidden ? 0 : active ? 0.9 : 0.4,
+          scale: active ? 1.9 : 1,
         }}
         transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
-        className="absolute -ml-4 -mt-4 block size-8 rounded-full border border-brand-500/70 bg-brand-500/5 backdrop-blur-[1px]"
+        className="absolute -ml-5 -mt-5 block size-10 rounded-full border border-brand-500/70 bg-brand-500/5 backdrop-blur-[1px]"
       />
     </div>
   );

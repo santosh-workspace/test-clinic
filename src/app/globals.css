@@ -234,12 +234,8 @@
     color: white;
   }
 
-  /* Hide the native cursor only where our custom one is active */
-  body[data-cursor="on"],
-  body[data-cursor="on"] a,
-  body[data-cursor="on"] button {
-    cursor: none;
-  }
+  /* The native cursor stays visible. The custom ring in providers/Cursor.tsx
+     is layered *around* it as an accent, not as a replacement. */
 }
 
 /* ── Utilities ────────────────────────────────────────────────────────────── */

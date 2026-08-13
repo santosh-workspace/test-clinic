@@ -211,7 +211,11 @@ The accent propagates through cards, icons, buttons and the Calendly widget colo
 
 ## Service cards
 
-Every service renders through `components/sections/ServiceCard.tsx`: a banner, an
+Every service renders through `components/sections/ServiceCard.tsx` — the homepage
+preview, the two department pages and `/services` all use the same component, so a
+service looks identical wherever it appears. (The homepage preview had its own bespoke
+markup once and silently drifted out of step the moment the cards gained imagery; that
+is why it is shared now.) Its structure: a banner, an
 icon medallion straddling it, an accent-coloured title, a hairline rule that fills on
 hover, then the description. Entrance is a staggered fade in from the right.
 

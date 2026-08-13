@@ -1,29 +1,35 @@
 "use client";
 
-import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
+import { ServiceCard } from "@/components/sections/ServiceCard";
 import { Reveal, Stagger } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { departments } from "@/config/content";
-import { cn } from "@/lib/utils";
+import { departments, emergencyServices } from "@/config/content";
 
 /**
- * Interleaved services grid — the first six from each department, alternating,
- * so the section reads as one hospital rather than two lists side by side.
+ * Homepage services preview.
+ *
+ * Renders the same <ServiceCard> as the department pages and /services, so a
+ * service looks identical wherever it appears — same photograph, same banner,
+ * same hover. Previously this section had its own bespoke card markup and
+ * quietly drifted out of step once the cards gained imagery.
+ *
+ * Cards here additionally carry a department label and link through to that
+ * department, which the in-page grids do not need.
  */
 export function ServicesPreview() {
   const items = departments.flatMap((dept) =>
     dept.services.slice(0, 6).map((service) => ({ ...service, dept })),
   );
 
-  // Alternate between departments so colour rhythm is even across the grid.
+  // Alternate between departments so the colour rhythm is even across the grid.
+  const eye = items.filter((i) => i.dept.slug === "eye-care");
   const interleaved = items
     .filter((i) => i.dept.slug === "pediatric-surgery")
-    .flatMap((p, idx) => {
-      const e = items.filter((i) => i.dept.slug === "eye-care")[idx];
-      return e ? [p, e] : [p];
-    });
+    .flatMap((p, idx) => (eye[idx] ? [p, eye[idx]] : [p]));
+
+  const total =
+    departments.reduce((n, d) => n + d.services.length, 0) + emergencyServices.length;
 
   return (
     <Section id="services" tone="white">
@@ -36,7 +42,7 @@ export function ServicesPreview() {
               { text: "Everything a family" },
               { text: "usually needs", accent: true },
             ]}
-            lead="From a first vaccination to a cataract opinion. Twenty-two services across two departments, with surgical consultation for both."
+            lead={`From a newborn's first operation to a cataract opinion. ${total} services across two departments, plus emergency and day-care procedures.`}
             className="lg:max-w-2xl"
           />
           <Reveal variant="up">
@@ -50,61 +56,18 @@ export function ServicesPreview() {
           className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           amount={0.055}
         >
-          {interleaved.map((item) => {
-            const rose = item.dept.accent === "rose";
-            const Icon = item.icon;
-
-            return (
-              <Reveal key={`${item.dept.slug}-${item.name}`} child variant="up">
-                <Link
-                  href={item.dept.href}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-ink-100 bg-white p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:border-transparent hover:shadow-[var(--shadow-lift)]"
-                >
-                  {/* Colour wash that fades in on hover */}
-                  <span
-                    aria-hidden="true"
-                    className={cn(
-                      "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100",
-                      rose
-                        ? "bg-linear-to-br from-rose-50 to-transparent"
-                        : "bg-linear-to-br from-brand-50 to-transparent",
-                    )}
-                  />
-
-                  <span
-                    className={cn(
-                      "relative grid size-12 place-items-center rounded-2xl text-[1.3rem] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                      rose
-                        ? "bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
-                        : "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
-                    )}
-                  >
-                    <Icon aria-hidden="true" />
-                  </span>
-
-                  <h3 className="relative mt-5 text-[1.05rem] font-bold tracking-tight text-ink-950">
-                    {item.name}
-                  </h3>
-                  <p className="relative mt-2.5 flex-1 text-[0.89rem] leading-relaxed text-ink-600">
-                    {item.description}
-                  </p>
-
-                  <span
-                    className={cn(
-                      "relative mt-5 inline-flex items-center gap-1.5 text-[0.78rem] font-semibold uppercase tracking-[0.1em]",
-                      rose ? "text-rose-600" : "text-brand-600",
-                    )}
-                  >
-                    {item.dept.shortName}
-                    <FiArrowRight
-                      aria-hidden="true"
-                      className="opacity-0 transition-all duration-300 ease-[var(--ease-out-expo)] group-hover:translate-x-1 group-hover:opacity-100"
-                    />
-                  </span>
-                </Link>
-              </Reveal>
-            );
-          })}
+          {interleaved.map((item) => (
+            <ServiceCard
+              key={`${item.dept.slug}-${item.name}`}
+              name={item.name}
+              description={item.description}
+              icon={item.icon}
+              image={item.image}
+              accent={item.dept.accent}
+              href={item.dept.href}
+              meta={item.dept.shortName}
+            />
+          ))}
         </Stagger>
       </div>
     </Section>

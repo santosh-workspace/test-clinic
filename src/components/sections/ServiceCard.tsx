@@ -2,7 +2,9 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import Image, { type StaticImageData } from "next/image";
+import Link from "next/link";
 import type { IconType } from "react-icons";
+import { FiArrowRight } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 
 /**
@@ -33,6 +35,8 @@ export function ServiceCard({
   icon: Icon,
   accent,
   image,
+  href,
+  meta,
   className,
 }: {
   name: string;
@@ -40,28 +44,17 @@ export function ServiceCard({
   icon: IconType;
   accent: "brand" | "rose";
   image?: { src: StaticImageData; alt: string };
+  /** Makes the whole card a link. Used by the homepage preview. */
+  href?: string;
+  /** Small label at the foot — the department, on mixed grids. */
+  meta?: string;
   className?: string;
 }) {
   const reduced = useReducedMotion();
   const rose = accent === "rose";
 
-  return (
-    <motion.article
-      data-reveal
-      variants={{
-        hidden: reduced ? {} : { opacity: 0, x: 28 },
-        show: {
-          opacity: 1,
-          x: 0,
-          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
-        },
-      }}
-      className={cn(
-        "group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-ink-100 bg-white transition-[border-color,box-shadow,transform] duration-400 ease-[var(--ease-out-expo)] hover:border-transparent hover:shadow-[var(--shadow-lift)]",
-        !reduced && "hover:-translate-y-1",
-        className,
-      )}
-    >
+  const body = (
+    <>
       {/* Banner — photograph where one honestly exists, tinted panel otherwise */}
       <div
         className={cn(
@@ -154,7 +147,53 @@ export function ServiceCard({
         <p className="mt-3.5 text-[0.87rem] leading-relaxed text-ink-600">
           {description}
         </p>
+
+        {meta && (
+          <span
+            className={cn(
+              "mt-auto inline-flex items-center gap-1.5 pt-5 text-[0.72rem] font-semibold uppercase tracking-[0.12em]",
+              rose ? "text-rose-600" : "text-brand-600",
+            )}
+          >
+            {meta}
+            {href && (
+              <FiArrowRight
+                aria-hidden="true"
+                className="opacity-0 transition-all duration-300 ease-[var(--ease-out-expo)] group-hover:translate-x-1 group-hover:opacity-100"
+              />
+            )}
+          </span>
+        )}
       </div>
-    </motion.article>
+    </>
+  );
+
+  const shell = cn(
+    "group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-ink-100 bg-white transition-[border-color,box-shadow,transform] duration-400 ease-[var(--ease-out-expo)] hover:border-transparent hover:shadow-[var(--shadow-lift)]",
+    !reduced && "hover:-translate-y-1",
+    className,
+  );
+
+  return (
+    <motion.div
+      data-reveal
+      variants={{
+        hidden: reduced ? {} : { opacity: 0, x: 28 },
+        show: {
+          opacity: 1,
+          x: 0,
+          transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+        },
+      }}
+      className="h-full"
+    >
+      {href ? (
+        <Link href={href} className={shell}>
+          {body}
+        </Link>
+      ) : (
+        <article className={shell}>{body}</article>
+      )}
+    </motion.div>
   );
 }

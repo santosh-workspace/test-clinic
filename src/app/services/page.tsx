@@ -9,16 +9,19 @@ import {
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { Reveal } from "@/components/ui/Reveal";
 import { MediaFrame } from "@/components/ui/MediaFrame";
-import { Reveal, Stagger } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
-import { TiltCard } from "@/components/ui/TiltCard";
 import { departments, faqsGeneral, emergencyServices } from "@/config/content";
 import { img } from "@/config/images";
 import { doctors, siteConfig } from "@/config/site";
 import { breadcrumbSchema, faqSchema, graph, hospitalSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
+import {
+  ServiceGrid,
+  type ServiceCategoryId,
+} from "@/components/sections/ServiceGrid";
 
 export const metadata: Metadata = {
   title: `Services — Paediatric Surgery & Eye Care in ${siteConfig.city}`,
@@ -43,6 +46,8 @@ type Category = {
   /** Background photograph for the category card. */
   cardImage: (typeof img)[keyof typeof img];
   iconKey: CategoryIconKey;
+  /** Plain id the client-side <ServiceGrid> resolves its own data from. */
+  gridId: ServiceCategoryId;
   title: string;
   href?: string;
   hrefLabel?: string;
@@ -65,6 +70,7 @@ export default function ServicesPage() {
       image: img.newborn,
       cardImage: img.operatingTheatre,
       iconKey: "pediatric-surgery",
+      gridId: "pediatric-surgery",
       title: "Surgery scaled to a child",
       href: pediatricSurgery.href,
       hrefLabel: "Paediatric surgery department",
@@ -81,6 +87,7 @@ export default function ServicesPage() {
       image: img.eyeExam,
       cardImage: img.eyeExam,
       iconKey: "eye-care",
+      gridId: "eye-care",
       title: "Vision, checked properly",
       href: eyeCare.href,
       hrefLabel: "Eye care department",
@@ -97,6 +104,7 @@ export default function ServicesPage() {
       image: img.equipment,
       cardImage: img.corridor,
       iconKey: "emergency",
+      gridId: "emergency",
       title: "When it cannot wait",
     },
   ];
@@ -223,50 +231,7 @@ export default function ServicesPage() {
                 </div>
 
                 <div className="lg:col-span-7">
-                  <Stagger className="grid gap-4 sm:grid-cols-2" amount={0.06}>
-                    {cat.items.map((service, idx) => {
-                      const Icon = service.icon;
-                      return (
-                        <Reveal key={service.name} child variant="up">
-                          <TiltCard
-                            className="h-full"
-                            intensity={4}
-                            glow={
-                              rose ? "rgb(214 104 140 / 0.13)" : "rgb(42 111 240 / 0.13)"
-                            }
-                          >
-                            <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-ink-100 bg-white p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
-                              <div className="flex items-start justify-between gap-4">
-                                <span
-                                  className={cn(
-                                    "grid size-11 shrink-0 place-items-center rounded-xl text-[1.2rem] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                                    rose
-                                      ? "bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
-                                      : "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
-                                  )}
-                                >
-                                  <Icon aria-hidden="true" />
-                                </span>
-                                <span
-                                  aria-hidden="true"
-                                  className="font-display text-[1.6rem] leading-none text-ink-100 transition-colors duration-500 group-hover:text-ink-200"
-                                >
-                                  {String(idx + 1).padStart(2, "0")}
-                                </span>
-                              </div>
-
-                              <h3 className="mt-5 text-[1rem] font-bold leading-snug tracking-tight text-ink-950">
-                                {service.name}
-                              </h3>
-                              <p className="mt-2.5 text-[0.87rem] leading-relaxed text-ink-600">
-                                {service.description}
-                              </p>
-                            </article>
-                          </TiltCard>
-                        </Reveal>
-                      );
-                    })}
-                  </Stagger>
+                  <ServiceGrid category={cat.gridId} />
                 </div>
               </div>
             </div>

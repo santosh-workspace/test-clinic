@@ -201,6 +201,21 @@ mapped this way round:
 
 The accent propagates through cards, icons, buttons and the Calendly widget colour.
 
+## Service cards
+
+Every service renders through `components/sections/ServiceCard.tsx`: a banner, an
+icon medallion straddling it, an accent-coloured title, a hairline rule that fills on
+hover, then the description. Entrance is a staggered fade in from the right.
+
+**Photos are only attached where the image genuinely depicts the service** — 12 of the
+26 do. There is no honest stock photograph of a urodynamics study or a thoracoscopy, so
+those cards get a flat accent-tinted banner with the service icon watermarked into it
+instead. Same silhouette, same height, no pretend imagery — which also stops the grid
+going ragged where a photo card sits beside a text-only one.
+
+To add a photo later, set `image:` on that service in `src/config/content.ts` and add the
+file to the manifest in `src/config/images.ts`. Nothing else changes.
+
 ## Booking
 
 "Book Appointment" opens a **dialog** rather than navigating — but the button is still a

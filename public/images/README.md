@@ -37,7 +37,11 @@ If you change the alt text (you should, once these are real photos), edit
 | `corridor.jpg` | 3:2 | 1400 | About — parallax band | Medium |
 | `operating-theatre.jpg` | 3:2 | 1400 | Services — surgical consultations | Medium |
 | `equipment.jpg` | 3:2 | 1400 | Services — diagnostics | Medium |
-| `eye-exam.jpg` | 3:2 | 1400 | Eye care department hero | High |
+| `eye-exam.jpg` | 3:2 | 1400 | Eye care department hero, service card | High |
+| `svc-surgery.jpg` | 16:10 | 1200 | Service card — laparoscopic surgery | Medium |
+| `svc-theatre-prep.jpg` | 16:10 | 1200 | Service card — pre-operative evaluation | Medium |
+| `svc-brain-scan.jpg` | 16:10 | 1200 | Service card — brain & spine surgery | Medium |
+| `svc-parent-baby.jpg` | 16:10 | 1200 | Service card — prenatal consultation | Medium |
 | `eye-clinic.jpg` | 4:5 | 1400 | Eye care department — portrait band | Medium |
 | `eyewear.jpg` | 3:2 | 1400 | Eye care — vision testing card | Low |
 | `child-happy.jpg` | 4:5 | 1400 | Paediatrics department hero | High |

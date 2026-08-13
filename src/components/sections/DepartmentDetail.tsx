@@ -8,13 +8,13 @@ import { ButtonLink } from "@/components/ui/Button";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Reveal, Stagger } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { TiltCard } from "@/components/ui/TiltCard";
 import { type Department, getDepartment } from "@/config/content";
 import { img } from "@/config/images";
 import { getDoctorByDepartment, links } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 import { ButtonRow } from "@/components/ui/ButtonRow";
+import { ServiceCard } from "@/components/sections/ServiceCard";
 
 /**
  * Shared department body — services grid, doctor panel and CTA band.
@@ -77,46 +77,17 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
             lead={`${dept.services.length} services, each with an unhurried consultation and written instructions to take home.`}
           />
 
-          <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" amount={0.06}>
-            {dept.services.map((service, i) => {
-              const Icon = service.icon;
-              return (
-                <Reveal key={service.name} child variant="up">
-                  <TiltCard
-                    className="h-full"
-                    intensity={4}
-                    glow={rose ? "rgb(214 104 140 / 0.14)" : "rgb(42 111 240 / 0.14)"}
-                  >
-                    <article className="group relative flex h-full flex-col overflow-hidden rounded-[1.4rem] border border-ink-100 bg-white p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]">
-                      <span
-                        aria-hidden="true"
-                        className="absolute right-4 top-3 font-display text-[2.6rem] leading-none text-ink-100/90 transition-colors duration-500 group-hover:text-brand-100"
-                      >
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-
-                      <span
-                        className={cn(
-                          "relative grid size-12 place-items-center rounded-2xl text-[1.3rem] transition-all duration-500 ease-[var(--ease-out-expo)] group-hover:-rotate-6 group-hover:scale-110",
-                          rose
-                            ? "bg-rose-50 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
-                            : "bg-brand-50 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
-                        )}
-                      >
-                        <Icon aria-hidden="true" />
-                      </span>
-
-                      <h3 className="relative mt-5 text-[1.02rem] font-bold leading-snug tracking-tight text-ink-950">
-                        {service.name}
-                      </h3>
-                      <p className="relative mt-2.5 text-[0.88rem] leading-relaxed text-ink-600">
-                        {service.description}
-                      </p>
-                    </article>
-                  </TiltCard>
-                </Reveal>
-              );
-            })}
+          <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" amount={0.07}>
+            {dept.services.map((service) => (
+              <ServiceCard
+                key={service.name}
+                name={service.name}
+                description={service.description}
+                icon={service.icon}
+                image={service.image}
+                accent={dept.accent}
+              />
+            ))}
           </Stagger>
         </div>
       </Section>

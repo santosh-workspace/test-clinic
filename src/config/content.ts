@@ -36,7 +36,13 @@ export type Department = {
   icon: IconType;
   image: (typeof img)[keyof typeof img];
   heroImage: (typeof img)[keyof typeof img];
-  services: { name: string; description: string; icon: IconType }[];
+  services: {
+    name: string;
+    description: string;
+    icon: IconType;
+    /** Only set where the photo genuinely depicts the service. */
+    image?: (typeof img)[keyof typeof img];
+  }[];
   metaTitle: string;
   metaDescription: string;
 };
@@ -66,12 +72,14 @@ export const departments: Department[] = [
         description:
           "Surgery on newborns and young children, including congenital malformations that need correcting in the first days or weeks of life.",
         icon: FiHeart,
+        image: img.newborn,
       },
       {
         name: "Laparoscopic Abdominal Surgery",
         description:
           "Keyhole abdominal procedures through a few millimetre-sized ports — less pain, a smaller scar and a faster return to normal activity than open surgery.",
         icon: FiCrosshair,
+        image: img.svcSurgery,
       },
       {
         name: "Paediatric Urology",
@@ -96,12 +104,14 @@ export const departments: Department[] = [
         description:
           "Counselling for parents when a scan detects a congenital malformation before birth: what it means, what surgery may involve, and how delivery should be planned.",
         icon: FiUsers,
+        image: img.svcParentBaby,
       },
       {
         name: "Brain & Spine Surgery",
         description:
           "Paediatric neurosurgical procedures, including hydrocephalus and spinal dysraphism such as spina bifida and tethered cord.",
         icon: FiTarget,
+        image: img.svcBrainScan,
       },
       {
         name: "Airway & Tracheal Treatment",
@@ -120,6 +130,7 @@ export const departments: Department[] = [
         description:
           "Urgent operative care for acute abdomen, obstruction, incarcerated hernia, torsion and other conditions where delay costs outcome.",
         icon: FiAlertTriangle,
+        image: img.operatingTheatre,
       },
       {
         name: "Accident & Trauma Care",
@@ -161,18 +172,21 @@ export const departments: Department[] = [
         description:
           "A full assessment of vision, refraction, eye pressure, and the front and back of the eye in a single sitting.",
         icon: FiEye,
+        image: img.eyeExam,
       },
       {
         name: "Vision Testing",
         description:
           "Accurate refraction for spectacle and contact lens prescription, including testing for children and for near-work strain.",
         icon: FiSun,
+        image: img.eyewear,
       },
       {
         name: "Cataract Consultation",
         description:
           "Grading of the cataract, discussion of lens options, and an honest opinion on whether surgery will meaningfully help yet.",
         icon: FiLayers,
+        image: img.eyeClinic,
       },
       {
         name: "Glaucoma Screening",
@@ -221,6 +235,7 @@ export const emergencyServices = [
     description:
       "Immediate assessment of childhood injury and acute surgical conditions, with a decision on whether the child needs theatre, admission or observation.",
     icon: FiAlertTriangle,
+    image: img.corridor,
   },
   {
     name: "Acute Abdomen",
@@ -233,24 +248,28 @@ export const emergencyServices = [
     description:
       "Selected procedures completed with same-day discharge, so a child recovers at home rather than on a ward.",
     icon: FiHome,
+    image: img.ward,
   },
   {
     name: "Pre-operative Evaluation",
     description:
       "Fitness assessment, necessary investigations and a written plan covering fasting, medication and what to bring on the day.",
     icon: FiUserCheck,
+    image: img.svcTheatrePrep,
   },
   {
     name: "Post-operative Review",
     description:
       "Structured follow-up after surgery to confirm healing is on track and to catch complications early.",
     icon: FiHeart,
+    image: img.patientRoom,
   },
   {
     name: "Surgical Second Opinion",
     description:
       "An independent review of an operation recommended elsewhere, with the reasoning explained in plain language — including when the answer is to wait.",
     icon: FiLayers,
+    image: img.consultationRoom,
   },
 ];
 

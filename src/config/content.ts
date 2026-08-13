@@ -343,7 +343,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Our son needed a hernia repair at eight months and we were terrified. It was done by keyhole, he was discharged the same day, and the doctor drew a diagram so we actually understood what had been done.",
-    author: "Placeholder — parent",
+    author: "Placeholder: Sunita Kadam — parent",
     context: "Laparoscopic surgery",
     rating: 5,
     department: "pediatric-surgery",
@@ -351,7 +351,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "I went in for a routine check because my vision felt slightly off. They picked up early diabetic changes I had no idea about. I would never have known until it was too late.",
-    author: "Placeholder — patient",
+    author: "Placeholder: Prakash Jadhav — patient",
     context: "Diabetic eye screening",
     rating: 5,
     department: "eye-care",
@@ -359,7 +359,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "Two years of constipation and we had been given syrup after syrup. Here it was actually investigated and a proper plan put in place. First real improvement we have seen.",
-    author: "Placeholder — parent",
+    author: "Placeholder: Anjali Kulkarni — parent",
     context: "Constipation clinic",
     rating: 5,
     department: "pediatric-surgery",
@@ -367,7 +367,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "What I appreciated most was not being made to feel like I was wasting anyone's time. Every question got a real answer, and nobody looked at the clock.",
-    author: "Placeholder — patient",
+    author: "Placeholder: Ganesh Wagh — patient",
     context: "Eye examination",
     rating: 5,
     department: "eye-care",
@@ -375,7 +375,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "My mother's cataract was assessed here. The doctor told us honestly that it was not yet worth operating on and asked us to come back in six months. That kind of advice is rare.",
-    author: "Placeholder — family member",
+    author: "Placeholder: Rahul Deshmukh — family member",
     context: "Cataract consultation",
     rating: 5,
     department: "eye-care",
@@ -383,7 +383,7 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "A scan at seven months showed a problem with the baby's kidney. Sitting with a paediatric surgeon before the delivery, knowing what would happen and when, made the rest of the pregnancy bearable.",
-    author: "Placeholder — parent",
+    author: "Placeholder: Pooja Shelke — parent",
     context: "Prenatal consultation",
     rating: 5,
     department: "pediatric-surgery",

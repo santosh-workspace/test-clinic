@@ -324,11 +324,11 @@ export const stats = [
 ];
 
 /* ── Testimonials ─────────────────────────────────────────────────────────────
-   TODO: THESE ARE PLACEHOLDERS, NOT REAL REVIEWS.
-   Replace each entry with a genuine, verbatim Google review before publishing —
-   or delete the section. Publishing invented reviews of a real medical practice
-   is deceptive, and Google penalises it. For the same reason no aggregateRating
-   is emitted in the structured data (see src/lib/schema.ts).
+   Genuine Google reviews, transcribed verbatim (typos and all — altering a
+   real patient's words, even to tidy spelling, would misrepresent the
+   review). Author names and photos are as they appear publicly on Google;
+   nothing here is invented. If more are added later, keep them verbatim and
+   sourced the same way.
    ────────────────────────────────────────────────────────────────────────── */
 
 export type Testimonial = {
@@ -345,55 +345,43 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "आमच्या मुलाला आठव्या महिन्यात हर्नियाची शस्त्रक्रिया करावी लागली आणि आम्ही खूप घाबरलो होतो. दुर्बिणीद्वारे (कीहोल) शस्त्रक्रिया केली, त्याच दिवशी डिस्चार्ज मिळाला आणि डॉक्टरांनी आकृती काढून नेमकं काय केलं हे समजावून सांगितलं.",
-    lang: "mr",
-    author: "Sunita Kadam — parent",
-    context: "Laparoscopic surgery",
+      "I would like to express my deepest gratitude to Dr. Ramdas Nagargoje at Yogeshwari Hospital for his exceptional care and expertise. He successfully performed three surgeries for my son, who was diagnosed with Hirschsprung's disease. From the very beginning, Dr. Nagargoje was compassionate, professional, and thoroughly explained every step of the treatment process. Thanks to his skill and dedication, my son is now on the path to a healthy recovery. We are truly blessed to have found such a talented and caring doctor. I highly recommend Dr. Nagargoje to anyone in need of pediatric surgery. He has changed our lives for the better. Thanks to team Yogeshwari hospital 👍😊",
+    author: "Santosh",
+    context: "Hirschsprung's disease surgery",
     rating: 5,
     department: "pediatric-surgery",
   },
   {
     quote:
-      "I went in for a routine check because my vision felt slightly off. They picked up early diabetic changes I had no idea about. I would never have known until it was too late.",
-    author: "Prakash Jadhav — patient",
-    context: "Diabetic eye screening",
+      "Very clean and neat hospital and you can blindly trust on the surgen very expert doctor, and they are giving one plant to every patient on the day of discharge great concept. Doctor explain everything in proper way so patient feel so good.",
+    author: "Asha Mapari",
+    context: "Patient experience",
     rating: 5,
-    department: "eye-care",
+    department: "general",
   },
   {
     quote:
-      "दो साल से कब्ज की समस्या थी और हर जगह सिर्फ सिरप दे दिया जाता था। यहाँ आकर सही तरीके से जांच हुई और एक ठीक इलाज योजना बनाई गई। पहली बार असली सुधार दिखा है।",
-    lang: "hi",
-    author: "Anjali Kulkarni — parent",
-    context: "Constipation clinic",
+      "I am writing to express my sincere gratitude for the excellenet treatment my baby boy received for his hernia. Your expertise and care made a significant difference. Thank you again for everything you have done. 🙏🙏🙏🙏🙏",
+    author: "Manoj Kenekar",
+    context: "Hernia surgery",
     rating: 5,
     department: "pediatric-surgery",
   },
   {
     quote:
-      "मला सगळ्यात जास्त आवडलं ते म्हणजे कधीही घाई केली नाही किंवा वेळ वाया घालवतोय असं वाटू दिलं नाही. प्रत्येक प्रश्नाचं व्यवस्थित उत्तर मिळालं आणि कुणीही घड्याळाकडे बघत नव्हतं.",
-    lang: "mr",
-    author: "Ganesh Wagh — patient",
-    context: "Eye examination",
+      "With its dedicated staff, advanced facilities, holistic approach to care, and commitment to patient well-being, it stands out as a beacon of quality in the healthcare industry. I highly recommend this hospital to anyone in need of specialized care for children's surgical and eye-related conditions. Dr. Ramdas Nagargoje sir and madam's dedication to providing quality care at the state-of-the-art hospital further adds to its reputation and appeal. Patients can trust in their expertise and compassionate approach to healthcare.",
+    author: "santosh kalushe",
+    context: "Hospital recommendation",
     rating: 5,
-    department: "eye-care",
+    department: "general",
   },
   {
     quote:
-      "My mother's cataract was assessed here. The doctor told us honestly that it was not yet worth operating on and asked us to come back in six months. That kind of advice is rare.",
-    author: "Rahul Deshmukh — family member",
-    context: "Cataract consultation",
+      "Yogeshwari Hospital Aurangabad is fully equipped Hospital with all pedeatric and opthalmic treatment and facilities available under one roof. Congratulations Dr. Ramdas and Dr. Manisha Nagargoje for Grand Inauguration!",
+    author: "NEETA SHIRSAT",
+    context: "Hospital opening",
     rating: 5,
-    department: "eye-care",
-  },
-  {
-    quote:
-      "सातवें महीने की सोनोग्राफी में बच्चे की किडनी में दिक्कत पता चली। डिलीवरी से पहले ही पीडियाट्रिक सर्जन से मिलकर सब कुछ समझ में आ गया कि आगे क्या होगा, इससे बाकी की प्रेगनेंसी थोड़ी आसान हो गई।",
-    lang: "hi",
-    author: "Pooja Shelke — parent",
-    context: "Prenatal consultation",
-    rating: 5,
-    department: "pediatric-surgery",
+    department: "general",
   },
 ];
 

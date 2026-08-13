@@ -31,7 +31,7 @@ export function MobileActionBar() {
       label: "Call",
       sub: "Speak now",
       icon: FiPhone,
-      className: "text-ink-800",
+      className: "text-fg",
     },
     {
       href: links.whatsapp(),
@@ -63,7 +63,7 @@ export function MobileActionBar() {
       transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
       className="fixed inset-x-0 bottom-0 z-50 pb-[env(safe-area-inset-bottom)] lg:hidden"
     >
-      <div className="mx-3 mb-3 grid grid-cols-3 gap-1.5 rounded-2xl border border-ink-200/80 bg-white/92 p-1.5 shadow-[0_-4px_30px_-6px_rgb(7_35_53/0.18)] backdrop-blur-xl">
+      <div className="mx-3 mb-3 grid grid-cols-3 gap-1.5 rounded-2xl border border-edge/80 bg-surface-2/92 p-1.5 shadow-[0_-4px_30px_-6px_rgb(7_35_53/0.18)] backdrop-blur-xl">
         {actions.map((action) => {
           const Icon = action.icon;
           const content = (
@@ -80,7 +80,7 @@ export function MobileActionBar() {
             ? `${base} bg-brand-600 text-white`
             : action.brand
               ? `${base} bg-[#25D366] text-white`
-              : `${base} bg-ink-50 text-ink-800`;
+              : `${base} bg-surface-3 text-fg`;
 
           return action.external ? (
             <a

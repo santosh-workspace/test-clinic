@@ -50,12 +50,12 @@ export function Hero() {
   // Top padding is deliberately tight — the header already separates the two,
   // so a large gap here only pushes the headline further below the fold.
   return (
-    <section className="relative overflow-hidden bg-white pt-4 pb-9 md:pt-7 lg:pt-9 lg:pb-12">
+    <section className="relative overflow-hidden bg-surface-2 pt-4 pb-9 md:pt-7 lg:pt-9 lg:pb-12">
       {/* Ambient field */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-brand-100/60 blur-[130px]" />
         <div className="absolute -right-24 top-1/3 h-[26rem] w-[26rem] rounded-full bg-rose-100/55 blur-[120px]" />
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-b from-transparent to-sand-50" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-linear-to-b from-transparent to-surface" />
       </div>
 
       <div className="container-page">
@@ -65,7 +65,7 @@ export function Hero() {
               forces the third CTA onto its own line. */}
           <div className="lg:col-span-7">
             <motion.div data-reveal {...rise(0.05)}>
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-ink-200 bg-white/80 py-1.5 pl-1.5 pr-4 text-[0.76rem] font-medium text-ink-600 shadow-[var(--shadow-soft)] backdrop-blur">
+              <span className="inline-flex items-center gap-2.5 rounded-full border border-edge bg-white/80 py-1.5 pl-1.5 pr-4 text-[0.76rem] font-medium text-fg-muted shadow-[var(--shadow-soft)] backdrop-blur">
                 <span className="relative flex size-6 items-center justify-center">
                   <span
                     aria-hidden="true"
@@ -82,7 +82,7 @@ export function Hero() {
               </span>
             </motion.div>
 
-            <h1 className="mt-7 text-display font-bold tracking-tight text-ink-950">
+            <h1 className="mt-7 text-display font-bold tracking-tight text-fg">
               {headline.map((line, i) => (
                 <span key={line.accent} className="block overflow-hidden pb-[0.08em]">
                   <motion.span
@@ -107,7 +107,7 @@ export function Hero() {
 
             <motion.p
               data-reveal {...rise(0.45)}
-              className="mt-7 max-w-xl text-lead text-ink-600"
+              className="mt-7 max-w-xl text-lead text-fg-muted"
             >
               Two specialists, one hospital. An M.Ch. paediatric surgeon trained at
               B.J. Wadia Hospital for Children, Mumbai, and an ophthalmologist who finds
@@ -144,14 +144,14 @@ export function Hero() {
             {/* Trust badges */}
             <motion.ul
               data-reveal {...rise(0.72)}
-              className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-ink-100 bg-ink-100"
+              className="mt-10 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-edge bg-surface-3"
             >
               {trustBadges.map((badge) => (
-                <li key={badge.label} className="bg-white px-4 py-4 text-center sm:text-left">
-                  <p className="text-[0.92rem] font-bold tracking-tight text-ink-950">
+                <li key={badge.label} className="bg-surface-2 px-4 py-4 text-center sm:text-left">
+                  <p className="text-[0.92rem] font-bold tracking-tight text-fg">
                     {badge.label}
                   </p>
-                  <p className="mt-0.5 text-[0.74rem] leading-snug text-ink-500">
+                  <p className="mt-0.5 text-[0.74rem] leading-snug text-fg-subtle">
                     {badge.detail}
                   </p>
                 </li>
@@ -170,7 +170,7 @@ export function Hero() {
                     animate: { opacity: 1, clipPath: "inset(0% 0% 0% 0% round 2rem)" },
                     transition: { duration: 1.3, delay: 0.2, ease: EASE },
                   })}
-              className="relative aspect-4/5 overflow-hidden rounded-[var(--radius-xl2)] bg-ink-100 shadow-[var(--shadow-lift)] sm:aspect-3/2 lg:aspect-4/5"
+              className="relative aspect-4/5 overflow-hidden rounded-[var(--radius-xl2)] bg-surface-3 shadow-[var(--shadow-lift)] sm:aspect-3/2 lg:aspect-4/5"
             >
               <Parallax distance={reduced ? 0 : 56} className="absolute inset-0 scale-110">
                 <Image
@@ -232,9 +232,9 @@ export function Hero() {
                   })}
               className="absolute -left-6 top-10 hidden xl:block"
             >
-              <div className="animate-float rounded-2xl border border-ink-100 bg-white p-4 shadow-[var(--shadow-lift)]">
+              <div className="animate-float rounded-2xl border border-edge bg-surface-2 p-4 shadow-[var(--shadow-lift)]">
                 <p className="font-display text-3xl leading-none text-gradient">2</p>
-                <p className="mt-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-ink-500">
+                <p className="mt-1.5 text-[0.72rem] font-semibold uppercase tracking-[0.14em] text-fg-subtle">
                   Specialities
                   <br />
                   One roof
@@ -254,7 +254,7 @@ export function Hero() {
                 transition: { delay: 1.3, duration: 0.8 },
               })}
           aria-hidden="true"
-          className="mt-9 hidden items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-400 lg:flex"
+          className="mt-9 hidden items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-fg-subtle lg:flex"
         >
           <FiArrowDown className="animate-float text-brand-500" />
           Scroll to explore

@@ -39,7 +39,7 @@ export function MediaFrame({
       whileInView={reduced ? undefined : { clipPath: "inset(0% 0% 0% 0%)" }}
       viewport={viewport}
       transition={{ duration: 1.05, ease: [0.16, 1, 0.3, 1] }}
-      className={cn("relative overflow-hidden bg-ink-100", ratio, rounded, className)}
+      className={cn("relative overflow-hidden bg-surface-3", ratio, rounded, className)}
     >
       <Image
         src={image.src}

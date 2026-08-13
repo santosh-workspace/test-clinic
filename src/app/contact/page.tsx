@@ -92,7 +92,7 @@ export default function ContactPage() {
                     {...(external
                       ? { target: "_blank", rel: "noopener noreferrer" }
                       : {})}
-                    className="group flex h-full flex-col rounded-[1.4rem] border border-ink-100 bg-white p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]"
+                    className="group flex h-full flex-col rounded-[1.4rem] border border-edge bg-surface-2 p-6 transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]"
                   >
                     <span
                       className={
@@ -103,13 +103,13 @@ export default function ContactPage() {
                     >
                       <Icon aria-hidden="true" />
                     </span>
-                    <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    <p className="mt-5 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                       {card.label}
                     </p>
-                    <p className="mt-2 break-words text-[1rem] font-bold tracking-tight text-ink-950">
+                    <p className="mt-2 break-words text-[1rem] font-bold tracking-tight text-fg">
                       {card.value}
                     </p>
-                    <p className="mt-1.5 text-[0.83rem] text-ink-500">{card.detail}</p>
+                    <p className="mt-1.5 text-[0.83rem] text-fg-subtle">{card.detail}</p>
                   </a>
                 </Reveal>
               );
@@ -119,12 +119,12 @@ export default function ContactPage() {
           {/* Address + hours + social */}
           <div className="mt-6 grid gap-4 lg:grid-cols-3">
             <Reveal variant="up" className="lg:col-span-1">
-              <div className="h-full rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-7">
-                <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+              <div className="h-full rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-7">
+                <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                   <FiMapPin aria-hidden="true" /> Hospital address
                 </p>
-                <address className="mt-4 text-[1rem] not-italic leading-relaxed text-ink-800">
-                  <strong className="block font-bold text-ink-950">
+                <address className="mt-4 text-[1rem] not-italic leading-relaxed text-fg">
+                  <strong className="block font-bold text-fg">
                     {siteConfig.name}
                   </strong>
                   {addressLines.map((line) => (
@@ -148,20 +148,20 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal variant="up" delay={0.08} className="lg:col-span-1">
-              <div className="h-full rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-7">
-                <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+              <div className="h-full rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-7">
+                <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                   <FiClock aria-hidden="true" /> Hospital timings
                 </p>
                 <ul className="mt-4 space-y-3">
                   {siteConfig.hours.map((h) => (
                     <li
                       key={`${h.days}-${h.label}`}
-                      className="border-b border-dashed border-ink-100 pb-3 last:border-0 last:pb-0"
+                      className="border-b border-dashed border-edge pb-3 last:border-0 last:pb-0"
                     >
-                      <p className="text-[0.92rem] font-semibold text-ink-900">
+                      <p className="text-[0.92rem] font-semibold text-fg">
                         {h.days}
                       </p>
-                      <p className="mt-0.5 text-[0.86rem] text-ink-600">
+                      <p className="mt-0.5 text-[0.86rem] text-fg-muted">
                         {h.label} · {formatTime(h.open)} – {formatTime(h.close)}
                       </p>
                     </li>
@@ -174,11 +174,11 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal variant="up" delay={0.16} className="lg:col-span-1">
-              <div className="flex h-full flex-col rounded-[var(--radius-xl2)] border border-ink-100 bg-linear-to-br from-brand-50 to-rose-50/70 p-7">
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+              <div className="flex h-full flex-col rounded-[var(--radius-xl2)] border border-edge bg-linear-to-br from-brand-50 to-rose-50/70 p-7">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                   Follow the hospital
                 </p>
-                <p className="mt-4 text-[0.95rem] leading-relaxed text-ink-700">
+                <p className="mt-4 text-[0.95rem] leading-relaxed text-fg-muted">
                   Vaccination reminders, seasonal health advice and updates on OPD
                   timings go out on social first.
                 </p>

@@ -24,7 +24,7 @@ function ReviewCard({ item }: { item: Testimonial }) {
   const rose = item.department === "pediatric-surgery";
 
   return (
-    <figure className="flex h-full w-[19rem] shrink-0 flex-col rounded-[1.4rem] border border-ink-100 bg-white p-6 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:w-[22rem]">
+    <figure className="flex h-full w-[19rem] shrink-0 flex-col rounded-[1.4rem] border border-edge bg-surface-2 p-6 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:w-[22rem]">
       <div className="flex items-center justify-between">
         <div className="flex gap-0.5" aria-label={`${item.rating} out of 5 stars`}>
           {Array.from({ length: item.rating }).map((_, i) => (
@@ -43,11 +43,11 @@ function ReviewCard({ item }: { item: Testimonial }) {
         className={cn("mt-5 size-5", rose ? "text-rose-300" : "text-brand-300")}
       />
 
-      <blockquote className="mt-3 flex-1 text-[0.93rem] leading-relaxed text-ink-700">
+      <blockquote className="mt-3 flex-1 text-[0.93rem] leading-relaxed text-fg-muted">
         {item.quote}
       </blockquote>
 
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-ink-100 pt-4">
+      <figcaption className="mt-6 flex items-center gap-3 border-t border-edge pt-4">
         <span
           className={cn(
             "grid size-9 shrink-0 place-items-center rounded-full text-[0.8rem] font-bold",
@@ -58,10 +58,10 @@ function ReviewCard({ item }: { item: Testimonial }) {
           {item.context.charAt(0)}
         </span>
         <div className="min-w-0">
-          <p className="truncate text-[0.85rem] font-semibold text-ink-900">
+          <p className="truncate text-[0.85rem] font-semibold text-fg">
             {item.author}
           </p>
-          <p className="truncate text-[0.76rem] text-ink-500">{item.context}</p>
+          <p className="truncate text-[0.76rem] text-fg-subtle">{item.context}</p>
         </div>
       </figcaption>
     </figure>

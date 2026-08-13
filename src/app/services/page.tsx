@@ -131,7 +131,7 @@ export default function ServicesPage() {
               <li key={cat.id}>
                 <a
                   href={`#${cat.id}`}
-                  className="inline-flex items-center gap-2 rounded-full border border-ink-200 bg-white px-4 py-2 text-[0.86rem] font-medium text-ink-700 transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700"
+                  className="inline-flex items-center gap-2 rounded-full border border-edge bg-surface-2 px-4 py-2 text-[0.86rem] font-medium text-fg-muted transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700"
                 >
                   <span
                     aria-hidden="true"
@@ -176,10 +176,10 @@ export default function ServicesPage() {
               <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
                 <div className="lg:col-span-5">
                   <Reveal variant="up">
-                    <h3 className="text-h3 font-bold tracking-tight text-ink-950">
+                    <h3 className="text-h3 font-bold tracking-tight text-fg">
                       Every {cat.eyebrow.toLowerCase()} service
                     </h3>
-                    <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-600">
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-fg-muted">
                       {cat.items.length} in total. Each one starts with an unhurried
                       consultation and ends with written instructions to take home.
                     </p>
@@ -187,9 +187,9 @@ export default function ServicesPage() {
 
                   {cat.doctorName && (
                     <Reveal variant="up" delay={0.1}>
-                      <p className="mt-6 text-[0.88rem] text-ink-500">
+                      <p className="mt-6 text-[0.88rem] text-fg-subtle">
                         Led by{" "}
-                        <span className="font-semibold text-ink-800">
+                        <span className="font-semibold text-fg">
                           {cat.doctorName}
                         </span>
                       </p>

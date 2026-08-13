@@ -113,11 +113,11 @@ export function ServiceCard({
         {/* Medallion straddles the banner so both variants share an anchor */}
         <span
           className={cn(
-            "relative -mt-6 grid size-12 place-items-center rounded-full text-[1.2rem] shadow-[var(--shadow-soft)] ring-4 ring-white transition-all duration-400 ease-[var(--ease-out-expo)]",
+            "relative -mt-6 grid size-12 place-items-center rounded-full text-[1.2rem] shadow-[var(--shadow-soft)] ring-4 ring-surface-2 transition-all duration-400 ease-[var(--ease-out-expo)]",
             !reduced && "group-hover:scale-110",
             rose
-              ? "bg-white text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
-              : "bg-white text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
+              ? "bg-surface-2 text-rose-600 group-hover:bg-rose-500 group-hover:text-white"
+              : "bg-surface-2 text-brand-600 group-hover:bg-brand-600 group-hover:text-white",
           )}
         >
           <Icon aria-hidden="true" />
@@ -135,7 +135,7 @@ export function ServiceCard({
         </h3>
 
         {/* Hairline rule, as in the reference. Fills with the accent on hover. */}
-        <span aria-hidden="true" className="relative mt-3 block h-px w-full bg-ink-100">
+        <span aria-hidden="true" className="relative mt-3 block h-px w-full bg-surface-3">
           <span
             className={cn(
               "absolute inset-y-0 left-0 w-0 transition-[width] duration-500 ease-[var(--ease-out-expo)] group-hover:w-full",
@@ -144,7 +144,7 @@ export function ServiceCard({
           />
         </span>
 
-        <p className="mt-3.5 text-[0.87rem] leading-relaxed text-ink-600">
+        <p className="mt-3.5 text-[0.87rem] leading-relaxed text-fg-muted">
           {description}
         </p>
 
@@ -169,7 +169,7 @@ export function ServiceCard({
   );
 
   const shell = cn(
-    "group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-ink-100 bg-white transition-[border-color,box-shadow,transform] duration-400 ease-[var(--ease-out-expo)] hover:border-transparent hover:shadow-[var(--shadow-lift)]",
+    "group flex h-full flex-col overflow-hidden rounded-[1.1rem] border border-edge bg-surface-2 transition-[border-color,box-shadow,transform] duration-400 ease-[var(--ease-out-expo)] hover:border-transparent hover:shadow-[var(--shadow-lift)]",
     !reduced && "hover:-translate-y-1",
     className,
   );

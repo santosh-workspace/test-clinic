@@ -68,12 +68,12 @@ export default function AboutPage() {
               <Stagger className="mt-9 grid gap-2.5 sm:grid-cols-2" amount={0.05}>
                 {facilities.map((item) => (
                   <Reveal key={item} child variant="up">
-                    <div className="flex items-start gap-2.5 rounded-xl border border-ink-100 bg-white px-3.5 py-3">
+                    <div className="flex items-start gap-2.5 rounded-xl border border-edge bg-surface-2 px-3.5 py-3">
                       <FiCheck
                         aria-hidden="true"
                         className="mt-0.5 shrink-0 text-rose-500"
                       />
-                      <span className="text-[0.88rem] leading-snug text-ink-700">
+                      <span className="text-[0.88rem] leading-snug text-fg-muted">
                         {item}
                       </span>
                     </div>

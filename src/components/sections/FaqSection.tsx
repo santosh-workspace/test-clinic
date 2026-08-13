@@ -38,14 +38,14 @@ export function FaqSection({
             />
 
             <Reveal variant="up" delay={0.12}>
-              <div className="mt-9 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6 shadow-[var(--shadow-soft)]">
+              <div className="mt-9 rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-6 shadow-[var(--shadow-soft)]">
                 <span className="grid size-11 place-items-center rounded-xl bg-linear-to-br from-brand-600 to-rose-500 text-lg text-white">
                   <FiMessageCircle aria-hidden="true" />
                 </span>
-                <p className="mt-4 text-[1rem] font-bold tracking-tight text-ink-950">
+                <p className="mt-4 text-[1rem] font-bold tracking-tight text-fg">
                   Still not sure?
                 </p>
-                <p className="mt-1.5 text-[0.89rem] leading-relaxed text-ink-600">
+                <p className="mt-1.5 text-[0.89rem] leading-relaxed text-fg-muted">
                   Describe the problem in a message and we will tell you whether it
                   needs an appointment — and with which department.
                 </p>

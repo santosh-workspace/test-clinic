@@ -55,22 +55,22 @@ export function SocialSection() {
                 href={siteConfig.social.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-8 inline-flex items-center gap-3 rounded-2xl border border-ink-100 bg-white p-3 pr-5 shadow-[var(--shadow-soft)] transition-all duration-400 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]"
+                className="group mt-8 inline-flex items-center gap-3 rounded-2xl border border-edge bg-surface-2 p-3 pr-5 shadow-[var(--shadow-soft)] transition-all duration-400 hover:-translate-y-0.5 hover:shadow-[var(--shadow-lift)]"
               >
                 <span className="grid size-11 place-items-center rounded-xl bg-linear-to-br from-[#F9CE34] via-[#EE2A7B] to-[#6228D7] text-lg text-white">
                   <FaInstagram aria-hidden="true" />
                 </span>
                 <span>
-                  <span className="block text-[0.88rem] font-bold tracking-tight text-ink-950">
+                  <span className="block text-[0.88rem] font-bold tracking-tight text-fg">
                     See more on Instagram
                   </span>
-                  <span className="block text-[0.76rem] text-ink-500">
+                  <span className="block text-[0.76rem] text-fg-subtle">
                     Updates from the hospital
                   </span>
                 </span>
                 <FiArrowUpRight
                   aria-hidden="true"
-                  className="text-ink-400 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                  className="text-fg-subtle transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 />
               </a>
             </Reveal>
@@ -86,7 +86,7 @@ export function SocialSection() {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="View this post on Instagram"
-                    className="group relative block aspect-square overflow-hidden rounded-xl bg-ink-100 md:rounded-2xl"
+                    className="group relative block aspect-square overflow-hidden rounded-xl bg-surface-3 md:rounded-2xl"
                   >
                     <Image
                       src={image.src}

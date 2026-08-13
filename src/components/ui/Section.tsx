@@ -87,7 +87,7 @@ export function SectionHeading({
           <p
             className={cn(
               "mt-6 max-w-2xl text-lead",
-              invert ? "text-white/70" : "text-ink-600",
+              invert ? "text-white/70" : "text-fg-muted",
               align === "center" && "mx-auto",
             )}
           >
@@ -113,8 +113,8 @@ export function Section({
   spacing?: "sm" | "md" | "lg";
 }) {
   const tones = {
-    light: "bg-sand-50",
-    white: "bg-white",
+    light: "bg-surface",
+    white: "bg-surface-2",
     ink: "bg-ink-950 text-white",
     brand: "bg-brand-50",
   };

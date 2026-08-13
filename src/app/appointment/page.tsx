@@ -76,7 +76,7 @@ export default function AppointmentPage() {
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             {/* The form — the same component the pop-up dialog uses */}
             <div className="lg:col-span-7">
-              <div className="rounded-[var(--radius-xl2)] border border-ink-100 bg-sand-50 p-6 shadow-[var(--shadow-soft)] sm:p-8">
+              <div className="rounded-[var(--radius-xl2)] border border-edge bg-surface p-6 shadow-[var(--shadow-soft)] sm:p-8">
                 <BookingForm syncHash />
               </div>
             </div>
@@ -84,8 +84,8 @@ export default function AppointmentPage() {
             {/* Reassurance column */}
             <aside className="lg:col-span-5">
               <Reveal variant="up">
-                <div className="rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6 sm:p-7">
-                  <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                <div className="rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-6 sm:p-7">
+                  <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                     Who you will see
                   </h2>
                   <ul className="mt-5 space-y-5">
@@ -111,10 +111,10 @@ export default function AppointmentPage() {
                             >
                               {dept.name}
                             </p>
-                            <p className="mt-1 text-[0.95rem] font-bold tracking-tight text-ink-950">
+                            <p className="mt-1 text-[0.95rem] font-bold tracking-tight text-fg">
                               {doc.name}
                             </p>
-                            <p className="mt-0.5 text-[0.82rem] text-ink-500">
+                            <p className="mt-0.5 text-[0.82rem] text-fg-subtle">
                               {doc.qualification}
                             </p>
                           </div>
@@ -126,26 +126,26 @@ export default function AppointmentPage() {
               </Reveal>
 
               <Reveal variant="up" delay={0.08}>
-                <div className="mt-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6 sm:p-7">
-                  <h2 className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                <div className="mt-4 rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-6 sm:p-7">
+                  <h2 className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                     <FiClock aria-hidden="true" /> OPD hours
                   </h2>
                   <ul className="mt-4 space-y-2.5 text-[0.9rem]">
                     {siteConfig.hours.map((h) => (
                       <li
                         key={`${h.days}-${h.label}`}
-                        className="flex flex-wrap items-baseline justify-between gap-x-4 border-b border-dashed border-ink-100 pb-2.5 last:border-0 last:pb-0"
+                        className="flex flex-wrap items-baseline justify-between gap-x-4 border-b border-dashed border-edge pb-2.5 last:border-0 last:pb-0"
                       >
-                        <span className="font-medium text-ink-800">{h.days}</span>
-                        <span className="text-ink-600">{h.label}</span>
+                        <span className="font-medium text-fg">{h.days}</span>
+                        <span className="text-fg-muted">{h.label}</span>
                       </li>
                     ))}
                   </ul>
 
-                  <h2 className="mt-6 flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                  <h2 className="mt-6 flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                     <FiMapPin aria-hidden="true" /> Where to come
                   </h2>
-                  <address className="mt-3 text-[0.9rem] not-italic leading-relaxed text-ink-700">
+                  <address className="mt-3 text-[0.9rem] not-italic leading-relaxed text-fg-muted">
                     {addressLines.map((line) => (
                       <span key={line} className="block">
                         {line}
@@ -170,7 +170,7 @@ export default function AppointmentPage() {
       <Section tone="light" spacing="md">
         <div className="container-page">
           <Reveal variant="up">
-            <h2 className="text-h3 font-bold tracking-tight text-ink-950">
+            <h2 className="text-h3 font-bold tracking-tight text-fg">
               Before you come in
             </h2>
           </Reveal>
@@ -180,14 +180,14 @@ export default function AppointmentPage() {
               const Icon = item.icon;
               return (
                 <Reveal key={item.title} child variant="up">
-                  <div className="flex h-full flex-col rounded-[1.4rem] border border-ink-100 bg-white p-6">
+                  <div className="flex h-full flex-col rounded-[1.4rem] border border-edge bg-surface-2 p-6">
                     <span className="grid size-11 place-items-center rounded-xl bg-brand-50 text-[1.15rem] text-brand-600">
                       <Icon aria-hidden="true" />
                     </span>
-                    <h3 className="mt-5 text-[0.98rem] font-bold leading-snug tracking-tight text-ink-950">
+                    <h3 className="mt-5 text-[0.98rem] font-bold leading-snug tracking-tight text-fg">
                       {item.title}
                     </h3>
-                    <p className="mt-2.5 text-[0.87rem] leading-relaxed text-ink-600">
+                    <p className="mt-2.5 text-[0.87rem] leading-relaxed text-fg-muted">
                       {item.body}
                     </p>
                   </div>

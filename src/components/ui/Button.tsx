@@ -25,16 +25,23 @@ const variants: Record<Variant, string> = {
   whatsapp:
     "bg-[#25D366] text-white shadow-[0_18px_50px_-16px_rgb(37_211_102/0.55)] hover:bg-[#1EBE5A]",
   secondary:
-    "border border-ink-200 bg-white text-ink-900 shadow-[var(--shadow-soft)] hover:border-brand-300 hover:text-brand-700",
-  ghost: "text-ink-700 hover:bg-ink-100 hover:text-ink-950",
+    "border border-edge bg-surface-2 text-fg shadow-[var(--shadow-soft)] hover:border-brand-300 hover:text-brand-700",
+  ghost: "text-fg-muted hover:bg-surface-3 hover:text-fg",
   onDark:
     "border border-white/25 bg-white/10 text-white backdrop-blur-md hover:border-white/50 hover:bg-white/20",
 };
 
+/**
+ * Trimmed from an earlier, chunkier scale (sm 40px/md 48px/lg 56px) — the
+ * hero and header CTAs were reading oversized next to the nav and body copy
+ * around them. `lg` still clears the 44px touch-target minimum; `sm` is used
+ * only in desktop/mouse-driven contexts (the header's inline CTAs, secondary
+ * helper links), never as a lone mobile tap target.
+ */
 const sizes: Record<Size, string> = {
-  sm: "h-10 px-5 text-[0.85rem]",
-  md: "h-12 px-6 text-[0.94rem]",
-  lg: "h-14 px-8 text-[1rem]",
+  sm: "h-9 px-4 text-[0.82rem]",
+  md: "h-11 px-5 text-[0.9rem]",
+  lg: "h-12 px-6.5 text-[0.95rem]",
 };
 
 type CommonProps = {

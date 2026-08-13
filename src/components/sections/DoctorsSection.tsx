@@ -35,7 +35,7 @@ export function DoctorsSection() {
 
             return (
               <Reveal key={doc.slug} child variant="up">
-                <article className="group relative h-full overflow-hidden rounded-[var(--radius-xl2)] border border-ink-100 bg-white shadow-[var(--shadow-soft)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]">
+                <article className="group relative h-full overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-2 shadow-[var(--shadow-soft)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]">
                   <div className="grid sm:grid-cols-5">
                     {/* Portrait */}
                     <div className="relative aspect-4/5 overflow-hidden sm:col-span-2 sm:aspect-auto">
@@ -80,10 +80,10 @@ export function DoctorsSection() {
                       >
                         {dept.name}
                       </p>
-                      <h3 className="mt-2 text-h3 font-bold tracking-tight text-ink-950">
+                      <h3 className="mt-2 text-h3 font-bold tracking-tight text-fg">
                         {doc.name}
                       </h3>
-                      <p className="mt-1.5 text-[0.92rem] text-ink-600">{doc.role}</p>
+                      <p className="mt-1.5 text-[0.92rem] text-fg-muted">{doc.role}</p>
 
                       <dl className="mt-6 space-y-3 text-[0.86rem]">
                         <div className="flex gap-2.5">
@@ -95,7 +95,7 @@ export function DoctorsSection() {
                               rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
-                          <dd className="font-medium text-ink-800">{doc.qualification}</dd>
+                          <dd className="font-medium text-fg">{doc.qualification}</dd>
                         </div>
                         <div className="flex gap-2.5">
                           <dt className="sr-only">Consulting hours</dt>
@@ -106,7 +106,7 @@ export function DoctorsSection() {
                               rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
-                          <dd className="text-ink-600">
+                          <dd className="text-fg-muted">
                             {doc.timings[0].days} · {doc.timings[0].time}
                           </dd>
                         </div>
@@ -119,7 +119,7 @@ export function DoctorsSection() {
                               rose ? "text-rose-500" : "text-brand-500",
                             )}
                           />
-                          <dd className="text-ink-600">{doc.languages.join(" · ")}</dd>
+                          <dd className="text-fg-muted">{doc.languages.join(" · ")}</dd>
                         </div>
                       </dl>
 
@@ -127,7 +127,7 @@ export function DoctorsSection() {
                         {doc.specializations.slice(0, 3).map((s) => (
                           <li
                             key={s}
-                            className="rounded-full bg-ink-50 px-2.5 py-1 text-[0.73rem] font-medium text-ink-600"
+                            className="rounded-full bg-surface-3 px-2.5 py-1 text-[0.73rem] font-medium text-fg-muted"
                           >
                             {s}
                           </li>
@@ -152,7 +152,7 @@ export function DoctorsSection() {
                         </Link>
                         <Link
                           href="/appointment"
-                          className="text-[0.89rem] font-semibold text-ink-500 underline-offset-4 transition-colors hover:text-ink-900 hover:underline"
+                          className="text-[0.89rem] font-semibold text-fg-subtle underline-offset-4 transition-colors hover:text-fg hover:underline"
                         >
                           Book appointment
                         </Link>

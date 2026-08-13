@@ -207,6 +207,20 @@ mapped this way round:
 | Paediatric Surgery | `rose` | The pillow and the baby |
 | Eye Care | `brand` | The iris |
 
+### Buttons
+
+One size scale in `components/ui/Button.tsx`, so every button on the site is
+trimmed by editing three lines:
+
+| Size | Height | Used for |
+| --- | --- | --- |
+| `sm` — `h-9` | 36px | Desktop-only inline CTAs (header), secondary helper links. Never a lone mobile tap target. |
+| `md` — `h-11` | 44px | Default. |
+| `lg` — `h-12` | 48px | Hero/final-CTA/department "book appointment" buttons — still clears the 44px touch-target minimum. |
+
+`lg` was originally `h-14` (56px) — it read oversized against the nav and body
+copy around it once there was real content on the page to compare it to.
+
 The accent propagates through cards, icons, buttons and the Calendly widget colour.
 
 ## Service cards
@@ -276,25 +290,57 @@ Phone validation is India-specific (10 digits, starting 6–9, optional `+91`/`0
 adjust `validatePhone` in `bookingValidation.ts` first if the hospital ever takes
 international bookings.
 
-## The two themes
+## The two themes — a real light theme and a real dark theme
 
 Both are built from the logo and both are declared in
 [`src/config/themes.ts`](src/config/themes.ts):
 
-| | Theme A — Ivory & Iris | Theme B — Porcelain & Midnight |
+| | Theme A — Ivory & Iris (white) | Theme B — Midnight (dark) |
 | --- | --- | --- |
-| Mood | Warm, soft, family-facing | Cool, crisp, clinical-premium |
-| Ground | Warm ivory `#fcfaf6` | Cool porcelain `#eef2f7` |
-| Primary | Iris blue `#2a6ab2` | Deep ring navy `#123a63` |
-| Accent | Pillow rose `#ee93b2` | Hot rose `#e83a72` |
-| Corners | Generous — `2rem` | Architectural — `0.625rem` |
-| Shadows | Warm and diffuse | Tight and contained |
+| Mood | Light, warm, family-facing | Dark, crisp, clinical-premium |
+| Canvas | Warm ivory `#fcfaf6` | Near-black `#060c14` |
+| Cards | White `#ffffff` | Elevated dark navy `#0f1a26` |
+| Text | Near-black `#0e1723` | Near-white `#eef3f8` |
+| Primary accent | Iris blue `#2a6ab2` | Brightened blue `#9dc2ea` |
+| Rose accent | Pillow rose `#ee93b2` | Brightened rose `#ef94b4` |
+| Corners | Generous — `2rem` | Architectural — `1.25rem` |
+| Shadows | Warm and diffuse | Tight, near-black |
 
-**How switching works.** Theme A is the `:root` default; Theme B is a
-`[data-theme="porcelain"]` block that redefines the same variables. Tailwind v4
-compiles utilities to `var()` references, so redefining the variables reskins the
-entire site — no component knows which theme is active, and there are zero
-per-theme conditionals in the JSX.
+Midnight is an actual dark theme — every card, form, doctor profile and the
+appointment dialog get a dark surface with light text, not just a cooler light
+palette. (An earlier iteration of Theme B was a light "cool porcelain" variant;
+it kept the `porcelain` id/attr internally when it became a real dark theme, so
+the URL parameter and the stored preference didn't need to change.)
+
+### How switching works — two colour systems, deliberately
+
+`ink-*`, `sand-*` and bare `white` are **raw, theme-invariant** tokens. They stay
+pixel-identical in both themes because they also drive fixed decor that must
+never flip: the footer, the final-CTA band and "Why choose us" are deliberately
+dark regardless of theme, via literal `bg-ink-950 text-white`. Inverting that
+scale per theme would break those sections in the dark theme.
+
+`fg` / `fg-muted` / `fg-subtle` / `surface` / `surface-2` / `surface-3` / `edge`
+/ `edge-strong` are a **semantic layer** on top, defaulting to the exact ink/sand
+values above (so the light theme renders byte-identical to before this existed)
+and only these get redefined for the dark theme. Every component rendering
+ordinary content — cards, body text, borders, form fields — was migrated onto
+these; anything still using `bg-white` / `text-ink-950` directly is one of the
+fixed-dark sections above, or a decorative white accent on a photo (e.g. the
+`.glass` frosted chip over the hero photo, which stays a light panel with dark
+text in *both* themes on purpose — it sits on an image, not on the page).
+
+`brand-*` / `rose-*` get a genuinely different ramp per theme rather than a
+mechanical invert. Both colours are used as *both* a solid button fill and
+inline accent text (`text-brand-700` appears ~30 times sitewide); a value dark
+enough to read as text on white becomes invisible as text on a dark card. The
+dark ramp brightens the 600–700 tier — which carries almost all of the text
+usage — while keeping 50–200 as dark tints (so a badge on a dark card gets a
+darker tint of the hue, not a paler one).
+
+Tailwind v4 compiles all of this to `var()` references, so redefining the
+variables reskins the entire site — no component knows which theme is active,
+and there are zero per-theme conditionals in the JSX.
 
 **To compare them:** use the floating *Theme* control at the bottom-right, or
 share a direct link — `?theme=ivory` / `?theme=porcelain`. The parameter is
@@ -415,3 +461,17 @@ perfectly vertical or horizontal line has a zero-width/height bounding box,
 which makes the default `objectBoundingBox` gradient degenerate and the browser
 skips painting the stroke. This silently turned the logo's Y into a V once
 already.
+
+**A decorative panel that sits on a photo must use literal colours, not the
+theme-following `fg`/`fg-muted` tokens.** The `.glass` frosted chip (the hero's
+floating doctor cards, the map label, a doctor's credential badge) is
+*deliberately* always a light panel — it sits on an image, not on the page, so
+it never darkens with the theme. When the light/dark migration first ran, the
+text inside those chips got swept up in the same regex pass as ordinary card
+text and became `text-fg` — which is near-white in the dark theme. Near-white
+text on a panel that is *still* light-frosted regardless of theme is invisible.
+Anything inside a `.glass` panel stays on literal `text-ink-950` /
+`text-ink-600`. The same logic applies to a `ring-white` used to separate a
+photo/icon from its own card background — it needs to match that card's
+`surface-2`, not stay a literal white ring, or it becomes a stray bright halo
+once the card goes dark.

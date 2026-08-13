@@ -46,7 +46,7 @@ export function Accordion({
                 onClick={() => setOpen(isOpen ? null : i)}
                 className={cn(
                   "group flex w-full items-start justify-between gap-6 py-6 text-left transition-colors duration-300",
-                  dark ? "text-white hover:text-rose-200" : "text-ink-950 hover:text-brand-700",
+                  dark ? "text-white hover:text-rose-200" : "text-fg hover:text-brand-700",
                 )}
               >
                 <span className="text-[1.02rem] font-semibold tracking-tight md:text-[1.12rem]">
@@ -59,7 +59,7 @@ export function Accordion({
                     isOpen && "rotate-135",
                     dark
                       ? "border-white/20 bg-white/5 group-hover:border-rose-300/60"
-                      : "border-ink-200 bg-white group-hover:border-brand-300",
+                      : "border-edge bg-surface-2 group-hover:border-brand-300",
                   )}
                 >
                   <FiPlus
@@ -88,7 +88,7 @@ export function Accordion({
                   <p
                     className={cn(
                       "max-w-2xl pb-7 pr-10 text-[0.97rem] leading-relaxed",
-                      dark ? "text-white/65" : "text-ink-600",
+                      dark ? "text-white/65" : "text-fg-muted",
                     )}
                   >
                     {item.answer}

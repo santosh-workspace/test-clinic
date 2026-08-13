@@ -2,7 +2,11 @@
  * The two brand themes, both derived from the hospital logo.
  *
  * `id` is written to `<html data-theme>`; the default theme has no attribute,
- * so its palette is simply the one declared on `:root` in globals.css.
+ * so its palette is simply the one declared on `:root` in globals.css. The
+ * dark theme keeps the internal id/attr "porcelain" from an earlier palette
+ * iteration — renaming it would mean touching the stored localStorage value,
+ * the `?theme=` query param and every reference to it for no visible benefit,
+ * since only `name`/`description`/`swatches` below are ever shown to anyone.
  *
  * The swatches are the ones shown in the theme switcher — keep them in step
  * with the ramps in globals.css.
@@ -28,19 +32,19 @@ export const themes: Theme[] = [
     id: "ivory",
     attr: null,
     name: "Ivory & Iris",
-    tagline: "Warm · soft · airy",
+    tagline: "Light · warm · airy",
     description:
-      "Warm ivory ground with the logo's own cornflower iris blue and pillow rose. Generous corners, diffuse shadows. Reads gentle and family-facing.",
+      "The white theme. Warm ivory ground with the logo's own cornflower iris blue and pillow rose. Generous corners, diffuse shadows. Reads gentle and family-facing.",
     swatches: ["#fcfaf6", "#7fb2e8", "#2a6ab2", "#ee93b2", "#0e1723"],
   },
   {
     id: "porcelain",
     attr: "porcelain",
-    name: "Porcelain & Midnight",
-    tagline: "Cool · crisp · deep",
+    name: "Midnight",
+    tagline: "Dark · crisp · premium",
     description:
-      "Cool porcelain ground, the primary dropped to the deep navy of the logo's outer ring, and a hotter rose accent. Square corners and contained shadows. Reads clinical and premium.",
-    swatches: ["#eef2f7", "#3f74a4", "#123a63", "#e83a72", "#040d17"],
+      "The dark theme. Near-black canvas, elevated dark-navy cards, near-white text — a genuine dark mode, not just a cooler light palette. Square corners and contained shadows. Reads clinical and premium.",
+    swatches: ["#060c14", "#0f1a26", "#6fa1cf", "#ef94b4", "#eef3f8"],
   },
 ];
 

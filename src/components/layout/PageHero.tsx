@@ -48,7 +48,7 @@ export function PageHero({
         };
 
   return (
-    <section className="relative overflow-hidden bg-white pt-10 pb-10 md:pt-14 md:pb-14">
+    <section className="relative overflow-hidden bg-surface-2 pt-10 pb-10 md:pt-14 md:pb-14">
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div
           className={cn(
@@ -56,19 +56,19 @@ export function PageHero({
             rose ? "bg-rose-100/70" : "bg-brand-100/60",
           )}
         />
-        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-sand-50" />
+        <div className="absolute inset-x-0 bottom-0 h-40 bg-linear-to-b from-transparent to-surface" />
       </div>
 
       <div className="container-page">
         {/* Breadcrumbs */}
         <motion.nav data-reveal {...rise(0)} aria-label="Breadcrumb">
-          <ol className="flex flex-wrap items-center gap-1.5 text-[0.8rem] text-ink-500">
+          <ol className="flex flex-wrap items-center gap-1.5 text-[0.8rem] text-fg-subtle">
             {crumbs.map((crumb, i) => {
               const last = i === crumbs.length - 1;
               return (
                 <li key={crumb.href} className="flex items-center gap-1.5">
                   {last ? (
-                    <span aria-current="page" className="font-medium text-ink-800">
+                    <span aria-current="page" className="font-medium text-fg">
                       {crumb.name}
                     </span>
                   ) : (
@@ -117,7 +117,7 @@ export function PageHero({
             <SplitHeading
               as="h1"
               segments={segments}
-              className="mt-5 text-h1 font-bold tracking-tight text-ink-950"
+              className="mt-5 text-h1 font-bold tracking-tight text-fg"
               accentClassName={cn(
                 "font-display italic",
                 rose
@@ -127,7 +127,7 @@ export function PageHero({
             />
 
             {lead && (
-              <motion.p data-reveal {...rise(0.3)} className="mt-6 max-w-2xl text-lead text-ink-600">
+              <motion.p data-reveal {...rise(0.3)} className="mt-6 max-w-2xl text-lead text-fg-muted">
                 {lead}
               </motion.p>
             )}
@@ -145,7 +145,7 @@ export function PageHero({
                     animate: { opacity: 1, clipPath: "inset(0% round 1.75rem)" },
                     transition: { duration: 1.1, delay: 0.15, ease: EASE },
                   })}
-              className="relative aspect-4/3 overflow-hidden rounded-[var(--radius-xl2)] bg-ink-100 shadow-[var(--shadow-lift)] lg:col-span-5 lg:aspect-4/5"
+              className="relative aspect-4/3 overflow-hidden rounded-[var(--radius-xl2)] bg-surface-3 shadow-[var(--shadow-lift)] lg:col-span-5 lg:aspect-4/5"
             >
               <Image
                 src={image.src}

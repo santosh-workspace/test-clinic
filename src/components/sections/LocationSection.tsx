@@ -59,23 +59,23 @@ export function LocationSection() {
                 const Icon = row.icon;
                 return (
                   <Reveal key={row.label} variant="up" delay={i * 0.06}>
-                    <div className="group flex gap-4 rounded-2xl border border-ink-100 bg-white p-4 transition-all duration-400 hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)]">
+                    <div className="group flex gap-4 rounded-2xl border border-edge bg-surface-2 p-4 transition-all duration-400 hover:-translate-y-0.5 hover:shadow-[var(--shadow-soft)]">
                       <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-brand-50 text-[1.15rem] text-brand-600 transition-colors duration-400 group-hover:bg-brand-600 group-hover:text-white">
                         <Icon aria-hidden="true" />
                       </span>
                       <div className="min-w-0">
-                        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                        <p className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                           {row.label}
                         </p>
                         {row.href ? (
                           <a
                             href={row.href}
-                            className="mt-1 block text-[0.94rem] font-medium text-ink-900 hover:text-brand-700"
+                            className="mt-1 block text-[0.94rem] font-medium text-fg hover:text-brand-700"
                           >
                             {row.value}
                           </a>
                         ) : (
-                          <p className="mt-1 text-[0.94rem] text-ink-700">{row.value}</p>
+                          <p className="mt-1 text-[0.94rem] text-fg-muted">{row.value}</p>
                         )}
                       </div>
                     </div>
@@ -109,7 +109,7 @@ export function LocationSection() {
 
           {/* Map */}
           <Reveal variant="clip" className="lg:col-span-7">
-            <div className="relative h-[22rem] overflow-hidden rounded-[var(--radius-xl2)] border border-ink-100 bg-ink-100 shadow-[var(--shadow-soft)] sm:h-[26rem] lg:h-full lg:min-h-[30rem]">
+            <div className="relative h-[22rem] overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-3 shadow-[var(--shadow-soft)] sm:h-[26rem] lg:h-full lg:min-h-[30rem]">
               <iframe
                 src={embedSrc}
                 title={`Map showing the location of ${siteConfig.name}`}

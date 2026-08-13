@@ -97,14 +97,14 @@ export function ThemeSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduced ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.97 }}
             transition={{ duration: 0.28, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[min(21rem,calc(100vw-2rem))] overflow-hidden rounded-[var(--radius-xl2)] border border-ink-200 bg-white shadow-[var(--shadow-lift)]"
+            className="w-[min(21rem,calc(100vw-2rem))] overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-2 shadow-[var(--shadow-lift)]"
           >
-            <div className="flex items-center justify-between border-b border-ink-100 px-5 py-3.5">
+            <div className="flex items-center justify-between border-b border-edge px-5 py-3.5">
               <div>
-                <p className="text-[0.86rem] font-bold tracking-tight text-ink-950">
+                <p className="text-[0.86rem] font-bold tracking-tight text-fg">
                   Choose a theme
                 </p>
-                <p className="text-[0.72rem] text-ink-500">
+                <p className="text-[0.72rem] text-fg-subtle">
                   Both built from the hospital logo
                 </p>
               </div>
@@ -112,7 +112,7 @@ export function ThemeSwitcher() {
                 type="button"
                 onClick={() => setOpen(false)}
                 aria-label="Close theme picker"
-                className="grid size-8 place-items-center rounded-full border border-ink-200 text-ink-600 transition-colors hover:text-ink-950"
+                className="grid size-8 place-items-center rounded-full border border-edge text-fg-muted transition-colors hover:text-fg"
               >
                 <FiX aria-hidden="true" />
               </button>
@@ -131,13 +131,13 @@ export function ThemeSwitcher() {
                         "group flex w-full items-start gap-3.5 rounded-2xl border p-3.5 text-left transition-all duration-300",
                         isActive
                           ? "border-brand-300 bg-brand-50"
-                          : "border-transparent hover:bg-ink-50",
+                          : "border-transparent hover:bg-surface-3",
                       )}
                     >
                       {/* Palette preview */}
                       <span
                         aria-hidden="true"
-                        className="mt-0.5 flex shrink-0 overflow-hidden rounded-lg border border-ink-200/70"
+                        className="mt-0.5 flex shrink-0 overflow-hidden rounded-lg border border-edge/70"
                       >
                         {theme.swatches.map((c) => (
                           <span
@@ -150,7 +150,7 @@ export function ThemeSwitcher() {
 
                       <span className="min-w-0 flex-1">
                         <span className="flex items-center gap-2">
-                          <span className="text-[0.88rem] font-bold tracking-tight text-ink-950">
+                          <span className="text-[0.88rem] font-bold tracking-tight text-fg">
                             {theme.name}
                           </span>
                           {isActive && (
@@ -163,7 +163,7 @@ export function ThemeSwitcher() {
                         <span className="mt-0.5 block text-[0.7rem] font-semibold uppercase tracking-[0.14em] text-brand-600">
                           {theme.tagline}
                         </span>
-                        <span className="mt-1.5 block text-[0.78rem] leading-relaxed text-ink-600">
+                        <span className="mt-1.5 block text-[0.78rem] leading-relaxed text-fg-muted">
                           {theme.description}
                         </span>
                       </span>
@@ -181,13 +181,13 @@ export function ThemeSwitcher() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label="Choose a theme"
-        className="flex h-12 items-center gap-2.5 rounded-full border border-ink-200 bg-white px-4 text-[0.85rem] font-semibold text-ink-800 shadow-[var(--shadow-lift)] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700"
+        className="flex h-12 items-center gap-2.5 rounded-full border border-edge bg-surface-2 px-4 text-[0.85rem] font-semibold text-fg shadow-[var(--shadow-lift)] transition-all duration-300 hover:-translate-y-0.5 hover:border-brand-300 hover:text-brand-700"
       >
         <FiDroplet aria-hidden="true" className="text-brand-600" />
         <span className="max-sm:hidden">Theme</span>
         <span
           aria-hidden="true"
-          className="flex overflow-hidden rounded-full border border-ink-200/70"
+          className="flex overflow-hidden rounded-full border border-edge/70"
         >
           {themes
             .find((t) => t.id === active)!

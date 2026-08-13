@@ -54,7 +54,7 @@ export function Loader() {
           aria-hidden="true"
           initial={{ opacity: 1 }}
           exit={{ y: "-100%", transition: { duration: 0.85, ease: [0.76, 0, 0.24, 1] } }}
-          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-white"
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-surface-2"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.86 }}
@@ -68,7 +68,7 @@ export function Loader() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.28, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-7 font-display text-xl tracking-tight text-ink-900"
+            className="mt-7 font-display text-xl tracking-tight text-fg"
           >
             {siteConfig.name}
           </motion.p>
@@ -76,7 +76,7 @@ export function Loader() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.42, duration: 0.6 }}
-            className="mt-2 text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-ink-400"
+            className="mt-2 text-[0.66rem] font-semibold uppercase tracking-[0.28em] text-fg-subtle"
           >
             {siteConfig.tagline}
           </motion.p>

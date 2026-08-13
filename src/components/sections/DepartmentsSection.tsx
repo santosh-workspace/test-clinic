@@ -44,7 +44,7 @@ export function DepartmentsSection() {
                 >
                   <Link
                     href={dept.href}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl2)] border border-ink-100 bg-white shadow-[var(--shadow-soft)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-[var(--shadow-lift)]"
+                    className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-2 shadow-[var(--shadow-soft)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-[var(--shadow-lift)]"
                   >
                     {/* Animated border sweep on hover */}
                     <span
@@ -108,7 +108,7 @@ export function DepartmentsSection() {
                     </div>
 
                     <div className="flex flex-1 flex-col p-6 md:p-7">
-                      <p className="text-[0.98rem] leading-relaxed text-ink-600">
+                      <p className="text-[0.98rem] leading-relaxed text-fg-muted">
                         {dept.intro}
                       </p>
 
@@ -117,19 +117,19 @@ export function DepartmentsSection() {
                         head-to-torso at 4:5, so a centred square crop would frame
                         the coat rather than the face.
                       */}
-                      <div className="mt-6 flex items-center gap-3 border-t border-ink-100 pt-5">
+                      <div className="mt-6 flex items-center gap-3 border-t border-edge pt-5">
                         <Image
                           src={doc.image}
                           alt=""
                           width={48}
                           height={48}
-                          className="size-12 rounded-full object-cover object-top ring-2 ring-white"
+                          className="size-12 rounded-full object-cover object-top ring-2 ring-surface-2"
                         />
                         <div className="min-w-0 flex-1">
-                          <p className="truncate text-[0.92rem] font-bold tracking-tight text-ink-950">
+                          <p className="truncate text-[0.92rem] font-bold tracking-tight text-fg">
                             {doc.name}
                           </p>
-                          <p className="truncate text-[0.8rem] text-ink-500">
+                          <p className="truncate text-[0.8rem] text-fg-subtle">
                             {doc.qualification}
                           </p>
                         </div>
@@ -150,7 +150,7 @@ export function DepartmentsSection() {
                             {s.name}
                           </li>
                         ))}
-                        <li className="rounded-full bg-ink-50 px-2.5 py-1 text-[0.74rem] font-medium text-ink-500">
+                        <li className="rounded-full bg-surface-3 px-2.5 py-1 text-[0.74rem] font-medium text-fg-subtle">
                           +{dept.services.length - 4} more
                         </li>
                       </ul>

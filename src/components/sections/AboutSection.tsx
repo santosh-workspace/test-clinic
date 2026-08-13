@@ -16,7 +16,7 @@ import { siteConfig } from "@/config/site";
  */
 export function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-13 md:py-20">
+    <section className="relative overflow-hidden bg-surface-2 py-13 md:py-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-1/4 h-[30rem] w-[30rem] rounded-full bg-brand-50 blur-[110px]"
@@ -36,7 +36,7 @@ export function AboutSection() {
               ]}
             />
 
-            <Stagger className="mt-7 space-y-5 text-[1rem] leading-relaxed text-ink-600">
+            <Stagger className="mt-7 space-y-5 text-[1rem] leading-relaxed text-fg-muted">
               <Reveal child variant="up">
                 <p>
                   Yogeshwari Hospital was built around a simple observation: families do
@@ -68,11 +68,11 @@ export function AboutSection() {
             {/* Pull quote */}
             <Reveal variant="blur" delay={0.1}>
               <blockquote className="mt-10 border-l-2 border-brand-400 pl-6">
-                <p className="font-display text-[1.4rem] leading-snug text-ink-900 md:text-[1.6rem]">
+                <p className="font-display text-[1.4rem] leading-snug text-fg md:text-[1.6rem]">
                   &ldquo;Investigation should change the treatment. If it will not, we do
                   not order it.&rdquo;
                 </p>
-                <footer className="mt-3 text-[0.84rem] font-medium text-ink-500">
+                <footer className="mt-3 text-[0.84rem] font-medium text-fg-subtle">
                   — Practice principle, {siteConfig.name}
                 </footer>
               </blockquote>
@@ -92,7 +92,7 @@ export function AboutSection() {
             <div className="grid grid-cols-2 gap-4 md:gap-5">
               <Parallax distance={44} className="pt-10 md:pt-16">
                 <div className="space-y-4 md:space-y-5">
-                  <ScrollZoom className="relative aspect-3/4 overflow-hidden rounded-[1.5rem] bg-ink-100 shadow-[var(--shadow-soft)]">
+                  <ScrollZoom className="relative aspect-3/4 overflow-hidden rounded-[1.5rem] bg-surface-3 shadow-[var(--shadow-soft)]">
                     <Image
                       src={img.consultationRoom.src}
                       alt={img.consultationRoom.alt}
@@ -102,7 +102,7 @@ export function AboutSection() {
                       className="object-cover"
                     />
                   </ScrollZoom>
-                  <ScrollZoom className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-ink-100 shadow-[var(--shadow-soft)]">
+                  <ScrollZoom className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-surface-3 shadow-[var(--shadow-soft)]">
                     <Image
                       src={img.ward.src}
                       alt={img.ward.alt}
@@ -117,7 +117,7 @@ export function AboutSection() {
 
               <Parallax distance={-52}>
                 <div className="space-y-4 md:space-y-5">
-                  <ScrollZoom className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-ink-100 shadow-[var(--shadow-soft)]">
+                  <ScrollZoom className="relative aspect-square overflow-hidden rounded-[1.5rem] bg-surface-3 shadow-[var(--shadow-soft)]">
                     <Image
                       src={img.corridor.src}
                       alt={img.corridor.alt}
@@ -127,7 +127,7 @@ export function AboutSection() {
                       className="object-cover"
                     />
                   </ScrollZoom>
-                  <ScrollZoom className="relative aspect-3/4 overflow-hidden rounded-[1.5rem] bg-ink-100 shadow-[var(--shadow-soft)]">
+                  <ScrollZoom className="relative aspect-3/4 overflow-hidden rounded-[1.5rem] bg-surface-3 shadow-[var(--shadow-soft)]">
                     <Image
                       src={img.patientRoom.src}
                       alt={img.patientRoom.alt}
@@ -143,15 +143,15 @@ export function AboutSection() {
 
             {/* Floating credential card */}
             <Reveal variant="scale" delay={0.2}>
-              <div className="relative z-10 -mt-8 ml-4 inline-flex items-center gap-4 rounded-2xl border border-ink-100 bg-white p-4 pr-6 shadow-[var(--shadow-lift)] md:-mt-10 md:ml-8">
+              <div className="relative z-10 -mt-8 ml-4 inline-flex items-center gap-4 rounded-2xl border border-edge bg-surface-2 p-4 pr-6 shadow-[var(--shadow-lift)] md:-mt-10 md:ml-8">
                 <span className="grid size-12 shrink-0 place-items-center rounded-xl bg-linear-to-br from-brand-600 to-rose-500 text-white">
                   <FiArrowRight aria-hidden="true" className="-rotate-45 text-xl" />
                 </span>
                 <div>
-                  <p className="text-[0.9rem] font-bold tracking-tight text-ink-950">
+                  <p className="text-[0.9rem] font-bold tracking-tight text-fg">
                     Both departments, one visit
                   </p>
-                  <p className="mt-0.5 text-[0.78rem] text-ink-500">
+                  <p className="mt-0.5 text-[0.78rem] text-fg-subtle">
                     Tell reception when booking
                   </p>
                 </div>

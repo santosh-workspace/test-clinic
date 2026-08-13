@@ -131,20 +131,20 @@ export function AppointmentProvider({ children }: { children: ReactNode }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduced ? { opacity: 0 } : { opacity: 0, y: 30, scale: 0.98 }}
               transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
-              className="relative flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-[var(--radius-xl2)] bg-white shadow-[var(--shadow-lift)] sm:max-h-[90dvh] sm:max-w-2xl sm:rounded-[var(--radius-xl2)]"
+              className="relative flex max-h-[92dvh] w-full flex-col overflow-hidden rounded-t-[var(--radius-xl2)] bg-surface-2 shadow-[var(--shadow-lift)] sm:max-h-[90dvh] sm:max-w-2xl sm:rounded-[var(--radius-xl2)]"
             >
               {/* Header */}
-              <div className="flex shrink-0 items-start justify-between gap-4 border-b border-ink-100 px-5 py-4 sm:px-7 sm:py-5">
+              <div className="flex shrink-0 items-start justify-between gap-4 border-b border-edge px-5 py-4 sm:px-7 sm:py-5">
                 <div className="flex items-center gap-3">
                   <Emblem className="w-10 shrink-0" />
                   <div>
                     <h2
                       id="booking-title"
-                      className="text-[1.05rem] font-bold tracking-tight text-ink-950"
+                      className="text-[1.05rem] font-bold tracking-tight text-fg"
                     >
                       Book an appointment
                     </h2>
-                    <p className="mt-0.5 text-[0.78rem] text-ink-500">
+                    <p className="mt-0.5 text-[0.78rem] text-fg-subtle">
                       {siteConfig.name} · {siteConfig.address.locality}
                     </p>
                   </div>
@@ -153,7 +153,7 @@ export function AppointmentProvider({ children }: { children: ReactNode }) {
                   type="button"
                   onClick={close}
                   aria-label="Close booking form"
-                  className="grid size-10 shrink-0 place-items-center rounded-full border border-ink-200 text-ink-600 transition-colors hover:border-ink-300 hover:text-ink-950"
+                  className="grid size-10 shrink-0 place-items-center rounded-full border border-edge text-fg-muted transition-colors hover:border-edge-strong hover:text-fg"
                 >
                   <FiX aria-hidden="true" className="text-[1.1rem]" />
                 </button>

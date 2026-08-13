@@ -64,15 +64,15 @@ export function Header() {
   return (
     <>
       {/* Utility strip — desktop only, carries NAP for consistency */}
-      <div className="hidden border-b border-ink-100 bg-white lg:block">
-        <div className="container-page flex h-10 items-center justify-between text-[0.78rem] text-ink-500">
+      <div className="hidden border-b border-edge bg-surface-2 lg:block">
+        <div className="container-page flex h-10 items-center justify-between text-[0.78rem] text-fg-subtle">
           <p>
             {siteConfig.tagline} · {siteConfig.address.locality}, {siteConfig.address.region}
           </p>
           <div className="flex items-center gap-5">
             <a
               href={links.tel}
-              className="flex items-center gap-1.5 font-medium text-ink-700 transition-colors hover:text-brand-700"
+              className="flex items-center gap-1.5 font-medium text-fg-muted transition-colors hover:text-brand-700"
             >
               <FiPhone aria-hidden="true" className="text-[0.9rem]" />
               {siteConfig.contact.phoneDisplay}
@@ -87,8 +87,8 @@ export function Header() {
         className={cn(
           "sticky top-0 z-40 transition-all duration-500 ease-[var(--ease-out-expo)]",
           scrolled
-            ? "border-b border-ink-100/90 bg-white/85 backdrop-blur-xl supports-[backdrop-filter]:bg-white/72"
-            : "border-b border-transparent bg-white",
+            ? "border-b border-edge/90 bg-surface-2/85 backdrop-blur-xl supports-[backdrop-filter]:bg-surface-2/72"
+            : "border-b border-transparent bg-surface-2",
         )}
       >
         <div
@@ -121,7 +121,7 @@ export function Header() {
                       aria-expanded={children ? openDropdown === item.href : undefined}
                       className={cn(
                         "group relative flex items-center gap-1 rounded-full px-3.5 py-2 text-[0.92rem] font-medium transition-colors duration-300",
-                        active ? "text-brand-700" : "text-ink-700 hover:text-ink-950",
+                        active ? "text-brand-700" : "text-fg-muted hover:text-fg",
                       )}
                     >
                       {item.label}
@@ -153,12 +153,12 @@ export function Header() {
                           transition={{ duration: 0.24, ease: [0.16, 1, 0.3, 1] }}
                           className="absolute left-1/2 top-full w-64 -translate-x-1/2 pt-3"
                         >
-                          <div className="overflow-hidden rounded-2xl border border-ink-100 bg-white p-2 shadow-[var(--shadow-lift)]">
+                          <div className="overflow-hidden rounded-2xl border border-edge bg-surface-2 p-2 shadow-[var(--shadow-lift)]">
                             {children.map((child) => (
                               <li key={child.href}>
                                 <Link
                                   href={child.href}
-                                  className="block rounded-xl px-3.5 py-2.5 text-[0.9rem] font-medium text-ink-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
+                                  className="block rounded-xl px-3.5 py-2.5 text-[0.9rem] font-medium text-fg-muted transition-colors hover:bg-brand-50 hover:text-brand-700"
                                 >
                                   {child.label}
                                 </Link>
@@ -207,7 +207,7 @@ export function Header() {
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
               aria-expanded={menuOpen}
-              className="grid size-11 place-items-center rounded-full border border-ink-200 text-ink-800 transition-colors hover:border-brand-300 hover:text-brand-700 lg:hidden"
+              className="grid size-11 place-items-center rounded-full border border-edge text-fg transition-colors hover:border-brand-300 hover:text-brand-700 lg:hidden"
             >
               <FiMenu aria-hidden="true" className="text-[1.2rem]" />
             </button>
@@ -235,16 +235,16 @@ export function Header() {
               animate={reduced ? { opacity: 1 } : { x: 0 }}
               exit={reduced ? { opacity: 0 } : { x: "100%" }}
               transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-              className="fixed inset-y-0 right-0 z-[71] flex w-[min(23rem,92vw)] flex-col bg-white lg:hidden"
+              className="fixed inset-y-0 right-0 z-[71] flex w-[min(23rem,92vw)] flex-col bg-surface-2 lg:hidden"
             >
-              <div className="flex h-18 shrink-0 items-center justify-between border-b border-ink-100 px-5">
+              <div className="flex h-18 shrink-0 items-center justify-between border-b border-edge px-5">
                 <Logo compact />
                 <button
                   ref={closeRef}
                   type="button"
                   onClick={() => setMenuOpen(false)}
                   aria-label="Close menu"
-                  className="grid size-11 place-items-center rounded-full border border-ink-200 text-ink-800"
+                  className="grid size-11 place-items-center rounded-full border border-edge text-fg"
                 >
                   <FiX aria-hidden="true" className="text-[1.2rem]" />
                 </button>
@@ -276,18 +276,18 @@ export function Header() {
                             "flex min-h-13 items-center rounded-xl px-3 text-[1.05rem] font-semibold tracking-tight transition-colors",
                             isActive(item.href)
                               ? "bg-brand-50 text-brand-700"
-                              : "text-ink-900 active:bg-ink-50",
+                              : "text-fg active:bg-surface-3",
                           )}
                         >
                           {item.label}
                         </Link>
                         {children && (
-                          <ul className="mb-1 ml-3 border-l border-ink-100 pl-4">
+                          <ul className="mb-1 ml-3 border-l border-edge pl-4">
                             {children.map((child) => (
                               <li key={child.href}>
                                 <Link
                                   href={child.href}
-                                  className="flex min-h-11 items-center text-[0.94rem] text-ink-600 transition-colors active:text-brand-700"
+                                  className="flex min-h-11 items-center text-[0.94rem] text-fg-muted transition-colors active:text-brand-700"
                                 >
                                   {child.label}
                                 </Link>
@@ -331,12 +331,12 @@ export function Header() {
                   the nav's spare height collapsed into a blank gap under the
                   social icons on tall phones.
                 */}
-                <div className="mt-auto border-t border-ink-100 pt-6">
-                  <p className="mb-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-ink-400">
+                <div className="mt-auto border-t border-edge pt-6">
+                  <p className="mb-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-fg-subtle">
                     Follow us
                   </p>
                   <SocialLinks />
-                  <p className="mt-5 text-[0.78rem] leading-relaxed text-ink-500">
+                  <p className="mt-5 text-[0.78rem] leading-relaxed text-fg-subtle">
                     {addressLines[1]}
                     <br />
                     {siteConfig.address.locality}

@@ -43,7 +43,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                 eyebrow="Overview"
                 segments={[{ text: dept.headline, accent: false }]}
               />
-              <Stagger className="mt-7 space-y-5 text-[1rem] leading-relaxed text-ink-600">
+              <Stagger className="mt-7 space-y-5 text-[1rem] leading-relaxed text-fg-muted">
                 {dept.description.map((para) => (
                   <Reveal key={para.slice(0, 24)} child variant="up">
                     <p>{para}</p>
@@ -105,7 +105,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
           />
 
           <Reveal variant="up" className="mt-9">
-            <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-ink-100 bg-white shadow-[var(--shadow-soft)]">
+            <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-2 shadow-[var(--shadow-soft)]">
               <div className="grid lg:grid-cols-12">
                 <div className="relative aspect-4/5 lg:col-span-4 lg:aspect-auto">
                   <Image
@@ -126,13 +126,13 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   >
                     {dept.name}
                   </p>
-                  <h3 className="mt-2 text-h2 font-bold tracking-tight text-ink-950">
+                  <h3 className="mt-2 text-h2 font-bold tracking-tight text-fg">
                     {doctor.name}
                   </h3>
-                  <p className="mt-2 text-[1rem] text-ink-600">{doctor.role}</p>
+                  <p className="mt-2 text-[1rem] text-fg-muted">{doctor.role}</p>
 
                   <div className="mt-6 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-ink-50 px-3 py-1.5 text-[0.8rem] font-semibold text-ink-700">
+                    <span className="rounded-full bg-surface-3 px-3 py-1.5 text-[0.8rem] font-semibold text-fg-muted">
                       {doctor.qualification}
                     </span>
                     <span
@@ -145,18 +145,18 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                     </span>
                   </div>
 
-                  <div className="mt-7 space-y-4 text-[0.96rem] leading-relaxed text-ink-600">
+                  <div className="mt-7 space-y-4 text-[0.96rem] leading-relaxed text-fg-muted">
                     {doctor.bio.slice(0, 2).map((p) => (
                       <p key={p.slice(0, 20)}>{p}</p>
                     ))}
                   </div>
 
-                  <div className="mt-8 grid gap-6 border-t border-ink-100 pt-7 sm:grid-cols-2">
+                  <div className="mt-8 grid gap-6 border-t border-edge pt-7 sm:grid-cols-2">
                     <div>
-                      <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                      <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                         <FiClock aria-hidden="true" /> Consulting hours
                       </p>
-                      <ul className="mt-3 space-y-1.5 text-[0.89rem] text-ink-700">
+                      <ul className="mt-3 space-y-1.5 text-[0.89rem] text-fg-muted">
                         {doctor.timings.map((t) => (
                           <li key={t.time}>
                             <span className="font-medium">{t.days}</span> · {t.time}
@@ -165,10 +165,10 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                       </ul>
                     </div>
                     <div>
-                      <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                      <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                         <FiGlobe aria-hidden="true" /> Languages
                       </p>
-                      <p className="mt-3 text-[0.89rem] text-ink-700">
+                      <p className="mt-3 text-[0.89rem] text-fg-muted">
                         {doctor.languages.join(" · ")}
                       </p>
                       <Link
@@ -187,15 +187,15 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   </div>
 
                   {/* Consultation areas */}
-                  <div className="mt-8 border-t border-ink-100 pt-7">
-                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                  <div className="mt-8 border-t border-edge pt-7">
+                    <p className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                       Common reasons to book
                     </p>
                     <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
                       {doctor.consultationAreas.map((area) => (
                         <li
                           key={area}
-                          className="flex items-start gap-2.5 text-[0.89rem] text-ink-700"
+                          className="flex items-start gap-2.5 text-[0.89rem] text-fg-muted"
                         >
                           <FiCheck
                             aria-hidden="true"
@@ -249,18 +249,18 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   ? "/departments/eye-care"
                   : "/departments/pediatric-surgery"
               }
-              className="group flex flex-col gap-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] sm:flex-row sm:items-center sm:justify-between"
+              className="group flex flex-col gap-4 rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] sm:flex-row sm:items-center sm:justify-between"
             >
               <div>
-                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-ink-400">
+                <p className="text-[0.72rem] font-semibold uppercase tracking-[0.18em] text-fg-subtle">
                   Also at Yogeshwari Hospital
                 </p>
-                <p className="mt-2 text-h3 font-bold tracking-tight text-ink-950">
+                <p className="mt-2 text-h3 font-bold tracking-tight text-fg">
                   {dept.slug === "pediatric-surgery"
                     ? "Eye Care & Ophthalmology"
                     : "Paediatrics"}
                 </p>
-                <p className="mt-1.5 text-[0.92rem] text-ink-600">
+                <p className="mt-1.5 text-[0.92rem] text-fg-muted">
                   {dept.slug === "pediatric-surgery"
                     ? "Comprehensive eye examination, cataract and glaucoma screening with Dr. Manisha Nagargoje (Sanap)."
                     : "Newborn care, vaccination and child health check-ups with Dr. Ramdas D. Nagargoje."}
@@ -277,11 +277,11 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
       {/* ── Sticky-ish contact strip ──────────────────────────────── */}
       <Section tone="white" spacing="sm">
         <div className="container-page">
-          <div className="flex flex-col items-center gap-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-linear-to-br from-brand-50 to-rose-50/60 p-8 text-center">
-            <p className="text-h3 font-bold tracking-tight text-ink-950">
+          <div className="flex flex-col items-center gap-4 rounded-[var(--radius-xl2)] border border-edge bg-linear-to-br from-brand-50 to-rose-50/60 p-8 text-center">
+            <p className="text-h3 font-bold tracking-tight text-fg">
               Not sure if you need an appointment?
             </p>
-            <p className="max-w-xl text-[0.96rem] text-ink-600">
+            <p className="max-w-xl text-[0.96rem] text-fg-muted">
               Call during OPD hours and reception will tell you whether this needs a
               visit, and how soon.
             </p>

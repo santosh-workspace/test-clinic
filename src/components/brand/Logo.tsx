@@ -109,7 +109,7 @@ export function Logo({
           <span
             className={cn(
               "font-display text-[1.32rem] leading-none tracking-tight md:text-[1.45rem]",
-              invert ? "text-white" : "text-ink-950",
+              invert ? "text-white" : "text-fg",
             )}
           >
             Yogeshwari
@@ -117,7 +117,7 @@ export function Logo({
           <span
             className={cn(
               "mt-1 text-[0.6rem] font-semibold uppercase tracking-[0.19em]",
-              invert ? "text-white/60" : "text-ink-500",
+              invert ? "text-white/60" : "text-fg-subtle",
             )}
           >
             Hospital

@@ -66,7 +66,7 @@ export default function DoctorsPage() {
                 {/* Portrait column */}
                 <div className={cn("lg:col-span-5", flip && "lg:order-2")}>
                   <Reveal variant="clip">
-                    <div className="relative aspect-4/5 overflow-hidden rounded-[var(--radius-xl2)] bg-ink-100 shadow-[var(--shadow-lift)]">
+                    <div className="relative aspect-4/5 overflow-hidden rounded-[var(--radius-xl2)] bg-surface-3 shadow-[var(--shadow-lift)]">
                       <Image
                         src={doc.image}
                         alt={`Portrait of ${doc.name}, ${doc.role}`}
@@ -93,17 +93,17 @@ export default function DoctorsPage() {
 
                   {/* Timings card */}
                   <Reveal variant="up" delay={0.1}>
-                    <div className="mt-5 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6">
-                      <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    <div className="mt-5 rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-6">
+                      <p className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                         <FiClock aria-hidden="true" /> Consulting hours
                       </p>
                       <ul className="mt-4 space-y-2.5">
                         {doc.timings.map((t) => (
                           <li
                             key={t.time}
-                            className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-dashed border-ink-100 pb-2.5 text-[0.88rem] last:border-0 last:pb-0"
+                            className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-dashed border-edge pb-2.5 text-[0.88rem] last:border-0 last:pb-0"
                           >
-                            <span className="font-medium text-ink-800">{t.days}</span>
+                            <span className="font-medium text-fg">{t.days}</span>
                             <span
                               className={cn(rose ? "text-rose-700" : "text-brand-700")}
                             >
@@ -112,7 +112,7 @@ export default function DoctorsPage() {
                           </li>
                         ))}
                       </ul>
-                      <p className="mt-4 flex items-center gap-2 text-[0.82rem] text-ink-500">
+                      <p className="mt-4 flex items-center gap-2 text-[0.82rem] text-fg-subtle">
                         <FiGlobe aria-hidden="true" className="shrink-0" />
                         {doc.languages.join(" · ")}
                       </p>
@@ -149,13 +149,13 @@ export default function DoctorsPage() {
                   </Reveal>
 
                   <Reveal variant="up" delay={0.05}>
-                    <h2 className="mt-5 text-h2 font-bold tracking-tight text-ink-950">
+                    <h2 className="mt-5 text-h2 font-bold tracking-tight text-fg">
                       {doc.name}
                     </h2>
-                    <p className="mt-2.5 text-lead text-ink-600">{doc.role}</p>
+                    <p className="mt-2.5 text-lead text-fg-muted">{doc.role}</p>
                   </Reveal>
 
-                  <Stagger className="mt-7 space-y-4 text-[0.98rem] leading-relaxed text-ink-600">
+                  <Stagger className="mt-7 space-y-4 text-[0.98rem] leading-relaxed text-fg-muted">
                     {doc.bio.map((p) => (
                       <Reveal key={p.slice(0, 20)} child variant="up">
                         <p>{p}</p>
@@ -166,7 +166,7 @@ export default function DoctorsPage() {
                   {/* Credentials */}
                   <Reveal variant="up" delay={0.1}>
                     <div className="mt-8 flex flex-wrap gap-2">
-                      <span className="inline-flex items-center gap-2 rounded-full border border-ink-200 bg-white px-3.5 py-1.5 text-[0.82rem] font-semibold text-ink-800">
+                      <span className="inline-flex items-center gap-2 rounded-full border border-edge bg-surface-2 px-3.5 py-1.5 text-[0.82rem] font-semibold text-fg">
                         <FiAward
                           aria-hidden="true"
                           className={rose ? "text-rose-500" : "text-brand-500"}
@@ -187,14 +187,14 @@ export default function DoctorsPage() {
                   {/* Specialisations */}
                   <div className="mt-9 grid gap-8 sm:grid-cols-2">
                     <div>
-                      <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                      <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                         Specialisation
                       </h3>
                       <ul className="mt-4 space-y-2.5">
                         {doc.specializations.map((s) => (
                           <li
                             key={s}
-                            className="flex items-start gap-2.5 text-[0.9rem] text-ink-700"
+                            className="flex items-start gap-2.5 text-[0.9rem] text-fg-muted"
                           >
                             <FiCheck
                               aria-hidden="true"
@@ -209,14 +209,14 @@ export default function DoctorsPage() {
                       </ul>
                     </div>
                     <div>
-                      <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                      <h3 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">
                         Consultation areas
                       </h3>
                       <ul className="mt-4 space-y-2.5">
                         {doc.consultationAreas.map((s) => (
                           <li
                             key={s}
-                            className="flex items-start gap-2.5 text-[0.9rem] text-ink-700"
+                            className="flex items-start gap-2.5 text-[0.9rem] text-fg-muted"
                           >
                             <FiCheck
                               aria-hidden="true"
@@ -257,7 +257,7 @@ export default function DoctorsPage() {
                     </ButtonRow>
                     <Link
                       href={dept.href}
-                      className="mt-4 inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-ink-600 transition-colors hover:text-ink-950"
+                      className="mt-4 inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-fg-muted transition-colors hover:text-fg"
                     >
                       {dept.shortName} department
                       <FiArrowUpRight aria-hidden="true" />

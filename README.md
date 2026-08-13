@@ -256,6 +256,26 @@ in an inbox or a CRM, that needs a server route (or a form provider) adding — 
 If a Calendly URL is set for a department in `siteConfig.calendly`, the date/session
 questions are replaced by a "choose a time slot" button for that department.
 
+### Validation
+
+Every field is validated — department, name, phone, age and the reason field's length; the
+date is optional but bounds-checked when given. The rules live in
+`src/lib/bookingValidation.ts` as plain functions of their input, kept out of the component
+on purpose so they can be exercised on their own rather than only by clicking through the
+UI (32 cases covering names, Indian mobile numbers, the "4" / "6 months" / "10 days" age
+formats, the six-month booking window, and Sunday's emergency-only notice all pass).
+
+In the form itself: errors are derived from the current values on every render, so nothing
+goes stale; they surface once a field is blurred, or on submit for anything left untouched,
+and a failed submit moves focus to the first problem field. Every input carries
+`aria-invalid` and `aria-describedby` pointing at its message, and the messages are
+`role="alert"`, so a screen reader hears the problem rather than the form silently doing
+nothing.
+
+Phone validation is India-specific (10 digits, starting 6–9, optional `+91`/`0` prefix) —
+adjust `validatePhone` in `bookingValidation.ts` first if the hospital ever takes
+international bookings.
+
 ## The two themes
 
 Both are built from the logo and both are declared in

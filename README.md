@@ -207,14 +207,23 @@ Every service renders through `components/sections/ServiceCard.tsx`: a banner, a
 icon medallion straddling it, an accent-coloured title, a hairline rule that fills on
 hover, then the description. Entrance is a staggered fade in from the right.
 
-**Photos are only attached where the image genuinely depicts the service** — 12 of the
-26 do. There is no honest stock photograph of a urodynamics study or a thoracoscopy, so
-those cards get a flat accent-tinted banner with the service icon watermarked into it
-instead. Same silhouette, same height, no pretend imagery — which also stops the grid
-going ragged where a photo card sits beside a text-only one.
+**All 26 services now carry a photo.** Roughly half depict the service directly (newborn
+surgery, laparoscopy, brain MRI, eye examination, vision testing, a child in trial frames
+for paediatric vision screening); the rest are *department*-relevant rather than
+service-specific — paediatric clinic and theatre scenes on the surgery cards, eye-clinic
+scenes on the ophthalmology ones. That was a deliberate call: there is no honest stock
+photograph of a urodynamics study or a thoracoscopy, so those cards show the department
+at work rather than a fabricated procedure shot.
 
-To add a photo later, set `image:` on that service in `src/config/content.ts` and add the
-file to the manifest in `src/config/images.ts`. Nothing else changes.
+The card still supports being photo-less — omit `image:` and it falls back to an
+accent-tinted banner with the service icon watermarked in, at the same height, so the
+grid never goes ragged.
+
+To swap a photo, replace the file in `public/images/` keeping the name, or point
+`image:` at a different entry in `src/config/images.ts`. Nothing else changes.
+
+> These are stock. Real photographs of the hospital's own theatre, clinic rooms and
+> equipment would be a straight upgrade on every one of them — same one-line swap.
 
 ## Booking
 

@@ -86,18 +86,21 @@ export const departments: Department[] = [
         description:
           "Surgery of the kidney, ureter, bladder and genitalia in children, covering conditions such as hydronephrosis, reflux, hypospadias and undescended testis.",
         icon: FiDroplet,
+        image: img.svcPaedClinicRoom,
       },
       {
         name: "Urodynamics Study & Treatment",
         description:
           "Objective measurement of how a child's bladder fills and empties, used to plan treatment for daytime wetting, recurrent infection and neurogenic bladder.",
         icon: FiActivity,
+        image: img.svcClinicianGloves,
       },
       {
         name: "Constipation Clinic",
         description:
           "A dedicated clinic for chronic childhood constipation and soiling — assessment for an underlying cause first, then a structured bowel programme rather than repeat laxatives.",
         icon: FiRefreshCw,
+        image: img.svcNurseChild,
       },
       {
         name: "Prenatal Consultation & Guidance",
@@ -118,12 +121,14 @@ export const departments: Department[] = [
         description:
           "Management of tracheal and airway problems in children, including stridor, narrowing and inhaled foreign bodies.",
         icon: FiWind,
+        image: img.pediatricExam,
       },
       {
         name: "Endoscopy & Thoracoscopy",
         description:
           "Diagnostic and therapeutic scope procedures of the gastrointestinal tract and the chest, avoiding a large incision wherever possible.",
         icon: FiLayers,
+        image: img.svcEndoscopy,
       },
       {
         name: "Emergency Paediatric Surgery",
@@ -137,12 +142,14 @@ export const departments: Department[] = [
         description:
           "Assessment and surgical management of childhood injury — falls, burns, road accidents and abdominal or chest trauma.",
         icon: FiZap,
+        image: img.svcTrauma,
       },
       {
         name: "Scientific Ear Piercing",
         description:
           "Ear piercing performed under sterile conditions with correct placement and clear aftercare, avoiding the infection and keloid risk of unhygienic piercing.",
         icon: FiAward,
+        image: img.childHappy,
       },
     ],
     metaTitle: `Paediatric Surgeon in ${siteConfig.city} | Child Surgery`,
@@ -193,30 +200,35 @@ export const departments: Department[] = [
         description:
           "Eye pressure measurement and optic nerve assessment — the only way to catch a condition that has no early symptoms.",
         icon: FiShield,
+        image: img.svcGlaucoma,
       },
       {
         name: "Diabetic Eye Examination",
         description:
           "Dilated retinal examination for anyone living with diabetes, repeated annually, to find retinopathy while it is still treatable.",
         icon: FiActivity,
+        image: img.svcDiabeticEye,
       },
       {
         name: "Dry Eye Treatment",
         description:
           "Assessment of tear film and ocular surface, with a treatment plan for burning, grittiness and screen-related strain.",
         icon: FiDroplet,
+        image: img.svcDryEye,
       },
       {
         name: "Eye Infection Treatment",
         description:
           "Prompt care for conjunctivitis, styes, lid inflammation and corneal infection, with clear guidance on preventing spread.",
         icon: FiAlertCircle,
+        image: img.svcEyeInfection,
       },
       {
         name: "Paediatric Vision Screening",
         description:
           "Checks for squint, refractive error and lazy eye in children, where early detection changes the long-term outcome.",
         icon: FiUserCheck,
+        image: img.svcChildVision,
       },
     ],
     metaTitle: `Eye Specialist in ${siteConfig.city} | Ophthalmologist`,
@@ -242,6 +254,7 @@ export const emergencyServices = [
     description:
       "Urgent evaluation of severe abdominal pain, vomiting and obstruction — appendicitis, intussusception, incarcerated hernia and torsion.",
     icon: FiAlertCircle,
+    image: img.svcAcuteAbdomen,
   },
   {
     name: "Day-care Surgery",

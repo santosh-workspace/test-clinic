@@ -42,6 +42,17 @@ If you change the alt text (you should, once these are real photos), edit
 | `svc-theatre-prep.jpg` | 16:10 | 1200 | Service card — pre-operative evaluation | Medium |
 | `svc-brain-scan.jpg` | 16:10 | 1200 | Service card — brain & spine surgery | Medium |
 | `svc-parent-baby.jpg` | 16:10 | 1200 | Service card — prenatal consultation | Medium |
+| `svc-paed-clinic-room.jpg` | 16:10 | 1200 | Service card — paediatric urology | Low |
+| `svc-clinician-gloves.jpg` | 16:10 | 1200 | Service card — urodynamics | Low |
+| `svc-nurse-child.jpg` | 16:10 | 1200 | Service card — constipation clinic | Low |
+| `svc-endoscopy.jpg` | 16:10 | 1200 | Service card — endoscopy & thoracoscopy | Low |
+| `svc-trauma.jpg` | 16:10 | 1200 | Service card — accident & trauma | Low |
+| `svc-acute-abdomen.jpg` | 16:10 | 1200 | Service card — acute abdomen | Low |
+| `svc-glaucoma.jpg` | 16:10 | 1200 | Service card — glaucoma screening | Low |
+| `svc-diabetic-eye.jpg` | 16:10 | 1200 | Service card — diabetic eye examination | Low |
+| `svc-dry-eye.jpg` | 16:10 | 1200 | Service card — dry eye treatment | Low |
+| `svc-eye-infection.jpg` | 16:10 | 1200 | Service card — eye infection treatment | Low |
+| `svc-child-vision.jpg` | 16:10 | 1200 | Service card — paediatric vision screening | Low |
 | `eye-clinic.jpg` | 4:5 | 1400 | Eye care department — portrait band | Medium |
 | `eyewear.jpg` | 3:2 | 1400 | Eye care — vision testing card | Low |
 | `child-happy.jpg` | 4:5 | 1400 | Paediatrics department hero | High |

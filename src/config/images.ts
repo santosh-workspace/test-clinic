@@ -30,6 +30,17 @@ import svcSurgery from "../../public/images/svc-surgery.jpg";
 import svcTheatrePrep from "../../public/images/svc-theatre-prep.jpg";
 import svcBrainScan from "../../public/images/svc-brain-scan.jpg";
 import svcParentBaby from "../../public/images/svc-parent-baby.jpg";
+import svcPaedClinicRoom from "../../public/images/svc-paed-clinic-room.jpg";
+import svcClinicianGloves from "../../public/images/svc-clinician-gloves.jpg";
+import svcNurseChild from "../../public/images/svc-nurse-child.jpg";
+import svcEndoscopy from "../../public/images/svc-endoscopy.jpg";
+import svcTrauma from "../../public/images/svc-trauma.jpg";
+import svcAcuteAbdomen from "../../public/images/svc-acute-abdomen.jpg";
+import svcGlaucoma from "../../public/images/svc-glaucoma.jpg";
+import svcDiabeticEye from "../../public/images/svc-diabetic-eye.jpg";
+import svcDryEye from "../../public/images/svc-dry-eye.jpg";
+import svcEyeInfection from "../../public/images/svc-eye-infection.jpg";
+import svcChildVision from "../../public/images/svc-child-vision.jpg";
 import drRamdas from "../../public/images/doctors/dr-ramdas-nagargoje.png";
 import drManisha from "../../public/images/doctors/dr-manisha-nagargoje.png";
 
@@ -113,6 +124,51 @@ export const img = {
   svcParentBaby: {
     src: svcParentBaby,
     alt: "A parent holding their baby after a consultation",
+  },
+
+  svcPaedClinicRoom: {
+    src: svcPaedClinicRoom,
+    alt: "A child in the bright consulting room of a children's clinic",
+  },
+  svcClinicianGloves: {
+    src: svcClinicianGloves,
+    alt: "Clinician in scrubs and examination gloves before a procedure",
+  },
+  svcNurseChild: {
+    src: svcNurseChild,
+    alt: "A nurse reassuring a young child during an examination",
+  },
+  svcEndoscopy: {
+    src: svcEndoscopy,
+    alt: "Surgeon working with fine instruments through a small access port",
+  },
+  svcTrauma: {
+    src: svcTrauma,
+    alt: "Surgical team concentrating during an urgent operation",
+  },
+  svcAcuteAbdomen: {
+    src: svcAcuteAbdomen,
+    alt: "Gowned surgeon prepared for an emergency abdominal procedure",
+  },
+  svcGlaucoma: {
+    src: svcGlaucoma,
+    alt: "Optometrist measuring a patient at a computerised eye machine",
+  },
+  svcDiabeticEye: {
+    src: svcDiabeticEye,
+    alt: "Patient positioned at an eye-imaging machine for a retinal check",
+  },
+  svcDryEye: {
+    src: svcDryEye,
+    alt: "Ophthalmologist holding a trial frame in the eye clinic",
+  },
+  svcEyeInfection: {
+    src: svcEyeInfection,
+    alt: "Ophthalmologist beside the slit lamp in the examination room",
+  },
+  svcChildVision: {
+    src: svcChildVision,
+    alt: "A child wearing a trial frame during a vision screening",
   },
 
   /* Both portraits are the client's own photographs, cropped to 4:5. */

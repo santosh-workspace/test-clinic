@@ -49,7 +49,7 @@ export function Hero() {
   // Top padding is deliberately tight — the header already separates the two,
   // so a large gap here only pushes the headline further below the fold.
   return (
-    <section className="relative overflow-hidden bg-white pt-4 pb-16 md:pt-7 lg:pt-9 lg:pb-24">
+    <section className="relative overflow-hidden bg-white pt-4 pb-9 md:pt-7 lg:pt-9 lg:pb-12">
       {/* Ambient field */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute -left-40 -top-32 h-[34rem] w-[34rem] rounded-full bg-brand-100/60 blur-[130px]" />
@@ -252,7 +252,7 @@ export function Hero() {
                 transition: { delay: 1.3, duration: 0.8 },
               })}
           aria-hidden="true"
-          className="mt-14 hidden items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-400 lg:flex"
+          className="mt-9 hidden items-center gap-3 text-[0.72rem] font-semibold uppercase tracking-[0.22em] text-ink-400 lg:flex"
         >
           <FiArrowDown className="animate-float text-brand-500" />
           Scroll to explore

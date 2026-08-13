@@ -118,10 +118,12 @@ export function Section({
     ink: "bg-ink-950 text-white",
     brand: "bg-brand-50",
   };
+  /* The site's vertical rhythm. Trimmed ~35% from the original scale — the
+     sections were reading as disconnected rather than spacious. */
   const spacings = {
-    sm: "py-14 md:py-20",
-    md: "py-18 md:py-26",
-    lg: "py-20 md:py-32",
+    sm: "py-9 md:py-12",
+    md: "py-11 md:py-16",
+    lg: "py-13 md:py-20",
   };
 
   return (

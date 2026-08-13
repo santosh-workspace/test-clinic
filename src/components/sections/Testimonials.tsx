@@ -118,7 +118,7 @@ export function Testimonials() {
         />
       </div>
 
-      <div className="mt-14 space-y-4">
+      <div className="mt-10 space-y-4">
         <Row items={rowA} duration={54} />
         <Row items={rowB} reverse duration={64} />
       </div>

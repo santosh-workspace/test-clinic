@@ -76,7 +76,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
             lead={`${dept.services.length} services, each with an unhurried consultation and written instructions to take home.`}
           />
 
-          <Stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" amount={0.06}>
+          <Stagger className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4" amount={0.06}>
             {dept.services.map((service, i) => {
               const Icon = service.icon;
               return (
@@ -132,7 +132,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
             ]}
           />
 
-          <Reveal variant="up" className="mt-12">
+          <Reveal variant="up" className="mt-9">
             <div className="overflow-hidden rounded-[var(--radius-xl2)] border border-ink-100 bg-white shadow-[var(--shadow-soft)]">
               <div className="grid lg:grid-cols-12">
                 <div className="relative aspect-4/5 lg:col-span-4 lg:aspect-auto">

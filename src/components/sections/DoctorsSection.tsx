@@ -28,7 +28,7 @@ export function DoctorsSection() {
           lead="Continuity is not a nicety in medicine. Seeing the same specialist each time means your history is known, and a small change is noticed against a real baseline rather than read cold."
         />
 
-        <Stagger className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8" amount={0.14}>
+        <Stagger className="mt-10 grid gap-6 lg:grid-cols-2 lg:gap-8" amount={0.14}>
           {doctors.map((doc) => {
             const dept = departments.find((d) => d.slug === doc.department)!;
             const rose = dept.accent === "rose";

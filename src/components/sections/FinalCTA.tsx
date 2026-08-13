@@ -20,7 +20,7 @@ export function FinalCTA() {
   const reduced = useReducedMotion();
 
   return (
-    <section className="relative overflow-hidden bg-ink-950 py-20 text-white md:py-28">
+    <section className="relative overflow-hidden bg-ink-950 py-14 text-white md:py-20">
       {/* Animated aurora background */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <motion.div
@@ -103,7 +103,7 @@ export function FinalCTA() {
 
         {/* Direct department shortcuts */}
         <Reveal variant="up" delay={0.28}>
-          <div className="mx-auto mt-14 grid max-w-3xl gap-3 sm:grid-cols-2">
+          <div className="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-2">
             {/*
               Plain links rather than <ButtonLink>: these are card-shaped with
               a two-line label, which the button's fixed height and

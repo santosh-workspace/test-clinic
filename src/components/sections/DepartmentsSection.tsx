@@ -30,7 +30,7 @@ export function DepartmentsSection() {
           lead="A family rarely needs just one kind of doctor. Paediatric surgery and eye care run from the same building, so a child's surgical review and a grandparent's cataract opinion can happen on the same morning."
         />
 
-        <Stagger className="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-7" amount={0.12}>
+        <Stagger className="mt-10 grid gap-6 lg:grid-cols-2 lg:gap-7" amount={0.12}>
           {departments.map((dept, i) => {
             const doc = doctors.find((d) => d.department === dept.slug)!;
             const rose = dept.accent === "rose";

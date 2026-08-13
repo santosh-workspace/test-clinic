@@ -29,7 +29,7 @@ export function Footer() {
         className="pointer-events-none absolute -bottom-32 right-0 h-80 w-80 rounded-full bg-rose-500/12 blur-[110px]"
       />
 
-      <div className="container-page relative pt-18 pb-10 md:pt-24">
+      <div className="container-page relative pt-12 pb-10 md:pt-16">
         <div className="grid gap-12 lg:grid-cols-12 lg:gap-8">
           {/* Brand */}
           <div className="lg:col-span-4">

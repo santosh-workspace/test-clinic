@@ -16,7 +16,7 @@ import { siteConfig } from "@/config/site";
  */
 export function AboutSection() {
   return (
-    <section className="relative overflow-hidden bg-white py-20 md:py-32">
+    <section className="relative overflow-hidden bg-white py-13 md:py-20">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute -right-32 top-1/4 h-[30rem] w-[30rem] rounded-full bg-brand-50 blur-[110px]"

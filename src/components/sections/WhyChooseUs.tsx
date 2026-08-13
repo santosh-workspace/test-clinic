@@ -36,7 +36,7 @@ export function WhyChooseUs() {
         />
 
         {/* Timeline */}
-        <div className="relative mt-16">
+        <div className="relative mt-11">
           <span
             aria-hidden="true"
             className="absolute left-[1.4rem] top-2 hidden h-[calc(100%-2rem)] w-px bg-linear-to-b from-rose-400/60 via-brand-400/30 to-transparent md:block"
@@ -80,7 +80,7 @@ export function WhyChooseUs() {
 
         {/* Counters */}
         <Stagger
-          className="mt-18 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-xl2)] border border-white/10 bg-white/10 lg:grid-cols-4"
+          className="mt-12 grid grid-cols-2 gap-px overflow-hidden rounded-[var(--radius-xl2)] border border-white/10 bg-white/10 lg:grid-cols-4"
           amount={0.09}
         >
           {stats.map((stat) => (

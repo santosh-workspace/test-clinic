@@ -162,7 +162,7 @@ export default function ServicesPage() {
                 href={cat.href}
                 hrefLabel={cat.hrefLabel}
                 count={cat.items.length}
-                className="mb-12"
+                className="mb-9"
               />
 
               <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">

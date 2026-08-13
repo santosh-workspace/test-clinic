@@ -1,0 +1,67 @@
+<!doctype html>
+<meta charset="utf-8" />
+<title>mobile harness</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #888; font-family: monospace; }
+  iframe { display: block; border: 0; }
+  #report {
+    position: fixed; top: 0; right: 0; z-index: 999;
+    background: #000; color: #0f0; font-size: 13px; padding: 6px 10px;
+    white-space: pre;
+  }
+</style>
+<div id="report">measuring…</div>
+<iframe id="f"></iframe>
+<script>
+  const p = new URLSearchParams(location.search);
+  const w = Number(p.get("w") || 375);
+  const h = Number(p.get("h") || 3000);
+  const f = document.getElementById("f");
+  f.style.width = w + "px";
+  f.style.height = h + "px";
+  f.src = p.get("u") || "/";
+
+  function report() {
+    try {
+      const doc = f.contentWindow.document;
+      const scrollW = doc.documentElement.scrollWidth;
+      const clientW = doc.documentElement.clientWidth;
+      const overflow = scrollW - clientW;
+      const el = document.getElementById("report");
+      if (overflow > 1) {
+        // Find every element whose right edge or own width exceeds the
+        // viewport, walking the whole tree (not just top-level children).
+        const offenders = [];
+        doc.querySelectorAll("*").forEach((node) => {
+          const r = node.getBoundingClientRect();
+          if (r.right > clientW + 1 || r.width > clientW + 1) {
+            offenders.push({ node, right: Math.round(r.right), width: Math.round(r.width) });
+          }
+        });
+        // Keep only the outermost offenders (drop any whose parent is also listed).
+        const outer = offenders.filter(
+          (o) => !offenders.some((p) => p !== o && p.node.contains(o.node)),
+        );
+        outer.sort((a, b) => b.right - a.right);
+        const lines = outer.slice(0, 8).map((o) => {
+          const n = o.node;
+          const cls = (n.className || "").toString().slice(0, 70);
+          return `<${n.tagName.toLowerCase()} right=${o.right} w=${o.width}> .${cls}`;
+        });
+        el.textContent =
+          `OVERFLOW +${overflow}px (scrollWidth ${scrollW} > ${clientW})\n` + lines.join("\n");
+        el.style.background = "#a00";
+        el.style.color = "#fff";
+        el.style.whiteSpace = "pre-wrap";
+        el.style.maxWidth = "70vw";
+        el.style.fontSize = "11px";
+      } else {
+        el.textContent = `OK  scrollWidth ${scrollW} == viewport ${clientW}`;
+        el.style.background = "#060";
+      }
+    } catch (e) {
+      document.getElementById("report").textContent = "err: " + e;
+    }
+  }
+  f.addEventListener("load", () => setTimeout(report, 1200));
+</script>

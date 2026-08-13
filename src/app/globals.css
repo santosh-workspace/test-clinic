@@ -95,7 +95,8 @@
   --color-edge: var(--color-ink-100); /* default hairline borders */
   --color-edge-strong: var(--color-ink-300); /* hover / emphasised borders */
 
-  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-jakarta), var(--font-devanagari), ui-sans-serif, system-ui,
+    sans-serif;
   --font-display: var(--font-instrument), Georgia, serif;
 
   /* Editorial type scale — fluid, clamps at both ends */

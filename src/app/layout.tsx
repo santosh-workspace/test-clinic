@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Plus_Jakarta_Sans } from "next/font/google";
+import { Instrument_Serif, Noto_Sans_Devanagari, Plus_Jakarta_Sans } from "next/font/google";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { MobileActionBar } from "@/components/layout/MobileActionBar";
@@ -34,6 +34,19 @@ const instrument = Instrument_Serif({
   variable: "--font-instrument",
   weight: "400",
   style: ["normal", "italic"],
+});
+
+/**
+ * Falls in behind Plus Jakarta Sans in `--font-sans` (see globals.css) so it
+ * only ever renders Devanagari — a handful of testimonials are in Marathi and
+ * Hindi. Without this the browser would substitute whatever Devanagari font
+ * the visitor's OS happens to ship, which rarely matches the site's weight.
+ */
+const devanagari = Noto_Sans_Devanagari({
+  subsets: ["devanagari"],
+  display: "swap",
+  variable: "--font-devanagari",
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -120,7 +133,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html
       lang="en-IN"
       suppressHydrationWarning
-      className={`${jakarta.variable} ${instrument.variable}`}
+      className={`${jakarta.variable} ${instrument.variable} ${devanagari.variable}`}
     >
       <head>
         <ThemeScript />

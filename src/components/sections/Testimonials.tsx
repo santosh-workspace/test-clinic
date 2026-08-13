@@ -43,7 +43,10 @@ function ReviewCard({ item }: { item: Testimonial }) {
         className={cn("mt-5 size-5", rose ? "text-rose-300" : "text-brand-300")}
       />
 
-      <blockquote className="mt-3 flex-1 text-[0.93rem] leading-relaxed text-fg-muted">
+      <blockquote
+        lang={item.lang}
+        className="mt-3 flex-1 text-[0.93rem] leading-relaxed text-fg-muted"
+      >
         {item.quote}
       </blockquote>
 

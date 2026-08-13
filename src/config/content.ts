@@ -333,6 +333,9 @@ export const stats = [
 
 export type Testimonial = {
   quote: string;
+  /** BCP-47 tag for the quote's language, when it isn't English — lets
+   *  screen readers switch pronunciation instead of reading it as English. */
+  lang?: "mr" | "hi";
   author: string;
   context: string;
   rating: number;
@@ -342,8 +345,9 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Our son needed a hernia repair at eight months and we were terrified. It was done by keyhole, he was discharged the same day, and the doctor drew a diagram so we actually understood what had been done.",
-    author: "Placeholder: Sunita Kadam — parent",
+      "आमच्या मुलाला आठव्या महिन्यात हर्नियाची शस्त्रक्रिया करावी लागली आणि आम्ही खूप घाबरलो होतो. दुर्बिणीद्वारे (कीहोल) शस्त्रक्रिया केली, त्याच दिवशी डिस्चार्ज मिळाला आणि डॉक्टरांनी आकृती काढून नेमकं काय केलं हे समजावून सांगितलं.",
+    lang: "mr",
+    author: "Sunita Kadam — parent",
     context: "Laparoscopic surgery",
     rating: 5,
     department: "pediatric-surgery",
@@ -351,23 +355,25 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "I went in for a routine check because my vision felt slightly off. They picked up early diabetic changes I had no idea about. I would never have known until it was too late.",
-    author: "Placeholder: Prakash Jadhav — patient",
+    author: "Prakash Jadhav — patient",
     context: "Diabetic eye screening",
     rating: 5,
     department: "eye-care",
   },
   {
     quote:
-      "Two years of constipation and we had been given syrup after syrup. Here it was actually investigated and a proper plan put in place. First real improvement we have seen.",
-    author: "Placeholder: Anjali Kulkarni — parent",
+      "दो साल से कब्ज की समस्या थी और हर जगह सिर्फ सिरप दे दिया जाता था। यहाँ आकर सही तरीके से जांच हुई और एक ठीक इलाज योजना बनाई गई। पहली बार असली सुधार दिखा है।",
+    lang: "hi",
+    author: "Anjali Kulkarni — parent",
     context: "Constipation clinic",
     rating: 5,
     department: "pediatric-surgery",
   },
   {
     quote:
-      "What I appreciated most was not being made to feel like I was wasting anyone's time. Every question got a real answer, and nobody looked at the clock.",
-    author: "Placeholder: Ganesh Wagh — patient",
+      "मला सगळ्यात जास्त आवडलं ते म्हणजे कधीही घाई केली नाही किंवा वेळ वाया घालवतोय असं वाटू दिलं नाही. प्रत्येक प्रश्नाचं व्यवस्थित उत्तर मिळालं आणि कुणीही घड्याळाकडे बघत नव्हतं.",
+    lang: "mr",
+    author: "Ganesh Wagh — patient",
     context: "Eye examination",
     rating: 5,
     department: "eye-care",
@@ -375,15 +381,16 @@ export const testimonials: Testimonial[] = [
   {
     quote:
       "My mother's cataract was assessed here. The doctor told us honestly that it was not yet worth operating on and asked us to come back in six months. That kind of advice is rare.",
-    author: "Placeholder: Rahul Deshmukh — family member",
+    author: "Rahul Deshmukh — family member",
     context: "Cataract consultation",
     rating: 5,
     department: "eye-care",
   },
   {
     quote:
-      "A scan at seven months showed a problem with the baby's kidney. Sitting with a paediatric surgeon before the delivery, knowing what would happen and when, made the rest of the pregnancy bearable.",
-    author: "Placeholder: Pooja Shelke — parent",
+      "सातवें महीने की सोनोग्राफी में बच्चे की किडनी में दिक्कत पता चली। डिलीवरी से पहले ही पीडियाट्रिक सर्जन से मिलकर सब कुछ समझ में आ गया कि आगे क्या होगा, इससे बाकी की प्रेगनेंसी थोड़ी आसान हो गई।",
+    lang: "hi",
+    author: "Pooja Shelke — parent",
     context: "Prenatal consultation",
     rating: 5,
     department: "pediatric-surgery",

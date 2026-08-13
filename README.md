@@ -25,9 +25,7 @@ site is worse than an obviously blank one. Fill these in:
 | --- | --- |
 | `contact.phoneDisplay` / `phoneE164` / `whatsapp` | Every Call and WhatsApp CTA on the site |
 | `address.postalCode` | The PIN code — deliberately left blank rather than guessed, and omitted from schema while empty |
-| `geo.latitude` / `longitude` | `LocalBusiness` schema and the map pin |
-| `maps.embedSrc` | Google Maps → Share → Embed a map. Without it a query-based embed is used (works, less precise) |
-| `maps.reviewUrl` | The "Write a review" short link |
+| `maps.reviewUrl` | Currently opens the listing. A one-tap "write a review" box needs the ChIJ-form Place ID from the Business Profile dashboard, which the share URL does not expose |
 | `social.*` | Header, footer, mobile menu, contact page, and `sameAs` in schema. Empty strings are hidden automatically |
 | `calendly.pediatricSurgery` / `calendly.eyeCare` | Booking. Until set, the appointment page falls back to WhatsApp + phone rather than dead-ending |
 | `url` | Canonicals, sitemap, Open Graph |
@@ -50,6 +48,16 @@ These are real and no longer placeholders:
   (`addressLines` in `src/config/site.ts`) so the footer, contact card, booking form,
   location panel and schema can never drift.
 - **The hero and exterior photographs** are the real hospital building.
+- **The Google Business Profile listing.** Coordinates (19.8488105, 75.3367874) are the
+  listing's own pin, taken from the `!3d`/`!4d` pair in its Maps URL — *not* the
+  `@lat,lng`, which is only the map viewport and sits ~50m off. The listing's permanent
+  `cid` (2881131575759008176) drives the place link, the "Open in Maps" card and the
+  `sameAs` entry, so every link resolves to that exact listing rather than to a
+  name-and-address search. The embed is keyless — pinned to the coordinates, so there is
+  no Maps API bill.
+- **The listing name** — "Yogeshwari Hospital - Ramdas Nagargoje (Eye And Pediatric
+  Surgery)" — is longer than the site's display name, so it is emitted as an
+  `alternateName` in the Hospital schema. That is what lets Google tie the two together.
 - The paediatric department is **Paediatric Surgery**, not general paediatrics — its
   twelve services are the client's own list (paediatric urology, laparoscopic abdominal
   surgery, urodynamics, constipation clinic, brain and spine, tracheal, endoscopy and

@@ -124,7 +124,7 @@ export function hospitalSchema() {
     "@type": ["Hospital", "MedicalOrganization", "LocalBusiness"],
     "@id": ids.hospital,
     name: siteConfig.name,
-    alternateName: siteConfig.legalName,
+    alternateName: [siteConfig.legalName, siteConfig.gbpName],
     description: siteConfig.shortDescription,
     slogan: siteConfig.tagline,
     url: siteConfig.url,

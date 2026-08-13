@@ -15,6 +15,12 @@
 export const siteConfig = {
   name: "Yogeshwari Hospital",
   legalName: "Yogeshwari Hospital — Eye and Pediatric Surgery Centre",
+  /**
+   * Exactly as the Google Business Profile lists it. Emitted as `alternateName`
+   * so Google can tie this site to that listing — NAP consistency is a direct
+   * local-ranking factor and the listing name is longer than our display name.
+   */
+  gbpName: "Yogeshwari Hospital - Ramdas Nagargoje (Eye And Pediatric Surgery)",
   tagline: "Eye and Pediatric Surgery Centre",
   shortDescription:
     "A dedicated eye and paediatric surgery centre in Chhatrapati Sambhajinagar, bringing specialist child health and advanced eye care under one roof.",
@@ -44,25 +50,39 @@ export const siteConfig = {
     countryName: "India",
   },
 
-  /** TODO: replace with the exact coordinates from the Google Business Profile pin. */
+  /**
+   * The exact pin from the Google Business Profile listing (the !3d/!4d pair in
+   * the Maps share URL — not the @lat,lng, which is only the map's viewport).
+   */
   geo: {
-    latitude: 19.8762,
-    longitude: 75.3433,
+    latitude: 19.8488105,
+    longitude: 75.3367874,
   },
 
   /**
-   * TODO: paste the `src` from Google Maps → Share → Embed a map.
-   * Falls back to a query-based embed, which needs no API key but is less precise.
+   * All derived from the hospital's own Google Business Profile listing.
+   *
+   * `cid` is the listing's permanent numeric id, decoded from the Maps share
+   * URL (`!1s0x…:0x27fbd5e73c46f1b0` → the second half in decimal). A cid link
+   * always resolves to this exact listing, which a name-and-address search
+   * cannot guarantee once there are similarly named clinics nearby.
    */
   maps: {
-    embedSrc: "",
+    cid: "2881131575759008176",
+    /** Keyless embed pinned to the exact coordinates — no Maps API bill. */
+    embedSrc:
+      "https://maps.google.com/maps?q=19.8488105,75.3367874&z=16&hl=en&output=embed",
+    /** Routes to the precise pin rather than a geocoded guess at the address. */
     directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
-    placeUrl:
-      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
-    /** TODO: the "Write a review" short link from the Google Business Profile. */
-    reviewUrl:
-      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
+      "https://www.google.com/maps/dir/?api=1&destination=19.8488105%2C75.3367874",
+    placeUrl: "https://maps.google.com/?cid=2881131575759008176",
+    /**
+     * Opens the listing, where the review control sits.
+     * TODO: for a one-tap "write a review" box, paste the short link from the
+     * Google Business Profile dashboard (Home → Ask for reviews). That needs the
+     * ChIJ-form Place ID, which the share URL does not expose.
+     */
+    reviewUrl: "https://maps.google.com/?cid=2881131575759008176",
   },
 
   /** TODO: confirm OPD hours. Times are 24h, used for both display and schema. */
@@ -79,8 +99,8 @@ export const siteConfig = {
     facebook: "https://facebook.com/",
     youtube: "https://youtube.com/",
     linkedin: "",
-    google:
-      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
+    /* The real Business Profile listing — this is what `sameAs` needs. */
+    google: "https://maps.google.com/?cid=2881131575759008176",
   },
 
   /**

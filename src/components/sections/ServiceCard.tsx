@@ -185,7 +185,7 @@ export function ServiceCard({
           transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
         },
       }}
-      className="h-full"
+      className="h-full min-w-0"
     >
       {href ? (
         <Link href={href} className={shell}>

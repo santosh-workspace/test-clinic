@@ -75,14 +75,14 @@ export default function AppointmentPage() {
         <div className="container-page">
           <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
             {/* The form — the same component the pop-up dialog uses */}
-            <div className="lg:col-span-7">
+            <div className="min-w-0 lg:col-span-7">
               <div className="rounded-[var(--radius-xl2)] border border-edge bg-surface p-6 shadow-[var(--shadow-soft)] sm:p-8">
                 <BookingForm syncHash />
               </div>
             </div>
 
             {/* Reassurance column */}
-            <aside className="lg:col-span-5">
+            <aside className="min-w-0 lg:col-span-5">
               <Reveal variant="up">
                 <div className="rounded-[var(--radius-xl2)] border border-edge bg-surface-2 p-6 sm:p-7">
                   <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-fg-subtle">

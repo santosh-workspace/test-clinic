@@ -37,14 +37,14 @@ export function DepartmentsSection() {
             const Icon = dept.icon;
 
             return (
-              <Reveal key={dept.slug} child variant="up">
+              <Reveal key={dept.slug} child variant="up" className="min-w-0">
                 <TiltCard
-                  className="h-full"
+                  className="h-full min-w-0"
                   glow={rose ? "rgb(214 104 140 / 0.16)" : "rgb(42 111 240 / 0.16)"}
                 >
                   <Link
                     href={dept.href}
-                    className="group relative flex h-full flex-col overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-2 shadow-[var(--shadow-soft)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-[var(--shadow-lift)]"
+                    className="group relative flex h-full min-w-0 flex-col overflow-hidden rounded-[var(--radius-xl2)] border border-edge bg-surface-2 shadow-[var(--shadow-soft)] transition-all duration-500 ease-[var(--ease-out-expo)] hover:-translate-y-1.5 hover:border-transparent hover:shadow-[var(--shadow-lift)]"
                   >
                     {/* Animated border sweep on hover */}
                     <span

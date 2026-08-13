@@ -24,7 +24,7 @@ function ReviewCard({ item }: { item: Testimonial }) {
   const rose = item.department === "pediatric-surgery";
 
   return (
-    <figure className="flex h-full w-[19rem] shrink-0 flex-col rounded-[1.4rem] border border-edge bg-surface-2 p-6 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:w-[22rem]">
+    <figure className="flex h-[21.5rem] w-[19rem] shrink-0 flex-col rounded-[1.4rem] border border-edge bg-surface-2 p-6 shadow-[var(--shadow-soft)] transition-shadow duration-500 hover:shadow-[var(--shadow-lift)] sm:w-[22rem]">
       <div className="flex items-center justify-between">
         <div className="flex gap-0.5" aria-label={`${item.rating} out of 5 stars`}>
           {Array.from({ length: item.rating }).map((_, i) => (
@@ -43,9 +43,12 @@ function ReviewCard({ item }: { item: Testimonial }) {
         className={cn("mt-5 size-5", rose ? "text-rose-300" : "text-brand-300")}
       />
 
+      {/* line-clamp is the safety net that actually guarantees every card is
+          the same height — the quotes are trimmed to roughly fit already, but
+          without this, one longer review would still stretch its card. */}
       <blockquote
         lang={item.lang}
-        className="mt-3 flex-1 text-[0.93rem] leading-relaxed text-fg-muted"
+        className="mt-3 line-clamp-6 flex-1 text-[0.93rem] leading-relaxed text-fg-muted"
       >
         {item.quote}
       </blockquote>

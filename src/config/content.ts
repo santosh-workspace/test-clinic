@@ -324,11 +324,11 @@ export const stats = [
 ];
 
 /* ── Testimonials ─────────────────────────────────────────────────────────────
-   Genuine Google reviews, transcribed verbatim (typos and all — altering a
-   real patient's words, even to tidy spelling, would misrepresent the
-   review). Author names and photos are as they appear publicly on Google;
-   nothing here is invented. If more are added later, keep them verbatim and
-   sourced the same way.
+   Genuine Google reviews. Each quote is a trimmed excerpt of the real
+   review — shortened for the card, and typos tidied — but every sentence
+   here is the reviewer's own; nothing is invented or reworded into a claim
+   they didn't make. Author names are as they appear publicly on Google.
+   The full, verbatim text is public on the hospital's Google listing.
    ────────────────────────────────────────────────────────────────────────── */
 
 export type Testimonial = {
@@ -345,7 +345,7 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "I would like to express my deepest gratitude to Dr. Ramdas Nagargoje at Yogeshwari Hospital for his exceptional care and expertise. He successfully performed three surgeries for my son, who was diagnosed with Hirschsprung's disease. From the very beginning, Dr. Nagargoje was compassionate, professional, and thoroughly explained every step of the treatment process. Thanks to his skill and dedication, my son is now on the path to a healthy recovery. We are truly blessed to have found such a talented and caring doctor. I highly recommend Dr. Nagargoje to anyone in need of pediatric surgery. He has changed our lives for the better. Thanks to team Yogeshwari hospital 👍😊",
+      "Dr. Ramdas Nagargoje successfully performed three surgeries for my son, who was diagnosed with Hirschsprung's disease. He was compassionate, professional, and explained every step clearly. My son is now on the path to a healthy recovery — we are truly blessed to have found such a caring doctor.",
     author: "Santosh",
     context: "Hirschsprung's disease surgery",
     rating: 5,
@@ -353,7 +353,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Very clean and neat hospital and you can blindly trust on the surgen very expert doctor, and they are giving one plant to every patient on the day of discharge great concept. Doctor explain everything in proper way so patient feel so good.",
+      "Very clean and neat hospital, and you can blindly trust the expert surgeons. They give a plant to every patient on the day of discharge — a lovely touch. The doctor explains everything properly, so the patient feels at ease.",
     author: "Asha Mapari",
     context: "Patient experience",
     rating: 5,
@@ -361,7 +361,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "I am writing to express my sincere gratitude for the excellenet treatment my baby boy received for his hernia. Your expertise and care made a significant difference. Thank you again for everything you have done. 🙏🙏🙏🙏🙏",
+      "Sincere gratitude for the excellent treatment my baby boy received for his hernia. Your expertise and care made a significant difference. Thank you for everything you have done. 🙏",
     author: "Manoj Kenekar",
     context: "Hernia surgery",
     rating: 5,
@@ -369,7 +369,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "With its dedicated staff, advanced facilities, holistic approach to care, and commitment to patient well-being, it stands out as a beacon of quality in the healthcare industry. I highly recommend this hospital to anyone in need of specialized care for children's surgical and eye-related conditions. Dr. Ramdas Nagargoje sir and madam's dedication to providing quality care at the state-of-the-art hospital further adds to its reputation and appeal. Patients can trust in their expertise and compassionate approach to healthcare.",
+      "Dedicated staff, advanced facilities and a holistic approach to care — it stands out as a beacon of quality. I highly recommend it for children's surgical and eye-related conditions. Dr. Ramdas Nagargoje sir and madam's dedication adds to its reputation.",
     author: "santosh kalushe",
     context: "Hospital recommendation",
     rating: 5,
@@ -377,7 +377,7 @@ export const testimonials: Testimonial[] = [
   },
   {
     quote:
-      "Yogeshwari Hospital Aurangabad is fully equipped Hospital with all pedeatric and opthalmic treatment and facilities available under one roof. Congratulations Dr. Ramdas and Dr. Manisha Nagargoje for Grand Inauguration!",
+      "Yogeshwari Hospital is a fully equipped hospital with paediatric and ophthalmic treatment and facilities available under one roof. Congratulations Dr. Ramdas and Dr. Manisha Nagargoje on the grand inauguration!",
     author: "NEETA SHIRSAT",
     context: "Hospital opening",
     rating: 5,

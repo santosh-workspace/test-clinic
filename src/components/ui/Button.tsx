@@ -6,7 +6,7 @@ import { type ComponentPropsWithoutRef, type ReactNode, useCallback } from "reac
 import { FiArrowRight } from "react-icons/fi";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "ghost" | "rose" | "onDark";
+type Variant = "primary" | "secondary" | "ghost" | "rose" | "whatsapp" | "onDark";
 type Size = "sm" | "md" | "lg";
 
 /**
@@ -20,7 +20,10 @@ const base =
 const variants: Record<Variant, string> = {
   primary:
     "bg-brand-600 text-white shadow-[var(--shadow-glow)] hover:bg-brand-700 hover:shadow-[0_24px_70px_-18px_rgb(16_67_171/0.55)]",
-  rose: "bg-rose-500 text-white shadow-[0_20px_60px_-18px_rgb(13_156_138/0.5)] hover:bg-rose-600",
+  rose: "bg-rose-500 text-white shadow-[0_20px_60px_-18px_rgb(222_110_149/0.5)] hover:bg-rose-600",
+  /* WhatsApp brand green (#25D366). Deliberately not themed — it is their mark. */
+  whatsapp:
+    "bg-[#25D366] text-white shadow-[0_18px_50px_-16px_rgb(37_211_102/0.55)] hover:bg-[#1EBE5A]",
   secondary:
     "border border-ink-200 bg-white text-ink-900 shadow-[var(--shadow-soft)] hover:border-brand-300 hover:text-brand-700",
   ghost: "text-ink-700 hover:bg-ink-100 hover:text-ink-950",

@@ -13,6 +13,7 @@ import { type Department, getDepartment } from "@/config/content";
 import { img } from "@/config/images";
 import { getDoctorByDepartment, links } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 /**
  * Shared department body — services grid, doctor panel and CTA band.
@@ -238,21 +239,21 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                   </div>
 
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                    <ButtonLink
-                      href={`/appointment#${dept.slug}`}
+                    <BookAppointmentButton
+                      department={dept.slug}
                       variant={rose ? "rose" : "primary"}
                       size="lg"
                       arrow
                     >
                       Book {dept.shortName} Appointment
-                    </ButtonLink>
+                    </BookAppointmentButton>
                     <ButtonLink
                       href={links.whatsapp(
                         `Hello, I would like to book a ${dept.shortName} appointment at Yogeshwari Hospital.`,
                       )}
-                      variant="secondary"
+                      variant="whatsapp"
                       size="lg"
-                      icon={<FaWhatsapp className="text-[#1DA851]" />}
+                      icon={<FaWhatsapp />}
                     >
                       WhatsApp
                     </ButtonLink>
@@ -272,7 +273,7 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
               href={
                 dept.slug === "pediatric-surgery"
                   ? "/departments/eye-care"
-                  : "/departments/pediatrics"
+                  : "/departments/pediatric-surgery"
               }
               className="group flex flex-col gap-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-7 transition-all duration-500 hover:-translate-y-1 hover:shadow-[var(--shadow-lift)] sm:flex-row sm:items-center sm:justify-between"
             >
@@ -314,9 +315,9 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
               <ButtonLink href={links.tel} icon={<FiPhone />} size="lg">
                 Call the hospital
               </ButtonLink>
-              <ButtonLink href="/appointment" variant="secondary" size="lg" arrow>
+              <BookAppointmentButton variant="secondary" size="lg" arrow>
                 Book online
-              </ButtonLink>
+              </BookAppointmentButton>
             </div>
           </div>
         </div>

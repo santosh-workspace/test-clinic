@@ -38,7 +38,8 @@ export function MobileActionBar() {
       label: "WhatsApp",
       sub: "Quick reply",
       icon: FaWhatsapp,
-      className: "text-[#1DA851]",
+      /* WhatsApp's own brand green, so the tile is recognised at a glance. */
+      brand: true,
       external: true,
     },
     {
@@ -73,9 +74,13 @@ export function MobileActionBar() {
             </>
           );
 
+          const base =
+            "flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl transition-transform active:scale-[0.97]";
           const classes = action.primary
-            ? "flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl bg-brand-600 text-white active:scale-[0.97] transition-transform"
-            : `flex min-h-14 flex-col items-center justify-center gap-1 rounded-xl bg-ink-50 active:scale-[0.97] transition-transform ${action.className ?? ""}`;
+            ? `${base} bg-brand-600 text-white`
+            : action.brand
+              ? `${base} bg-[#25D366] text-white`
+              : `${base} bg-ink-50 text-ink-800`;
 
           return action.external ? (
             <a

@@ -11,8 +11,8 @@
  * Current photos are royalty-free placeholders (Unsplash / Pexels licence).
  */
 
-import heroHospital from "../../public/images/hero-hospital.jpg";
-import hospitalExterior from "../../public/images/hospital-exterior.jpg";
+import heroHospital from "../../public/images/hero-hospital.png";
+import hospitalExterior from "../../public/images/hospital-exterior.png";
 import ward from "../../public/images/ward.jpg";
 import patientRoom from "../../public/images/patient-room.jpg";
 import consultationRoom from "../../public/images/consultation-room.jpg";
@@ -32,11 +32,11 @@ import drManisha from "../../public/images/doctors/dr-manisha-nagargoje.png";
 export const img = {
   heroHospital: {
     src: heroHospital,
-    alt: "Bright, calm reception area at Yogeshwari Hospital",
+    alt: "Yogeshwari Hospital — the Eye and Pediatric Surgery Centre building in Chhatrapati Sambhajinagar",
   },
   hospitalExterior: {
     src: hospitalExterior,
-    alt: "Exterior of Yogeshwari Hospital in Chhatrapati Sambhajinagar",
+    alt: "The Yogeshwari Hospital building on Beed Bypass, Sangram Nagar",
   },
   ward: {
     src: ward,

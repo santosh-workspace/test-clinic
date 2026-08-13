@@ -85,7 +85,10 @@ export function ThemeSwitcher() {
   return (
     <div
       ref={panelRef}
-      className="fixed bottom-5 right-4 z-[80] flex flex-col items-end gap-3 max-lg:bottom-27"
+      /* z-45: above page content and the sticky header (z-40), but below the
+         mobile menu (z-71) and the booking dialog (z-95) so it never floats
+         on top of them. */
+      className="fixed bottom-5 right-4 z-[45] flex flex-col items-end gap-3 max-lg:bottom-27"
     >
       <AnimatePresence>
         {open && (

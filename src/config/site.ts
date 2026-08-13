@@ -32,12 +32,14 @@ export const siteConfig = {
     email: "care@yogeshwarihospital.com",
   },
 
-  /** TODO: confirm the exact street address + pincode from the Google Business Profile. */
+  /** Confirmed by the client. TODO: the PIN code is still outstanding. */
   address: {
-    street: "Hospital Road",
+    street: "Gut No. 91, Plot No. 4, Behind Bembde Hospital and Hotel MH 20",
+    area: "Sangram Nagar, Beed Bypass",
     locality: "Chhatrapati Sambhajinagar",
     region: "Maharashtra",
-    postalCode: "431001",
+    /** TODO: confirm the PIN code — deliberately blank rather than guessed. */
+    postalCode: "",
     country: "IN",
     countryName: "India",
   },
@@ -55,12 +57,12 @@ export const siteConfig = {
   maps: {
     embedSrc: "",
     directionsUrl:
-      "https://www.google.com/maps/dir/?api=1&destination=Yogeshwari+Hospital+Chhatrapati+Sambhajinagar",
+      "https://www.google.com/maps/dir/?api=1&destination=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
     placeUrl:
-      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital+Chhatrapati+Sambhajinagar",
+      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
     /** TODO: the "Write a review" short link from the Google Business Profile. */
     reviewUrl:
-      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital+Chhatrapati+Sambhajinagar",
+      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
   },
 
   /** TODO: confirm OPD hours. Times are 24h, used for both display and schema. */
@@ -78,7 +80,7 @@ export const siteConfig = {
     youtube: "https://youtube.com/",
     linkedin: "",
     google:
-      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital+Chhatrapati+Sambhajinagar",
+      "https://www.google.com/maps/search/?api=1&query=Yogeshwari+Hospital%2C+Gut+No.+91%2C+Plot+No.+4%2C+Sangram+Nagar%2C+Beed+Bypass%2C+Chhatrapati+Sambhajinagar%2C+Maharashtra",
   },
 
   /**
@@ -216,6 +218,24 @@ export const getDoctorByDepartment = (dept: Doctor["department"]) =>
   doctors.find((d) => d.department === dept)!;
 
 /** Convenience links built from the config above. */
+/**
+ * Address rendered as display lines. Kept in one place so the footer, contact
+ * card, location panel and schema can never drift apart — NAP consistency is a
+ * direct local-ranking factor. Blank parts (currently the PIN) drop out.
+ */
+export const addressLines: string[] = [
+  siteConfig.address.street,
+  siteConfig.address.area,
+  [
+    `${siteConfig.address.locality}, ${siteConfig.address.region}`,
+    siteConfig.address.postalCode,
+  ]
+    .filter(Boolean)
+    .join(" "),
+].filter(Boolean);
+
+export const addressOneLine = addressLines.join(", ");
+
 export const links = {
   tel: `tel:${siteConfig.contact.phoneE164}`,
   whatsapp: (message = "Hello, I would like to book an appointment at Yogeshwari Hospital.") =>
@@ -230,7 +250,7 @@ export const nav = [
     label: "Departments",
     href: "/departments",
     children: [
-      { label: "Paediatrics", href: "/departments/pediatrics" },
+      { label: "Paediatric Surgery", href: "/departments/pediatric-surgery" },
       { label: "Eye Care & Ophthalmology", href: "/departments/eye-care" },
     ],
   },

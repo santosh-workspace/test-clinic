@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { SplitHeading } from "@/components/ui/SplitHeading";
 import { departments } from "@/config/content";
 import { doctors, links, siteConfig } from "@/config/site";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 /**
  * Closing conversion block. Three routes out — book, call, WhatsApp — plus a
@@ -83,12 +84,12 @@ export function FinalCTA() {
 
         <Reveal variant="up" delay={0.2}>
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ButtonLink href="/appointment" size="lg" arrow>
+            <BookAppointmentButton size="lg" arrow>
               Book Appointment
-            </ButtonLink>
+            </BookAppointmentButton>
             <ButtonLink
               href={links.whatsapp()}
-              variant="onDark"
+              variant="whatsapp"
               size="lg"
               icon={<FaWhatsapp />}
             >

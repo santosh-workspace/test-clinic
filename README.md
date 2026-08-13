@@ -24,7 +24,7 @@ site is worse than an obviously blank one. Fill these in:
 | Value | Why it matters |
 | --- | --- |
 | `contact.phoneDisplay` / `phoneE164` / `whatsapp` | Every Call and WhatsApp CTA on the site |
-| `address.*` | NAP consistency — must match the Google Business Profile character for character |
+| `address.postalCode` | The PIN code — deliberately left blank rather than guessed, and omitted from schema while empty |
 | `geo.latitude` / `longitude` | `LocalBusiness` schema and the map pin |
 | `maps.embedSrc` | Google Maps → Share → Embed a map. Without it a query-based embed is used (works, less precise) |
 | `maps.reviewUrl` | The "Write a review" short link |
@@ -45,6 +45,11 @@ These are real and no longer placeholders:
   Reg. No. 2004/03/1498.
 - **Both doctor portraits** are the client's own photographs, cropped to 4:5. The
   untouched originals are kept in `public/images/doctors/_source/`.
+- **The address**: Gut No. 91, Plot No. 4, Behind Bembde Hospital and Hotel MH 20,
+  Sangram Nagar, Beed Bypass, Chhatrapati Sambhajinagar. Rendered from one place
+  (`addressLines` in `src/config/site.ts`) so the footer, contact card, booking form,
+  location panel and schema can never drift.
+- **The hero and exterior photographs** are the real hospital building.
 - The paediatric department is **Paediatric Surgery**, not general paediatrics — its
   twelve services are the client's own list (paediatric urology, laparoscopic abdominal
   surgery, urodynamics, constipation clinic, brain and spine, tracheal, endoscopy and
@@ -195,6 +200,25 @@ mapped this way round:
 | Eye Care | `brand` | The iris |
 
 The accent propagates through cards, icons, buttons and the Calendly widget colour.
+
+## Booking
+
+"Book Appointment" opens a **dialog** rather than navigating — but the button is still a
+real link to `/appointment`, so it stays crawlable, middle-clickable and works with
+JavaScript off. The click handler intercepts and opens the dialog for everyone else.
+
+The dialog and the `/appointment` page render the *same* `BookingForm` component, so the
+two can't drift apart. The form asks for department, patient name, contact number, age,
+preferred date, preferred session and the reason for the visit.
+
+**How a submission is delivered.** There is no backend — this is a static site. Submitting
+composes the answers into a structured WhatsApp message and hands off to WhatsApp, which
+is where this practice already takes bookings. Nothing is stored on the site, which also
+keeps health enquiries out of any third-party form service. If you later want submissions
+in an inbox or a CRM, that needs a server route (or a form provider) adding — say the word.
+
+If a Calendly URL is set for a department in `siteConfig.calendly`, the date/session
+questions are replaced by a "choose a time slot" button for that department.
 
 ## The two themes
 

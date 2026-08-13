@@ -2,19 +2,23 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FiArrowUpRight } from "react-icons/fi";
 import { PageHero } from "@/components/layout/PageHero";
+import {
+  ServiceCategoryCard,
+  type CategoryIconKey,
+} from "@/components/sections/ServiceCategoryCard";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCTA } from "@/components/sections/FinalCTA";
-import { ButtonLink } from "@/components/ui/Button";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Reveal, Stagger } from "@/components/ui/Reveal";
-import { Section, SectionHeading } from "@/components/ui/Section";
+import { Section } from "@/components/ui/Section";
 import { TiltCard } from "@/components/ui/TiltCard";
 import { departments, faqsGeneral, emergencyServices } from "@/config/content";
 import { img } from "@/config/images";
 import { doctors, siteConfig } from "@/config/site";
 import { breadcrumbSchema, faqSchema, graph, hospitalSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 export const metadata: Metadata = {
   title: `Services — Paediatric Surgery & Eye Care in ${siteConfig.city}`,
@@ -36,6 +40,10 @@ type Category = {
   accent: "brand" | "rose";
   items: { name: string; description: string; icon: React.ComponentType }[];
   image: (typeof img)[keyof typeof img];
+  /** Background photograph for the category card. */
+  cardImage: (typeof img)[keyof typeof img];
+  iconKey: CategoryIconKey;
+  title: string;
   href?: string;
   hrefLabel?: string;
   doctorName?: string;
@@ -55,6 +63,9 @@ export default function ServicesPage() {
       accent: "rose",
       items: pediatricSurgery.services,
       image: img.newborn,
+      cardImage: img.operatingTheatre,
+      iconKey: "pediatric-surgery",
+      title: "Surgery scaled to a child",
       href: pediatricSurgery.href,
       hrefLabel: "Paediatric surgery department",
       doctorName: `${doctors[0].name}, ${doctors[0].superSpeciality}`,
@@ -68,6 +79,9 @@ export default function ServicesPage() {
       accent: "brand",
       items: eyeCare.services,
       image: img.eyeExam,
+      cardImage: img.eyeExam,
+      iconKey: "eye-care",
+      title: "Vision, checked properly",
       href: eyeCare.href,
       hrefLabel: "Eye care department",
       doctorName: `${doctors[1].name}, ${doctors[1].superSpeciality}`,
@@ -80,7 +94,10 @@ export default function ServicesPage() {
       lead: "Accident and trauma, acute abdomen, and the pre- and post-operative care around a planned procedure — including the cases where the right advice is to wait rather than operate.",
       accent: "rose",
       items: emergencyServices,
-      image: img.operatingTheatre,
+      image: img.equipment,
+      cardImage: img.corridor,
+      iconKey: "emergency",
+      title: "When it cannot wait",
     },
   ];
 
@@ -129,17 +146,36 @@ export default function ServicesPage() {
             key={cat.id}
             id={cat.id}
             tone={i % 2 === 0 ? "white" : "light"}
+            spacing="md"
             className="scroll-mt-24"
           >
             <div className="container-page">
+              {/* Image-backed category card — the photograph carries the heading */}
+              <ServiceCategoryCard
+                index={cat.index}
+                eyebrow={cat.eyebrow}
+                title={cat.title}
+                description={cat.lead}
+                image={cat.cardImage}
+                iconKey={cat.iconKey}
+                accent={cat.accent}
+                href={cat.href}
+                hrefLabel={cat.hrefLabel}
+                count={cat.items.length}
+                className="mb-12"
+              />
+
               <div className="grid gap-12 lg:grid-cols-12 lg:gap-14">
                 <div className="lg:col-span-5">
-                  <SectionHeading
-                    index={cat.index}
-                    eyebrow={cat.eyebrow}
-                    segments={cat.segments}
-                    lead={cat.lead}
-                  />
+                  <Reveal variant="up">
+                    <h3 className="text-h3 font-bold tracking-tight text-ink-950">
+                      Every {cat.eyebrow.toLowerCase()} service
+                    </h3>
+                    <p className="mt-3 text-[0.95rem] leading-relaxed text-ink-600">
+                      {cat.items.length} in total. Each one starts with an unhurried
+                      consultation and ends with written instructions to take home.
+                    </p>
+                  </Reveal>
 
                   {cat.doctorName && (
                     <Reveal variant="up" delay={0.1}>
@@ -154,13 +190,12 @@ export default function ServicesPage() {
 
                   <Reveal variant="up" delay={0.14}>
                     <div className="mt-7 flex flex-wrap gap-3">
-                      <ButtonLink
-                        href="/appointment"
+                      <BookAppointmentButton
                         variant={rose ? "rose" : "primary"}
                         arrow
                       >
                         Book appointment
-                      </ButtonLink>
+                      </BookAppointmentButton>
                       {cat.href && (
                         <Link
                           href={cat.href}

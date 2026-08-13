@@ -4,7 +4,7 @@ import { FiClock, FiMapPin, FiNavigation, FiPhone } from "react-icons/fi";
 import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Section";
-import { links, siteConfig } from "@/config/site";
+import { addressOneLine, links, siteConfig } from "@/config/site";
 
 /**
  * Map + visit details.
@@ -19,8 +19,8 @@ export function LocationSection() {
   const embedSrc =
     maps.embedSrc ||
     `https://maps.google.com/maps?q=${encodeURIComponent(
-      `${siteConfig.name}, ${address.street}, ${address.locality}, ${address.region} ${address.postalCode}`,
-    )}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+      `${siteConfig.name}, ${addressOneLine}`,
+    )}&t=&z=16&ie=UTF8&iwloc=&output=embed`;
 
   return (
     <Section id="location" tone="light">
@@ -39,7 +39,7 @@ export function LocationSection() {
                 {
                   icon: FiMapPin,
                   label: "Address",
-                  value: `${address.street}, ${address.locality}, ${address.region} ${address.postalCode}`,
+                  value: addressOneLine,
                 },
                 {
                   icon: FiPhone,

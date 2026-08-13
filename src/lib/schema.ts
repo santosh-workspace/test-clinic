@@ -28,10 +28,15 @@ export const ids = {
 
 const postalAddress = {
   "@type": "PostalAddress",
-  streetAddress: siteConfig.address.street,
+  streetAddress: [siteConfig.address.street, siteConfig.address.area]
+    .filter(Boolean)
+    .join(", "),
   addressLocality: siteConfig.address.locality,
   addressRegion: siteConfig.address.region,
-  postalCode: siteConfig.address.postalCode,
+  /* Omitted entirely while unknown — an empty string is worse than absent. */
+  ...(siteConfig.address.postalCode
+    ? { postalCode: siteConfig.address.postalCode }
+    : {}),
   addressCountry: siteConfig.address.country,
 };
 
@@ -101,7 +106,7 @@ export function organizationSchema() {
       width: 512,
       height: 512,
     },
-    image: abs("images/hero-hospital.jpg"),
+    image: abs("images/hero-hospital.png"),
     telephone: siteConfig.contact.phoneE164,
     email: siteConfig.contact.email,
     address: postalAddress,
@@ -128,7 +133,7 @@ export function hospitalSchema() {
     address: postalAddress,
     geo: geoCoordinates,
     hasMap: siteConfig.maps.placeUrl,
-    image: [abs("images/hero-hospital.jpg"), abs("images/hospital-exterior.jpg")],
+    image: [abs("images/hero-hospital.png"), abs("images/hospital-exterior.png")],
     logo: abs("icon.png"),
     priceRange: "₹₹",
     currenciesAccepted: "INR",

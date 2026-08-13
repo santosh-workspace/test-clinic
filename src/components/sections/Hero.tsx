@@ -10,6 +10,7 @@ import { trustBadges } from "@/config/content";
 import { img } from "@/config/images";
 import { doctors, links, siteConfig } from "@/config/site";
 import { EASE } from "@/lib/motion";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 /**
  * Editorial hero.
@@ -36,7 +37,14 @@ export function Hero() {
           transition: { duration: 0.9, delay, ease: EASE },
         };
 
-  const headline = ["Specialist care", "for small eyes", "and small people."];
+  /**
+   * One line per department, so neither reads as the junior partner. The
+   * accent word in each is set in the display serif.
+   */
+  const headline: { lead: string; accent: string; tail?: string }[] = [
+    { lead: "Specialist surgery for", accent: "children." },
+    { lead: "Complete care for your", accent: "eyes." },
+  ];
 
   return (
     <section className="relative overflow-hidden bg-white pt-10 pb-16 md:pt-16 lg:pt-20 lg:pb-24">
@@ -73,7 +81,7 @@ export function Hero() {
 
             <h1 className="mt-7 text-display font-bold tracking-tight text-ink-950">
               {headline.map((line, i) => (
-                <span key={line} className="block overflow-hidden pb-[0.06em]">
+                <span key={line.accent} className="block overflow-hidden pb-[0.08em]">
                   <motion.span
                     data-reveal
                     className="inline-block"
@@ -85,16 +93,10 @@ export function Hero() {
                           transition: { duration: 1, delay: 0.12 + i * 0.1, ease: EASE },
                         })}
                   >
-                    {i === 1 ? (
-                      <>
-                        for{" "}
-                        <span className="font-display font-normal italic text-gradient">
-                          small eyes
-                        </span>
-                      </>
-                    ) : (
-                      line
-                    )}
+                    {line.lead}{" "}
+                    <span className="font-display font-normal italic text-gradient">
+                      {line.accent}
+                    </span>
                   </motion.span>
                 </span>
               ))}
@@ -114,9 +116,9 @@ export function Hero() {
               data-reveal {...rise(0.58)}
               className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
             >
-              <ButtonLink href="/appointment" size="lg" arrow>
+              <BookAppointmentButton size="lg" arrow>
                 Book Appointment
-              </ButtonLink>
+              </BookAppointmentButton>
               <ButtonLink
                 href={links.tel}
                 variant="secondary"
@@ -127,9 +129,9 @@ export function Hero() {
               </ButtonLink>
               <ButtonLink
                 href={links.whatsapp()}
-                variant="secondary"
+                variant="whatsapp"
                 size="lg"
-                icon={<FaWhatsapp className="text-[#1DA851]" />}
+                icon={<FaWhatsapp />}
               >
                 WhatsApp
               </ButtonLink>

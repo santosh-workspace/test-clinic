@@ -3,7 +3,7 @@ import { FiArrowUpRight, FiClock, FiMail, FiMapPin, FiPhone } from "react-icons/
 import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/layout/SocialLinks";
 import { departments } from "@/config/content";
-import { doctors, links, siteConfig } from "@/config/site";
+import { addressLines, doctors, links, siteConfig } from "@/config/site";
 
 const quickLinks = [
   { label: "About Us", href: "/about" },
@@ -99,9 +99,11 @@ export function Footer() {
               <li className="flex gap-3">
                 <FiMapPin aria-hidden="true" className="mt-1 shrink-0 text-rose-300" />
                 <address className="not-italic text-white/65">
-                  {siteConfig.address.street},<br />
-                  {siteConfig.address.locality}, {siteConfig.address.region}{" "}
-                  {siteConfig.address.postalCode}
+                  {addressLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
                 </address>
               </li>
               <li className="flex gap-3">

@@ -11,8 +11,9 @@ import { Reveal, Stagger } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
 import { faqsGeneral } from "@/config/content";
 import { img } from "@/config/images";
-import { links, siteConfig } from "@/config/site";
+import { addressLines, links, siteConfig } from "@/config/site";
 import { breadcrumbSchema, faqSchema, graph, hospitalSchema } from "@/lib/schema";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 export const metadata: Metadata = {
   title: `Contact Yogeshwari Hospital — ${siteConfig.city}`,
@@ -126,13 +127,12 @@ export default function ContactPage() {
                   <strong className="block font-bold text-ink-950">
                     {siteConfig.name}
                   </strong>
-                  {siteConfig.address.street}
-                  <br />
-                  {siteConfig.address.locality}
-                  <br />
-                  {siteConfig.address.region} {siteConfig.address.postalCode}
-                  <br />
-                  {siteConfig.address.countryName}
+                  {addressLines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                  <span className="block">{siteConfig.address.countryName}</span>
                 </address>
                 <div className="mt-6">
                   <ButtonLink
@@ -186,9 +186,9 @@ export default function ContactPage() {
                   <SocialLinks size="lg" />
                 </div>
                 <div className="mt-auto pt-7">
-                  <ButtonLink href="/appointment" fullWidth arrow magnetic={false}>
+                  <BookAppointmentButton fullWidth arrow magnetic={false}>
                     Book Appointment
-                  </ButtonLink>
+                  </BookAppointmentButton>
                 </div>
               </div>
             </Reveal>

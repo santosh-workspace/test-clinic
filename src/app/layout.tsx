@@ -8,6 +8,7 @@ import { Loader } from "@/components/providers/Loader";
 import { PageTransition } from "@/components/providers/PageTransition";
 import { ScrollProgress } from "@/components/providers/ScrollProgress";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { AppointmentProvider } from "@/components/booking/AppointmentProvider";
 import { ThemeScript } from "@/components/providers/ThemeScript";
 import { ThemeSwitcher } from "@/components/layout/ThemeSwitcher";
 import { JsonLd } from "@/components/ui/JsonLd";
@@ -148,15 +149,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Cursor />
         <ScrollProgress />
 
-        <SmoothScroll>
-          <Header />
-          <PageTransition>{children}</PageTransition>
-          <Footer />
-          {/* Spacer so the sticky bar never covers the last line of the footer */}
-          <div aria-hidden="true" className="h-20 bg-ink-950 lg:hidden" />
-          <MobileActionBar />
-          <ThemeSwitcher />
-        </SmoothScroll>
+        <AppointmentProvider>
+          <SmoothScroll>
+            <Header />
+            <PageTransition>{children}</PageTransition>
+            <Footer />
+            {/* Spacer so the sticky bar never covers the last line of the footer */}
+            <div aria-hidden="true" className="h-20 bg-ink-950 lg:hidden" />
+            <MobileActionBar />
+            <ThemeSwitcher />
+          </SmoothScroll>
+        </AppointmentProvider>
       </body>
     </html>
   );

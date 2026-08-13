@@ -53,6 +53,7 @@ export function FaqSection({
                     href={links.whatsapp(
                       "Hello, I have a question before booking an appointment.",
                     )}
+                    variant="whatsapp"
                     size="sm"
                     icon={<FaWhatsapp />}
                     magnetic={false}

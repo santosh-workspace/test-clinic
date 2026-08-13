@@ -13,6 +13,7 @@ import { departments } from "@/config/content";
 import { doctors, links, siteConfig } from "@/config/site";
 import { breadcrumbSchema, graph, physicianSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 export const metadata: Metadata = {
   title: `Our Doctors — Paediatrician & Eye Specialist in ${siteConfig.city}`,
@@ -232,21 +233,21 @@ export default function DoctorsPage() {
 
                   <Reveal variant="up" delay={0.15}>
                     <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-                      <ButtonLink
-                        href={`/appointment#${dept.slug}`}
+                      <BookAppointmentButton
+                        department={dept.slug}
                         variant={rose ? "rose" : "primary"}
                         size="lg"
                         arrow
                       >
                         Book with {doc.name.split(" ").slice(0, 2).join(" ")}
-                      </ButtonLink>
+                      </BookAppointmentButton>
                       <ButtonLink
                         href={links.whatsapp(
                           `Hello, I would like an appointment with ${doc.name}.`,
                         )}
-                        variant="secondary"
+                        variant="whatsapp"
                         size="lg"
-                        icon={<FaWhatsapp className="text-[#1DA851]" />}
+                        icon={<FaWhatsapp />}
                       >
                         WhatsApp
                       </ButtonLink>

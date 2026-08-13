@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import { FiClock, FiFileText, FiPhone, FiUsers } from "react-icons/fi";
+import Image from "next/image";
+import { FiClock, FiFileText, FiMapPin, FiPhone, FiUsers } from "react-icons/fi";
+import { BookingForm } from "@/components/booking/BookingForm";
 import { PageHero } from "@/components/layout/PageHero";
-import { AppointmentBooking } from "@/components/sections/AppointmentBooking";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { JsonLd } from "@/components/ui/JsonLd";
 import { Reveal, Stagger } from "@/components/ui/Reveal";
 import { Section } from "@/components/ui/Section";
-import { faqsGeneral } from "@/config/content";
-import { siteConfig } from "@/config/site";
+import { departments, faqsGeneral } from "@/config/content";
+import { addressLines, doctors, links, siteConfig } from "@/config/site";
 import {
   breadcrumbSchema,
   faqSchema,
@@ -18,7 +19,7 @@ import {
 
 export const metadata: Metadata = {
   title: `Book an Appointment — Paediatric Surgery & Eye Care, ${siteConfig.city}`,
-  description: `Book an appointment at Yogeshwari Hospital, ${siteConfig.city}. Choose paediatric surgery with Dr. Ramdas D. Nagargoje or eye care with Dr. Manisha Nagargoje (Sanap) and pick a time online.`,
+  description: `Book an appointment at Yogeshwari Hospital, ${siteConfig.city}. Choose paediatric surgery with Dr. Ramdas D. Nagargoje or eye care with Dr. Manisha Nagargoje (Sanap) and send your request in under a minute.`,
   alternates: { canonical: "/appointment" },
 };
 
@@ -41,7 +42,7 @@ const prep = [
   {
     icon: FiUsers,
     title: "Book both departments together",
-    body: "Mention it when booking and reception will sequence the two slots back to back, so one trip covers the whole family.",
+    body: "Mention it in the form and reception will sequence the two slots back to back, so one trip covers the whole family.",
   },
   {
     icon: FiPhone,
@@ -65,18 +66,108 @@ export default function AppointmentPage() {
 
       <PageHero
         eyebrow="Book appointment"
-        segments={[
-          { text: "Two steps." },
-          { text: "One minute.", accent: true },
-        ]}
-        lead="Choose the department you need, then pick a time from that specialist's calendar. Prefer to talk to someone? Call or WhatsApp instead — both are on this page."
+        segments={[{ text: "One form." }, { text: "One minute.", accent: true }]}
+        lead="Tell us who the patient is, which department you need and when suits you. The request goes straight to reception, who confirm the slot."
         crumbs={crumbs}
       />
 
-      <AppointmentBooking />
+      <Section tone="white" spacing="md">
+        <div className="container-page">
+          <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
+            {/* The form — the same component the pop-up dialog uses */}
+            <div className="lg:col-span-7">
+              <div className="rounded-[var(--radius-xl2)] border border-ink-100 bg-sand-50 p-6 shadow-[var(--shadow-soft)] sm:p-8">
+                <BookingForm syncHash />
+              </div>
+            </div>
+
+            {/* Reassurance column */}
+            <aside className="lg:col-span-5">
+              <Reveal variant="up">
+                <div className="rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6 sm:p-7">
+                  <h2 className="text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    Who you will see
+                  </h2>
+                  <ul className="mt-5 space-y-5">
+                    {departments.map((dept) => {
+                      const doc = doctors.find((d) => d.department === dept.slug)!;
+                      const rose = dept.accent === "rose";
+                      return (
+                        <li key={dept.slug} className="flex gap-3.5">
+                          <Image
+                            src={doc.image}
+                            alt=""
+                            width={52}
+                            height={52}
+                            className="size-13 shrink-0 rounded-xl object-cover object-top"
+                          />
+                          <div className="min-w-0">
+                            <p
+                              className={
+                                rose
+                                  ? "text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-rose-600"
+                                  : "text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-brand-600"
+                              }
+                            >
+                              {dept.name}
+                            </p>
+                            <p className="mt-1 text-[0.95rem] font-bold tracking-tight text-ink-950">
+                              {doc.name}
+                            </p>
+                            <p className="mt-0.5 text-[0.82rem] text-ink-500">
+                              {doc.qualification}
+                            </p>
+                          </div>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              </Reveal>
+
+              <Reveal variant="up" delay={0.08}>
+                <div className="mt-4 rounded-[var(--radius-xl2)] border border-ink-100 bg-white p-6 sm:p-7">
+                  <h2 className="flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    <FiClock aria-hidden="true" /> OPD hours
+                  </h2>
+                  <ul className="mt-4 space-y-2.5 text-[0.9rem]">
+                    {siteConfig.hours.map((h) => (
+                      <li
+                        key={`${h.days}-${h.label}`}
+                        className="flex flex-wrap items-baseline justify-between gap-x-4 border-b border-dashed border-ink-100 pb-2.5 last:border-0 last:pb-0"
+                      >
+                        <span className="font-medium text-ink-800">{h.days}</span>
+                        <span className="text-ink-600">{h.label}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <h2 className="mt-6 flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-ink-400">
+                    <FiMapPin aria-hidden="true" /> Where to come
+                  </h2>
+                  <address className="mt-3 text-[0.9rem] not-italic leading-relaxed text-ink-700">
+                    {addressLines.map((line) => (
+                      <span key={line} className="block">
+                        {line}
+                      </span>
+                    ))}
+                  </address>
+                  <a
+                    href={links.tel}
+                    className="mt-4 inline-flex items-center gap-2 text-[0.9rem] font-semibold text-brand-700 transition-colors hover:text-brand-800"
+                  >
+                    <FiPhone aria-hidden="true" />
+                    {siteConfig.contact.phoneDisplay}
+                  </a>
+                </div>
+              </Reveal>
+            </aside>
+          </div>
+        </div>
+      </Section>
 
       {/* Before you come in */}
-      <Section tone="white" spacing="md">
+      <Section tone="light" spacing="md">
         <div className="container-page">
           <Reveal variant="up">
             <h2 className="text-h3 font-bold tracking-tight text-ink-950">
@@ -107,7 +198,7 @@ export default function AppointmentPage() {
         </div>
       </Section>
 
-      <FaqSection faqs={faqsGeneral} index="03" tone="light" />
+      <FaqSection faqs={faqsGeneral} index="03" tone="white" />
     </>
   );
 }

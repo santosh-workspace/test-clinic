@@ -15,8 +15,9 @@ import { FaWhatsapp } from "react-icons/fa6";
 import { Logo } from "@/components/brand/Logo";
 import { SocialLinks } from "@/components/layout/SocialLinks";
 import { ButtonLink } from "@/components/ui/Button";
-import { links, nav, siteConfig } from "@/config/site";
+import { addressLines, links, nav, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -183,7 +184,7 @@ export function Header() {
             <span className="hidden xl:block">
               <ButtonLink
                 href={links.whatsapp()}
-                variant="secondary"
+                variant="whatsapp"
                 size="sm"
                 icon={<FaWhatsapp />}
                 magnetic={false}
@@ -192,9 +193,9 @@ export function Header() {
               </ButtonLink>
             </span>
             <span className="hidden sm:block">
-              <ButtonLink href="/appointment" size="sm" arrow>
+              <BookAppointmentButton size="sm" arrow>
                 Book Appointment
-              </ButtonLink>
+              </BookAppointmentButton>
             </span>
 
             <button
@@ -245,7 +246,11 @@ export function Header() {
                 </button>
               </div>
 
-              <nav aria-label="Mobile" className="flex-1 overflow-y-auto overscroll-contain px-5 py-6">
+              <nav
+                aria-label="Mobile"
+                data-lenis-prevent
+                className="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-5 py-6"
+              >
                 <ul className="space-y-1">
                   {nav.map((item, i) => {
                     const children = "children" in item ? item.children : undefined;
@@ -291,10 +296,10 @@ export function Header() {
                   })}
                 </ul>
 
-                <div className="mt-7 space-y-2.5">
-                  <ButtonLink href="/appointment" fullWidth size="lg" arrow magnetic={false}>
+                <div className="mt-7 space-y-2.5 pb-8">
+                  <BookAppointmentButton fullWidth size="lg" arrow magnetic={false}>
                     Book Appointment
-                  </ButtonLink>
+                  </BookAppointmentButton>
                   <div className="grid grid-cols-2 gap-2.5">
                     <ButtonLink
                       href={links.tel}
@@ -307,7 +312,7 @@ export function Header() {
                     </ButtonLink>
                     <ButtonLink
                       href={links.whatsapp()}
-                      variant="secondary"
+                      variant="whatsapp"
                       icon={<FaWhatsapp />}
                       fullWidth
                       magnetic={false}
@@ -317,11 +322,21 @@ export function Header() {
                   </div>
                 </div>
 
-                <div className="mt-8 border-t border-ink-100 pt-6">
+                {/*
+                  mt-auto pins this block to the foot of the sheet. Without it
+                  the nav's spare height collapsed into a blank gap under the
+                  social icons on tall phones.
+                */}
+                <div className="mt-auto border-t border-ink-100 pt-6">
                   <p className="mb-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-ink-400">
                     Follow us
                   </p>
                   <SocialLinks />
+                  <p className="mt-5 text-[0.78rem] leading-relaxed text-ink-500">
+                    {addressLines[1]}
+                    <br />
+                    {siteConfig.address.locality}
+                  </p>
                 </div>
               </nav>
             </motion.div>

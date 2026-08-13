@@ -5,6 +5,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { ButtonLink } from "@/components/ui/Button";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { addressOneLine, links, siteConfig } from "@/config/site";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 /**
  * Map + visit details.
@@ -84,11 +85,12 @@ export function LocationSection() {
             </div>
 
             <Reveal variant="up" delay={0.2}>
-              <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <ButtonRow className="mt-7">
                 <ButtonLink
                   href={maps.directionsUrl}
                   size="lg"
                   icon={<FiNavigation />}
+                  fullWidth
                 >
                   Get Directions
                 </ButtonLink>
@@ -97,10 +99,11 @@ export function LocationSection() {
                   variant="secondary"
                   size="lg"
                   icon={<FiPhone />}
+                  fullWidth
                 >
                   Call the hospital
                 </ButtonLink>
-              </div>
+              </ButtonRow>
             </Reveal>
           </div>
 

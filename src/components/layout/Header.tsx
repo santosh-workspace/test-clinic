@@ -18,6 +18,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { addressLines, links, nav, siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -181,22 +182,25 @@ export function Header() {
               so a `hidden` passed via className would lose the cascade and the
               button would never actually hide.
             */}
-            <span className="hidden xl:block">
-              <ButtonLink
-                href={links.whatsapp()}
-                variant="whatsapp"
-                size="sm"
-                icon={<FaWhatsapp />}
-                magnetic={false}
-              >
-                WhatsApp
-              </ButtonLink>
-            </span>
-            <span className="hidden sm:block">
-              <BookAppointmentButton size="sm" arrow>
-                Book Appointment
-              </BookAppointmentButton>
-            </span>
+            <ButtonRow stack={false} className="gap-2.5">
+              <span className="hidden xl:block">
+                <ButtonLink
+                  href={links.whatsapp()}
+                  variant="whatsapp"
+                  size="sm"
+                  icon={<FaWhatsapp />}
+                  magnetic={false}
+                  fullWidth
+                >
+                  WhatsApp
+                </ButtonLink>
+              </span>
+              <span className="hidden sm:block">
+                <BookAppointmentButton size="sm" arrow fullWidth>
+                  Book Appointment
+                </BookAppointmentButton>
+              </span>
+            </ButtonRow>
 
             <button
               type="button"

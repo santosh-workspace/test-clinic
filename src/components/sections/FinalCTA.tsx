@@ -10,6 +10,7 @@ import { SplitHeading } from "@/components/ui/SplitHeading";
 import { departments } from "@/config/content";
 import { doctors, links, siteConfig } from "@/config/site";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 /**
  * Closing conversion block. Three routes out — book, call, WhatsApp — plus a
@@ -83,8 +84,8 @@ export function FinalCTA() {
         </Reveal>
 
         <Reveal variant="up" delay={0.2}>
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <BookAppointmentButton size="lg" arrow>
+          <ButtonRow align="center" className="mt-10">
+            <BookAppointmentButton size="lg" arrow fullWidth>
               Book Appointment
             </BookAppointmentButton>
             <ButtonLink
@@ -92,13 +93,20 @@ export function FinalCTA() {
               variant="whatsapp"
               size="lg"
               icon={<FaWhatsapp />}
+              fullWidth
             >
               WhatsApp us
             </ButtonLink>
-            <ButtonLink href={links.tel} variant="onDark" size="lg" icon={<FiPhone />}>
+            <ButtonLink
+              href={links.tel}
+              variant="onDark"
+              size="lg"
+              icon={<FiPhone />}
+              fullWidth
+            >
               {siteConfig.contact.phoneDisplay}
             </ButtonLink>
-          </div>
+          </ButtonRow>
         </Reveal>
 
         {/* Direct department shortcuts */}

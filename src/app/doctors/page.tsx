@@ -14,6 +14,7 @@ import { doctors, links, siteConfig } from "@/config/site";
 import { breadcrumbSchema, graph, physicianSchema } from "@/lib/schema";
 import { cn } from "@/lib/utils";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 export const metadata: Metadata = {
   title: `Our Doctors — Paediatrician & Eye Specialist in ${siteConfig.city}`,
@@ -232,12 +233,13 @@ export default function DoctorsPage() {
                   </div>
 
                   <Reveal variant="up" delay={0.15}>
-                    <div className="mt-10 flex flex-col gap-3 sm:flex-row">
+                    <ButtonRow className="mt-10">
                       <BookAppointmentButton
                         department={dept.slug}
                         variant={rose ? "rose" : "primary"}
                         size="lg"
                         arrow
+                        fullWidth
                       >
                         Book with {doc.name.split(" ").slice(0, 2).join(" ")}
                       </BookAppointmentButton>
@@ -248,17 +250,18 @@ export default function DoctorsPage() {
                         variant="whatsapp"
                         size="lg"
                         icon={<FaWhatsapp />}
+                        fullWidth
                       >
                         WhatsApp
                       </ButtonLink>
-                      <Link
-                        href={dept.href}
-                        className="inline-flex items-center gap-1.5 self-center text-[0.9rem] font-semibold text-ink-600 transition-colors hover:text-ink-950"
-                      >
-                        {dept.shortName} department
-                        <FiArrowUpRight aria-hidden="true" />
-                      </Link>
-                    </div>
+                    </ButtonRow>
+                    <Link
+                      href={dept.href}
+                      className="mt-4 inline-flex items-center gap-1.5 text-[0.9rem] font-semibold text-ink-600 transition-colors hover:text-ink-950"
+                    >
+                      {dept.shortName} department
+                      <FiArrowUpRight aria-hidden="true" />
+                    </Link>
                   </Reveal>
                 </div>
               </div>

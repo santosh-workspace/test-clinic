@@ -14,6 +14,7 @@ import { img } from "@/config/images";
 import { getDoctorByDepartment, links } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 /**
  * Shared department body — services grid, doctor panel and CTA band.
@@ -238,12 +239,13 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                     </ul>
                   </div>
 
-                  <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                  <ButtonRow className="mt-8">
                     <BookAppointmentButton
                       department={dept.slug}
                       variant={rose ? "rose" : "primary"}
                       size="lg"
                       arrow
+                      fullWidth
                     >
                       Book {dept.shortName} Appointment
                     </BookAppointmentButton>
@@ -254,10 +256,11 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
                       variant="whatsapp"
                       size="lg"
                       icon={<FaWhatsapp />}
+                      fullWidth
                     >
                       WhatsApp
                     </ButtonLink>
-                  </div>
+                  </ButtonRow>
                 </div>
               </div>
             </div>
@@ -311,14 +314,14 @@ export function DepartmentDetail({ slug }: { slug: Department["slug"] }) {
               Call during OPD hours and reception will tell you whether this needs a
               visit, and how soon.
             </p>
-            <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-              <ButtonLink href={links.tel} icon={<FiPhone />} size="lg">
+            <ButtonRow align="center" className="mt-2">
+              <ButtonLink href={links.tel} icon={<FiPhone />} size="lg" fullWidth>
                 Call the hospital
               </ButtonLink>
-              <BookAppointmentButton variant="secondary" size="lg" arrow>
+              <BookAppointmentButton variant="secondary" size="lg" arrow fullWidth>
                 Book online
               </BookAppointmentButton>
-            </div>
+            </ButtonRow>
           </div>
         </div>
       </Section>

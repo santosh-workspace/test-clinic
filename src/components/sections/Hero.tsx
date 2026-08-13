@@ -11,6 +11,7 @@ import { img } from "@/config/images";
 import { doctors, links, siteConfig } from "@/config/site";
 import { EASE } from "@/lib/motion";
 import { BookAppointmentButton } from "@/components/booking/BookAppointmentButton";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 /**
  * Editorial hero.
@@ -114,29 +115,30 @@ export function Hero() {
             </motion.p>
 
             {/* CTAs — Book is primary, Call and WhatsApp equal-weight beside it */}
-            <motion.div
-              data-reveal {...rise(0.58)}
-              className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
-            >
-              <BookAppointmentButton size="lg" arrow>
-                Book Appointment
-              </BookAppointmentButton>
-              <ButtonLink
-                href={links.tel}
-                variant="secondary"
-                size="lg"
-                icon={<FiPhone />}
-              >
-                Call Now
-              </ButtonLink>
-              <ButtonLink
-                href={links.whatsapp()}
-                variant="whatsapp"
-                size="lg"
-                icon={<FaWhatsapp />}
-              >
-                WhatsApp
-              </ButtonLink>
+            <motion.div data-reveal {...rise(0.58)} className="mt-9">
+              <ButtonRow>
+                <BookAppointmentButton size="lg" arrow fullWidth>
+                  Book Appointment
+                </BookAppointmentButton>
+                <ButtonLink
+                  href={links.tel}
+                  variant="secondary"
+                  size="lg"
+                  icon={<FiPhone />}
+                  fullWidth
+                >
+                  Call Now
+                </ButtonLink>
+                <ButtonLink
+                  href={links.whatsapp()}
+                  variant="whatsapp"
+                  size="lg"
+                  icon={<FaWhatsapp />}
+                  fullWidth
+                >
+                  WhatsApp
+                </ButtonLink>
+              </ButtonRow>
             </motion.div>
 
             {/* Trust badges */}

@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import type { Faq } from "@/config/content";
 import { links } from "@/config/site";
+import { ButtonRow } from "@/components/ui/ButtonRow";
 
 export function FaqSection({
   faqs,
@@ -48,7 +49,7 @@ export function FaqSection({
                   Describe the problem in a message and we will tell you whether it
                   needs an appointment — and with which department.
                 </p>
-                <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
+                <ButtonRow className="mt-5 gap-2.5">
                   <ButtonLink
                     href={links.whatsapp(
                       "Hello, I have a question before booking an appointment.",
@@ -57,6 +58,7 @@ export function FaqSection({
                     size="sm"
                     icon={<FaWhatsapp />}
                     magnetic={false}
+                    fullWidth
                   >
                     Ask on WhatsApp
                   </ButtonLink>
@@ -66,10 +68,11 @@ export function FaqSection({
                     size="sm"
                     icon={<FiPhone />}
                     magnetic={false}
+                    fullWidth
                   >
                     Call
                   </ButtonLink>
-                </div>
+                </ButtonRow>
               </div>
             </Reveal>
           </div>
